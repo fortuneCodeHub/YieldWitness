@@ -60,7 +60,7 @@ export default function DashboardLayout({ children, page }) {
             navItems.map((item) => (
                 <button
                     key={item.name}
-                    className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-gray-700 dark:text-gray-200 ${ page === item?.name ? "bg-gray-700" : "" } dark:hover:bg-gray-700 cursor-pointer`}
+                    className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-white dark:text-gray-200 ${ page === item?.name ? "bg-gray-700" : "" } dark:hover:bg-gray-700 hover:text-white cursor-pointer`}
                     onClick={() => router.push(item.url)}
                 >
                     <item.icon className="w-5 h-5" />
@@ -78,7 +78,7 @@ export default function DashboardLayout({ children, page }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col lg:ml-64">
+      <div className="flex-1 flex flex-col lg:ml-64 max-w-full">
         {/* Top Navbar */}
         <header className="flex items-center justify-between bg-white dark:bg-gray-800 shadow px-4 py-3">
           <div className="flex items-center gap-3">
@@ -103,7 +103,7 @@ export default function DashboardLayout({ children, page }) {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto lg:p-6 p-3">
+        <main className="lg:flex-1 overflow-y-auto lg:p-6 p-3">
           {children}
         </main>
       </div>
