@@ -60,7 +60,7 @@ export default function DashboardLayout({ children, page }) {
             navItems.map((item) => (
                 <button
                     key={item.name}
-                    className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-white dark:text-gray-200 ${ page === item?.name ? "bg-gray-700" : "" } dark:hover:bg-gray-700 hover:text-white cursor-pointer`}
+                    className={`flex items-center gap-3 w-full px-3 py-2 rounded-lg text-gray-200 ${ page === item?.name ? "bg-gray-700" : "" } dark:hover:bg-gray-700 hover:text-white cursor-pointer`}
                     onClick={() => router.push(item.url)}
                 >
                     <item.icon className="w-5 h-5" />
