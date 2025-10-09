@@ -28,7 +28,10 @@ const Posts = () => {
         setDeleted(id)
         console.log("Deleting post with id:", id);
         const confirmDelete = window.confirm("⚠️ Are you sure you want to delete this rewritten mail?");
-        if (!confirmDelete) return; // cancel if user clicks "No"
+        if (!confirmDelete) {
+            setLoading(false)
+            return; // cancel if user clicks "No"
+        }
       
         try {
             const result = await dispatch(deletePost(id)).unwrap()
