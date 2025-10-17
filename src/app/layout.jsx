@@ -16,8 +16,14 @@ const geistMono = Geist_Mono({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "YieldWitness: Finance & Tech Blog",
-  description: "Modern blog focused on finance and technology.",
+  title: {
+    default: "YieldWitness: Finance & Tech Blog",
+    template: "%s - YieldWitness: Finance & Tech Blog"
+  },
+  description: "Come and read modern blogs focused on finance and technology.",
+  twitter: {
+    card: "summary_large_image",
+  }
 };
 
 const poppins = Poppins({

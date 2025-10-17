@@ -40,7 +40,7 @@ const PostPage = () => {
 
   useEffect(() => {
     if (post?.title) {
-      document.title = `${post.title} | YieldWitness`;
+      document.title = `${post.title} - YieldWitness: Finance & Tech Blog`;
   
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) metaDesc.setAttribute("content", post.excerpt || "");
