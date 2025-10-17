@@ -9,16 +9,19 @@ export async function generateMetadata({ params }) {
   const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
   const baseUrl = `${protocol}://${host}`;
 
-  const response = await fetch(`${baseUrl}/api/protected/posts/${postId.id}`);
-  const post = await response.json();
+  const response = await fetch(`${baseUrl}/api/auth/posts/${postId.id}`);
+  const data = await response.json();
+  const { post } = data
+  // console.log(post);
+  
 
   return {
-    title: `${post.title} - YieldWitness: Finance & Tech Blog`,
-    // description: post.excerpt,
+    title: post.title,
+    description: post.excerpt,
     openGraph: {
       images: [
         { 
-          url: `${baseUrl}${post.thumbnail}`,
+          url: post.thumbnail,
         }
       ],
     },
