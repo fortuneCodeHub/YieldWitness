@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL('https://yieldwitness.vercel.app/'),
   title: {
     default: "YieldWitness: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
     template: "%s - YieldWitness: Finance, Tech, Markets, Insurance & Law"
