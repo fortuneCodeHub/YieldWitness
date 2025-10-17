@@ -3,20 +3,24 @@ import Head from "next/head";
 import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
-  const postId = params.id;
-  const headersList = headers();
+  const postId = await params;
+  const headersList = await headers();
   const host = headersList.get("host");
   const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
   const baseUrl = `${protocol}://${host}`;
 
-  const response = await fetch(`${baseUrl}/api/protected/posts/${postId}`);
+  const response = await fetch(`${baseUrl}/api/protected/posts/${postId.id}`);
   const post = await response.json();
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: `${post.title} - YieldWitness: Finance & Tech Blog`,
+    // description: post.excerpt,
     openGraph: {
-      images: [{ url: post.thumbnail }],
+      images: [
+        { 
+          url: `${baseUrl}${post.thumbnail}`,
+        }
+      ],
     },
   };
 }

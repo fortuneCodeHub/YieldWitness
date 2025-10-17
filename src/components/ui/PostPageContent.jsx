@@ -38,14 +38,14 @@ const PostPageContent = () => {
     }
   }, [posts, postLoading, slug]);
 
-  useEffect(() => {
-    if (post?.title) {
-      document.title = `${post.title} - YieldWitness: Finance & Tech Blog`;
+//   useEffect(() => {
+//     if (post?.title) {
+//       document.title = `${post.title} - YieldWitness: Finance & Tech Blog`;
   
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", post.excerpt || "");
-    }
-  }, [post]);
+//       const metaDesc = document.querySelector('meta[name="description"]');
+//       if (metaDesc) metaDesc.setAttribute("content", post.excerpt || "");
+//     }
+//   }, [post]);
 
   return (
     <>
