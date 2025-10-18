@@ -62,6 +62,7 @@ export async function POST(request) {
         const author = formData.get("author");
         const readTime = formData.get("readTime");
         const file = formData.get("thumbnail"); // This is the uploaded file
+        const keywords = JSON.parse(formData.get("keywords"))
     
         // Validate required fields
         if (!title || !excerpt || !category || !file || !author || !readTime) {
@@ -88,6 +89,7 @@ export async function POST(request) {
             thumbnail: `/uploads/thumbnails/${filename}`, // <-- served from public/
             author,
             readTime,
+            keywords,
             built: false,
         });
         

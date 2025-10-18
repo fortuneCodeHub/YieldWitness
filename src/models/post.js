@@ -23,7 +23,7 @@ const PostSchema = new Schema(
 
     category: {
       type: String,
-      enum: ["finance", "tech", "markets", "analysis", "guides"],
+      enum: ["finance", "tech", "markets", "analysis", "guides", "investment", "law"],
       required: true,
     },
 
@@ -47,6 +47,12 @@ const PostSchema = new Schema(
     content: {
       type: Schema.Types.Mixed, // can hold JSON objects
       required: false,
+    },
+
+    keywords: {
+      type: [String],
+      default: [],
+      trim: true,
     },
 
     built: {

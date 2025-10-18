@@ -18,25 +18,30 @@ const UpdatePostPage = () => {
     
     // state management data
     const { data: user, userError } = useSelector((state) => state.user)
-    const { data: posts, postError } = useSelector((state) => state.post)
+    const { data: posts, postError, postLoading } = useSelector((state) => state.post)
     const currentPost = posts?.find((p) => p._id === postId);
-    console.log(posts);
+    // console.log(currentPost);
 
     useEffect(() => {
-        if (currentPost) {
-            setTitle(currentPost.title || "");
-            setExcerpt(currentPost.excerpt || "");
-            setCategory(currentPost.category || "");
-            setAuthor(currentPost.author || "");
-            setReadTime(currentPost.readTime?.replace(" min read", "") || "");
-        
-            // Thumbnail preview if exists
-            if (currentPost.thumbnail) {
-                setThumbnailPreview(currentPost.thumbnail);
-            }
-        } else {
-            window.location.href= "/invalid"
+      if (currentPost) {
+        setTitle(currentPost.title || "");
+        setExcerpt(currentPost.excerpt || "");
+        setCategory(currentPost.category || "");
+        setAuthor(currentPost.author || "");
+        setReadTime(currentPost.readTime?.replace(" min read", "") || "");
+        setKeywords(currentPost.keywords || [])
+    
+        // Thumbnail preview if exists
+        if (currentPost.thumbnail) {
+          setThumbnailPreview(currentPost.thumbnail);
         }
+      }
+
+      if (!postLoading) {
+        if (!currentPost?._id) {
+          window.href.location = '/invalid'
+        }
+      }
     }, [currentPost])
 
     const [title, setTitle] = useState('');
@@ -50,6 +55,11 @@ const UpdatePostPage = () => {
 
     const [errors, setErrors] = useState({})
     const [notification, setNotification] = useState(null)
+
+    // Keywords
+    const [keywords, setKeywords] = useState([])
+    const [keywordInput, setKeywordInput] = useState('');
+  
 
     const dispatch = useDispatch()
 
@@ -78,7 +88,8 @@ const UpdatePostPage = () => {
         }
 
         // Category
-        const allowedCategories = ["finance", "tech", "markets", "guides", "analysis"];
+        // const allowedCategories = ["finance", "tech", "markets", "guides", "analysis"];
+        const allowedCategories = ["finance", "tech", "markets", "guides", "analysis", "investment", "law"];
         if (
             !category ||
             typeof category !== "string" ||
@@ -124,6 +135,7 @@ const UpdatePostPage = () => {
         formData.append("category", category.trim());
         formData.append("author", author.trim());
         formData.append("readTime", `${readTime} min read`);
+        formData.append("keywords", JSON.stringify(keywords))
 
         if (thumbnail instanceof File ) {
             formData.append("thumbnail", thumbnail); // thumbnail is a File object
@@ -159,13 +171,29 @@ const UpdatePostPage = () => {
         // send to backend API here
     };
 
+    // Add keyword
+    const handleAddKeyword = (e) => {
+      e.preventDefault();
+      const trimmed = keywordInput.trim();
+      if (trimmed && !keywords.includes(trimmed)) {
+        setKeywords([...keywords, trimmed]);
+        setKeywordInput('');
+      }
+    };
+
+    // Remove keyword
+    const handleRemoveKeyword = (index) => {
+      setKeywords(keywords.filter((_, i) => i !== index));
+    };
+
     const resetForm = () => {
-        setTitle("");
-        setExcerpt("");
-        setCategory("");
-        setThumbnail("");
-        setAuthor("");
-        setReadTime("");
+      setTitle("");
+      setExcerpt("");
+      setCategory("");
+      setThumbnail("");
+      setAuthor("");
+      setReadTime("");
+      setKeywords([])
     }
 
   return (
@@ -248,8 +276,64 @@ const UpdatePostPage = () => {
                     <option value="markets">Markets</option>
                     <option value="guides">Guides</option>
                     <option value="analysis">Analysis</option>
+                    <option value="investment">Investment</option>
+                    <option value="law">Law</option>
                   </select>
                   {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
+                </div>
+
+                {/* Keywords */}
+                <div>
+                  <label className="block text-sm font-medium mb-2">Keywords</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={keywordInput}
+                      onChange={(e) => setKeywordInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          if (keywordInput.trim() && !keywords.includes(keywordInput.trim())) {
+                            setKeywords([...keywords, keywordInput.trim()]);
+                            setKeywordInput("");
+                          }
+                        }
+                      }}
+                      placeholder="Type a keyword and press Enter"
+                      className="flex-1 px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (keywordInput.trim() && !keywords.includes(keywordInput.trim())) {
+                          setKeywords([...keywords, keywordInput.trim()]);
+                          setKeywordInput("");
+                        }
+                      }}
+                      className="bg-[#0EA5A4] text-white px-3 py-2 rounded-lg hover:bg-[#8cf1f1] transition"
+                    >
+                      Add
+                    </button>
+                  </div>
+
+                  {/* Show added keywords */}
+                  <div className="flex flex-wrap mt-3 gap-2">
+                    {keywords.map((kw, idx) => (
+                      <span
+                        key={idx}
+                        className="flex items-center gap-2 bg-gray-200 dark:bg-gray-700 text-sm px-3 py-1 rounded-full"
+                      >
+                        {kw}
+                        <button
+                          type="button"
+                          onClick={() => setKeywords(keywords.filter((_, i) => i !== idx))}
+                          className="flex items-center gap-1 bg-[#0EA5A4]/10 border border-[#0EA5A4]/30 text-[#0EA5A4] px-3 py-1 rounded-full text-sm"
+                        >
+                          ✖
+                        </button>
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Thumbnail */}

@@ -23,12 +23,16 @@ const Dashboard = () => {
     const techPosts = posts?.filter((p) => p.category === "tech").length || 0;
     const marketsPosts = posts?.filter((p) => p.category === "markets").length || 0;
     const guidesPosts = posts?.filter((p) => p.category === "guides").length || 0;
+    const investmentsPosts = posts?.filter((p) => p.category === "investment").length || 0;
+    const lawPosts = posts?.filter((p) => p.category === "law").length || 0;
 
     // Build stats dynamically
     const stats = [
     { label: "Total Posts", value: totalPosts },
     { label: "Finance Posts", value: financePosts },
     { label: "Tech Posts", value: techPosts },
+    { label: "Investment Posts", value: investmentsPosts },
+    { label: "Law Posts", value: lawPosts },
     { label: "Markets Posts", value: marketsPosts },
     { label: "Guides Posts", value: guidesPosts },
     ];
@@ -45,7 +49,7 @@ const Dashboard = () => {
                 <DashboardLayout page="Dashboard">
                     <div className="text-gray-800 dark:text-gray-100 min-h-screen py-5 lg:px-4">
                         {/* Stats grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                             {stats.map((stat, idx) => (
                                 <div
                                     key={idx}
@@ -142,6 +146,10 @@ const Dashboard = () => {
                                                                         ? "bg-yellow-500"
                                                                         : post?.category === "guides"
                                                                         ? "bg-orange-500"
+                                                                        : post?.category === "analysis"
+                                                                        ? "bg-green-500"
+                                                                        : post?.category === "investment"
+                                                                        ? "bg-red-500"
                                                                         : "bg-purple-600"
                                                                     }`}
                                                                 >

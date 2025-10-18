@@ -18,6 +18,27 @@ export async function generateMetadata({ params }) {
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.keywords || [
+      "YieldWitness",
+      "finance blog",
+      "tech blog",
+      "market analysis",
+      "investment insights",
+      "financial technology",
+      "insurance blog",
+      "law blog",
+      "legal insights",
+      "business law articles",
+      "AI blogging tools",
+      "Next.js blog",
+      "modern blogging platform",
+      "financial literacy",
+      "insurance trends",
+      "legal technology",
+      "FinTech",
+      "InsurTech",
+      "blog builder"
+    ],
     openGraph: {
       images: [
         { 

@@ -1,7 +1,7 @@
 'use client'
 import DashboardLayout from '@/components/ui/DashboardLayout'
 import React, { useEffect, useState } from 'react'
-import { FilePlus } from 'lucide-react'
+import { FilePlus, X } from 'lucide-react'
 import { validateFrontendCreatePost } from '@/components/helpers/validateFrontendForms'
 import { useDispatch, useSelector } from 'react-redux'
 import { addPost } from '@/components/store/postSlice'
@@ -22,6 +22,10 @@ const NewPostPage = () => {
   const [errors, setErrors] = useState({})
   const [notification, setNotification] = useState(null)
 
+  // Keywords
+  const [keywords, setKeywords] = useState([])
+  const [keywordInput, setKeywordInput] = useState('');
+
   const dispatch = useDispatch()
 
   // user data
@@ -32,6 +36,21 @@ const NewPostPage = () => {
 
   const [loading, setLoading] = useState(false)
   const [redirect, setRedirect] = useState(false)
+
+  // Add keyword
+  const handleAddKeyword = (e) => {
+    e.preventDefault();
+    const trimmed = keywordInput.trim();
+    if (trimmed && !keywords.includes(trimmed)) {
+      setKeywords([...keywords, trimmed]);
+      setKeywordInput('');
+    }
+  };
+
+  // Remove keyword
+  const handleRemoveKeyword = (index) => {
+    setKeywords(keywords.filter((_, i) => i !== index));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,7 +71,7 @@ const NewPostPage = () => {
     }
 
     // Category
-    const allowedCategories = ["finance", "tech", "markets", "guides", "analysis"];
+    const allowedCategories = ["finance", "tech", "markets", "guides", "analysis", "investment", "law"];
     if (
       !category ||
       typeof category !== "string" ||
@@ -102,6 +121,7 @@ const NewPostPage = () => {
     formData.append("author", author.trim());
     formData.append("readTime", `${readTime} min read`);
     formData.append("thumbnail", thumbnail); // thumbnail is a File object
+    formData.append("keywords", JSON.stringify(keywords))
 
     try {
       // Send to Redux
@@ -141,6 +161,7 @@ const NewPostPage = () => {
     setThumbnail("");
     setAuthor("");
     setReadTime("");
+    setKeywords([])
   }
 
   return (
@@ -204,8 +225,52 @@ const NewPostPage = () => {
                     <option value="markets">Markets</option>
                     <option value="guides">Guides</option>
                     <option value="analysis">Analysis</option>
+                    <option value="investment">Investment</option>
+                    <option value="law">Law</option>
                   </select>
                   {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
+                </div>
+
+                {/* 👇 Keywords Section */}
+                <div>
+                  <label className="block text-sm font-medium mb-2">Keywords</label>
+                  <div className="flex gap-2 mb-2">
+                    <input
+                      type="text"
+                      value={keywordInput}
+                      onChange={(e) => setKeywordInput(e.target.value)}
+                      className="flex-1 px-3 py-2 border rounded-lg dark:bg-gray-900 dark:border-gray-700"
+                      placeholder="Add keyword and press Enter"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') handleAddKeyword(e);
+                      }}
+                    />
+                    <button
+                      onClick={handleAddKeyword}
+                      className="bg-[#0EA5A4] text-white px-4 rounded-lg hover:bg-[#0c8b8a] transition"
+                    >
+                      Add
+                    </button>
+                  </div>
+
+                  {/* Show added keywords */}
+                  <div className="flex flex-wrap gap-2">
+                    {keywords.map((keyword, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-1 bg-[#0EA5A4]/10 border border-[#0EA5A4]/30 text-[#0EA5A4] px-3 py-1 rounded-full text-sm"
+                      >
+                        <span>{keyword}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveKeyword(index)}
+                          className="hover:text-red-500 transition"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Thumbnail */}

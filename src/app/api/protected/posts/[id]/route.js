@@ -61,6 +61,7 @@ export async function PATCH(request, { params }) {
       const author = formData.get("author");
       const readTime = formData.get("readTime");
       const newThumbnail = formData.get("thumbnail"); // uploaded file if any
+      const keywords = JSON.parse(formData.get("keywords"))
   
       // Get current post
       const existingPost = await Post.findById(id);
@@ -101,6 +102,7 @@ export async function PATCH(request, { params }) {
         author,
         readTime,
         thumbnail: thumbnailPath,
+        keywords,
       };
   
       const updatedPost = await Post.findByIdAndUpdate(id, updateFields, { new: true }).lean();
