@@ -30,6 +30,18 @@ export default async function sitemap() {
             url: `https://yieldwitness.vercel.app/tech`,
             lastModified: new Date()
         },
+        {
+            url: `https://yieldwitness.vercel.app/investment`,
+            lastModified: new Date()
+        },
+        {
+            url: `https://yieldwitness.vercel.app/law`,
+            lastModified: new Date()
+        },
+        {
+            url: `https://yieldwitness.vercel.app/markets`,
+            lastModified: new Date()
+        },
         ...postEntries,
     ]
 }

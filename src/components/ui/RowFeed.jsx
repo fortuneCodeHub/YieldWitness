@@ -67,7 +67,7 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-12 pb-9">
       <div className="lg:max-w-[75%] text-start">
-        <h2 className="text-2xl font-bold mb-6">
+        <h2 className="text-2xl font-bold mb-6 capitalize">
           All {feedName && feedName} Posts
         </h2>
 

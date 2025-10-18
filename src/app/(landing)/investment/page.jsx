@@ -1,16 +1,17 @@
 import CategoryContent from '@/components/ui/CategoryContent'
 
 export const metadata = {
-    title: "Tech Posts",
+    title: "Investment Posts",
 }
 
-export default function Tech() {
+export default function Investment() {
 
   return (
     <>
         <CategoryContent
-            category='tech'
+            category='investment'
         />
     </>
   )
 }
+
