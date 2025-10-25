@@ -50,7 +50,25 @@ const BlogPost = ({ post, loading, posts }) => {
         return (
           <h2
             key={block.id}
-            className="text-2xl font-semibold text-gray-900 mt-8 mb-4"
+            className="text-3xl font-semibold text-gray-900 mt-8 mb-4"
+            dangerouslySetInnerHTML={{ __html: block.content }}
+          />
+        );
+
+      case "heading3":
+        return (
+          <h3
+            key={block.id}
+            className="text-2xl font-semibold text-gray-800 mt-6 mb-3"
+            dangerouslySetInnerHTML={{ __html: block.content }}
+          />
+        );
+  
+      case "heading4":
+        return (
+          <h4
+            key={block.id}
+            className="text-xl font-medium text-gray-700 mt-4 mb-2"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
@@ -59,7 +77,7 @@ const BlogPost = ({ post, loading, posts }) => {
         return (
           <p
             key={block.id}
-            className="text-base text-gray-700 leading-relaxed mb-4"
+            className="leading-relaxed mb-4"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
@@ -133,6 +151,38 @@ const BlogPost = ({ post, loading, posts }) => {
             className="my-3 bg-gray-50 border border-dashed border-gray-300 rounded-lg flex items-center justify-center text-sm text-gray-500"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
+        );
+
+      case "button":
+        const sizeClasses = {
+          sm: "px-3 py-1 text-sm",
+          md: "px-4 py-2 text-base",
+          lg: "px-6 py-3 text-lg",
+        };
+        return (
+          <div key={block.id} className="my-6">
+            <a
+              href={block.href || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block rounded text-white font-medium ${sizeClasses[block.size || "md"]}`}
+              style={{ backgroundColor: block.color || "#2563EB" }}
+            >
+              {block.text || "Click Me"}
+            </a>
+          </div>
+        );
+  
+      case "anchor":
+        return (
+          <a
+            key={block.id}
+            href={block.href || "#"}
+            target={block.target || "_self"}
+            className="text-blue-600 underline hover:text-blue-800"
+          >
+            {block.text || "Anchor Link"}
+          </a>
         );
 
       default:

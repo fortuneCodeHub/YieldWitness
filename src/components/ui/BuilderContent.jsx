@@ -13,6 +13,7 @@ import {
   Italic,
   Underline,
   FileCode2,
+  Link,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,6 +69,7 @@ const ElementorPage = () => {
         if (style === "bold") wrapped = `<b>${selected}</b>`;
         if (style === "italic") wrapped = `<i>${selected}</i>`;
         if (style === "underline") wrapped = `<u>${selected}</u>`;
+        if (style === "link") wrapped = `<a href="" class="text-blue-600 underline" target="_blank">${selected}</a>`;
 
         const newValue =
         value.substring(0, selectionStart) +
@@ -89,6 +91,7 @@ const ElementorPage = () => {
         if (style === "bold") wrapped = `<b>${selected}</b>`;
         if (style === "italic") wrapped = `<i>${selected}</i>`;
         if (style === "underline") wrapped = `<u>${selected}</u>`;
+        if (style === "link") wrapped = `<a href="" class="text-blue-600 underline" target="_blank">${selected}</a>`;
         
         const newValue = value.substring(0, selectionStart) + wrapped + value.substring(selectionEnd);
 
@@ -135,8 +138,28 @@ const ElementorPage = () => {
                 type="text"
                 value={block.content}
                 onChange={(e) => updateBlock(block.id, { content: e.target.value })}
-                placeholder="Heading text..."
-                className="w-full p-2 border rounded font-bold text-lg"
+                placeholder="Heading 2 text..."
+                className="w-full p-2 border rounded font-bold text-6xl"
+            />
+            );
+        case "heading3":
+            return (
+            <input
+                type="text"
+                value={block.content}
+                onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+                placeholder="Heading 3 text..."
+                className="w-full p-2 border rounded font-bold text-5xl"
+            />
+            );
+        case "heading4":
+            return (
+            <input
+                type="text"
+                value={block.content}
+                onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+                placeholder="Heading 4 text..."
+                className="w-full p-2 border rounded font-bold text-4xl"
             />
             );
         case "text":
@@ -144,24 +167,30 @@ const ElementorPage = () => {
             <div>
                 {/* Toolbar */}
                 <div className="flex gap-2 mb-2">
-                <button
-                    onClick={() => formatText(block, "bold")}
-                    className="p-1 border rounded hover:bg-gray-100"
-                >
-                    <Bold className="w-4 h-4" />
-                </button>
-                <button
-                    onClick={() => formatText(block, "italic")}
-                    className="p-1 border rounded hover:bg-gray-100"
-                >
-                    <Italic className="w-4 h-4" />
-                </button>
-                <button
-                    onClick={() => formatText(block, "underline")}
-                    className="p-1 border rounded hover:bg-gray-100"
-                >
-                    <Underline className="w-4 h-4" />
-                </button>
+                    <button
+                        onClick={() => formatText(block, "bold")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                    >
+                        <Bold className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "italic")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                    >
+                        <Italic className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "underline")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                    >
+                        <Underline className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "link")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                    >
+                        <Link className="w-4 h-4" />
+                    </button>
                 </div>
                 <textarea
                     id={`editor-${block.id}`}
@@ -295,30 +324,38 @@ const ElementorPage = () => {
                 {["left", "right"].map((side) => (
                     <div key={side}>
                         <div className="flex gap-2 mb-2">
-                        <button
-                            onClick={() =>
-                                formatColumns({ ...block, id: `${block.id}` }, "bold", `${side}`)
-                            }
-                            className="p-1 border rounded hover:bg-gray-100"
-                        >
-                            <Bold className="w-4 h-4" />
-                        </button>
-                        <button
-                            onClick={() =>
-                                formatColumns({ ...block, id: `${block.id}` }, "italic", `${side}`)
-                            }
-                            className="p-1 border rounded hover:bg-gray-100"
-                        >
-                            <Italic className="w-4 h-4" />
-                        </button>
-                        <button
-                            onClick={() =>
-                            formatColumns({ ...block, id: `${block.id}` }, "underline", `${side}`)
-                            }
-                            className="p-1 border rounded hover:bg-gray-100"
-                        >
-                            <Underline className="w-4 h-4" />
-                        </button>
+                            <button
+                                onClick={() =>
+                                    formatColumns({ ...block, id: `${block.id}` }, "bold", `${side}`)
+                                }
+                                className="p-1 border rounded hover:bg-gray-100"
+                            >
+                                <Bold className="w-4 h-4" />
+                            </button>
+                            <button
+                                onClick={() =>
+                                    formatColumns({ ...block, id: `${block.id}` }, "italic", `${side}`)
+                                }
+                                className="p-1 border rounded hover:bg-gray-100"
+                            >
+                                <Italic className="w-4 h-4" />
+                            </button>
+                            <button
+                                onClick={() =>
+                                formatColumns({ ...block, id: `${block.id}` }, "underline", `${side}`)
+                                }
+                                className="p-1 border rounded hover:bg-gray-100"
+                            >
+                                <Underline className="w-4 h-4" />
+                            </button>
+                            <button
+                                onClick={() =>
+                                formatColumns({ ...block, id: `${block.id}` }, "link", `${side}`)
+                                }
+                                className="p-1 border rounded hover:bg-gray-100"
+                            >
+                                <Link className="w-4 h-4" />
+                            </button>
                         </div>
                         <textarea
                             id={`editor-${block.id}-${side}`}
@@ -344,6 +381,70 @@ const ElementorPage = () => {
                 className="w-full p-2 border rounded text-xs bg-gray-50 font-mono"
             />
             );
+        case "button":
+            return (
+                <div className="space-y-2">
+                <input
+                    type="text"
+                    placeholder="Button Text"
+                    value={block.text || ""}
+                    onChange={(e) => updateBlock(block.id, { text: e.target.value })}
+                    className="w-full p-2 border rounded text-sm"
+                />
+                <input
+                    type="text"
+                    placeholder="Button URL (e.g. https://example.com)"
+                    value={block.href || ""}
+                    onChange={(e) => updateBlock(block.id, { href: e.target.value })}
+                    className="w-full p-2 border rounded text-sm"
+                />
+                <div className="flex items-center gap-2">
+                    <label>Color:</label>
+                    <input
+                    type="color"
+                    value={block.color || "#2563EB"}
+                    onChange={(e) => updateBlock(block.id, { color: e.target.value })}
+                    className="border rounded"
+                    />
+                </div>
+                <select
+                    value={block.size || "md"}
+                    onChange={(e) => updateBlock(block.id, { size: e.target.value })}
+                    className="p-2 border rounded text-sm"
+                >
+                    <option value="sm">Small</option>
+                    <option value="md">Medium</option>
+                    <option value="lg">Large</option>
+                </select>
+                </div>
+            );
+        case "anchor":
+            return (
+                <div className="space-y-2">
+                <input
+                    type="text"
+                    placeholder="Anchor Text"
+                    value={block.text || ""}
+                    onChange={(e) => updateBlock(block.id, { text: e.target.value })}
+                    className="w-full p-2 border rounded text-sm"
+                />
+                <input
+                    type="text"
+                    placeholder="Anchor URL (e.g. #section1 or https://...)"
+                    value={block.href || ""}
+                    onChange={(e) => updateBlock(block.id, { href: e.target.value })}
+                    className="w-full p-2 border rounded text-sm"
+                />
+                <select
+                    value={block.target || "_self"}
+                    onChange={(e) => updateBlock(block.id, { target: e.target.value })}
+                    className="p-2 border rounded text-sm"
+                >
+                    <option value="_self">Open in Same Tab</option>
+                    <option value="_blank">Open in New Tab</option>
+                </select>
+                </div>
+            );
         default:
             return null;
         }
@@ -353,7 +454,11 @@ const ElementorPage = () => {
     const renderPreviewBlock = (block) => {
         switch (block.type) {
         case "heading":
-            return <h2 className="text-2xl font-bold">{block.content}</h2>;
+            return <h2 className="text-6xl font-bold">{block.content}</h2>;
+        case "heading3":
+            return <h3 className="text-5xl font-bold">{block.content}</h3>;
+        case "heading4":
+            return <h4 className="text-4xl font-bold">{block.content}</h4>;
         case "text":
             return <p dangerouslySetInnerHTML={{ __html: block.content }} />;
         case "image":
@@ -413,6 +518,33 @@ const ElementorPage = () => {
         case "ads":
             return (
             <div dangerouslySetInnerHTML={{ __html: block.content }} />
+            );
+        case "button":
+            const sizeClasses = {
+                sm: "px-3 py-1 text-sm",
+                md: "px-4 py-2 text-base",
+                lg: "px-6 py-3 text-lg",
+            };
+            return (
+                <a
+                href={block.href || "#"}
+                className={`inline-block rounded text-white font-medium ${sizeClasses[block.size || "md"]}`}
+                style={{ backgroundColor: block.color || "#2563EB" }}
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                {block.text || "Click Me"}
+                </a>
+            );
+        case "anchor":
+            return (
+                <a
+                href={block.href || "#"}
+                target={block.target || "_self"}
+                className="text-blue-600 underline"
+                >
+                {block.text || "Anchor Link"}
+                </a>
             );
         default:
             return null;
@@ -506,7 +638,19 @@ const ElementorPage = () => {
                         onClick={() => addBlock("heading")}
                         className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
                     >
-                        <Heading className="w-4 h-4" /> Heading
+                        <Heading className="w-4 h-4" /> Heading 2
+                    </button>
+                    <button
+                        onClick={() => addBlock("heading3")}
+                        className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
+                    >
+                        <Heading className="w-4 h-4" /> Heading 3
+                    </button>
+                    <button
+                        onClick={() => addBlock("heading4")}
+                        className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
+                    >
+                        <Heading className="w-4 h-4" /> Heading 4
                     </button>
                     <button
                         onClick={() => addBlock("text")}
@@ -549,6 +693,19 @@ const ElementorPage = () => {
                         className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
                     >
                         <FileCode2 className="w-4 h-4" /> Google Ads
+                    </button>
+                    <button
+                        onClick={() => addBlock("button")}
+                        className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
+                    >
+                        <Link className="w-4 h-4" /> Button
+                    </button>
+
+                    <button
+                        onClick={() => addBlock("anchor")}
+                        className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
+                    >
+                        <Link className="w-4 h-4" /> Anchor Link
                     </button>
                 </div>
             </aside>
