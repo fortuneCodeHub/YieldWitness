@@ -6,6 +6,14 @@ import { connectToDB } from "@/utils/database";
 import Post from "@/models/post";
 import { writeFile, unlink, fs } from "fs/promises";
 import path from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+// ===== Cloudinary Configuration =====
+cloudinary.config({
+  cloud_name: "dojv5hvhn",
+  api_key: 411134211575489,
+  api_secret: "IgX34rLO9GLI7gyWopnMHLGVN5o",
+});
 
 // Utility function to authenticate
 async function authenticate(request) {
@@ -29,89 +37,108 @@ async function authenticate(request) {
 
 // PATCH /api/protected/posts/[id] → Update a post
 export async function PATCH(request, { params }) {
-    const auth = await authenticate(request);
-    if (auth.error) {
-      return NextResponse.json({ success: false, error }, { status: 401 });
+  const auth = await authenticate(request);
+  if (auth.error) {
+    return NextResponse.json({ success: false, error: auth.error }, { status: 401 });
+  }
+
+  try {
+    const { id } = await params;
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: "Invalid post ID" },
+        { status: 400 }
+      );
     }
-  
-    try {
-      const { id } = await params;
-      if (!id) {
-        return NextResponse.json({ success: false, error: "Invalid post ID" }, { status: 400 });
-      }
 
-      const { decoded } = auth
-    //   console.log(decoded);
+    const { decoded } = auth;
 
-      // Check admin
-      const user = await User.findById(decoded.id);
-      if (!user || user.access !== "admin") {
-        return NextResponse.json(
-          { error: "Forbidden: Admin access required" },
-          { status: 403 }
-        );
-      }
-  
-      const formData = await request.formData();
-  
-      // Extract fields
-      const title = formData.get("title");
-      const excerpt = formData.get("excerpt");
-      const category = formData.get("category");
-      const author = formData.get("author");
-      const readTime = formData.get("readTime");
-      const newThumbnail = formData.get("thumbnail"); // uploaded file if any
-      const keywords = JSON.parse(formData.get("keywords"))
-  
-      // Get current post
-      const existingPost = await Post.findById(id);
-      if (!existingPost) {
-        return NextResponse.json({ success: false, error: "Post not found" }, { status: 404 });
-      }
-  
-      let thumbnailPath = existingPost.thumbnail; // keep old thumbnail by default
-  
-      if (newThumbnail && typeof newThumbnail === "object" && newThumbnail.name) {
-        // Delete old thumbnail if it exists
-        if (existingPost.thumbnail) {
-          const oldPath = path.join(process.cwd(), "public", existingPost.thumbnail);
-          try {
-            await unlink(oldPath);
-            console.log("Old thumbnail deleted:", oldPath);
-          } catch (err) {
-            console.warn("Failed to delete old thumbnail:", err.message);
+    // Check admin access
+    const user = await User.findById(decoded.id);
+    if (!user || user.access !== "admin") {
+      return NextResponse.json(
+        { error: "Forbidden: Admin access required" },
+        { status: 403 }
+      );
+    }
+
+    const formData = await request.formData();
+
+    // Extract fields
+    const title = formData.get("title");
+    const excerpt = formData.get("excerpt");
+    const category = formData.get("category");
+    const author = formData.get("author");
+    const readTime = formData.get("readTime");
+    const newThumbnail = formData.get("thumbnail");
+    const keywords = JSON.parse(formData.get("keywords"));
+
+    // Get current post
+    const existingPost = await Post.findById(id);
+    if (!existingPost) {
+      return NextResponse.json(
+        { success: false, error: "Post not found" },
+        { status: 404 }
+      );
+    }
+
+    let thumbnailUrl = existingPost.thumbnail; // keep old one by default
+
+    // ===== Handle New Thumbnail Upload =====
+    if (newThumbnail && typeof newThumbnail === "object" && newThumbnail.name) {
+      try {
+        // Delete old image from Cloudinary (if any)
+        if (existingPost.thumbnail && existingPost.thumbnail.includes("cloudinary.com")) {
+          const publicIdMatch = existingPost.thumbnail.match(/\/upload\/(?:v\d+\/)?(.+)\.\w+$/);
+          if (publicIdMatch && publicIdMatch[1]) {
+            const publicId = publicIdMatch[1];
+            await cloudinary.uploader.destroy(publicId);
+            console.log("Old Cloudinary thumbnail deleted:", publicId);
           }
         }
-  
-        // Save new thumbnail
+
+        // Upload new one
         const buffer = Buffer.from(await newThumbnail.arrayBuffer());
-        const timestamp = Date.now();
-        const ext = path.extname(newThumbnail.name);
-        const filename = `${title.replace(/\s+/g, "_")}_${timestamp}${ext}`;
-        const filePath = path.join(process.cwd(), "public/uploads/thumbnails", filename);
-  
-        await writeFile(filePath, buffer);
-        thumbnailPath = `/uploads/thumbnails/${filename}`;
+        const base64Data = `data:${newThumbnail.type};base64,${buffer.toString("base64")}`;
+        const uploadResponse = await cloudinary.uploader.upload(base64Data, {
+          folder: "yieldwitness/posts/thumbnails",
+          resource_type: "image",
+          public_id: `${title.replace(/\s+/g, "_")}_${Date.now()}`,
+        });
+
+        thumbnailUrl = uploadResponse.secure_url;
+      } catch (err) {
+        console.error("Cloudinary upload error:", err);
+        return NextResponse.json(
+          { success: false, error: "Thumbnail upload failed" },
+          { status: 500 }
+        );
       }
-  
-      // Update post
-      const updateFields = {
-        title,
-        excerpt,
-        category,
-        author,
-        readTime,
-        thumbnail: thumbnailPath,
-        keywords,
-      };
-  
-      const updatedPost = await Post.findByIdAndUpdate(id, updateFields, { new: true }).lean();
-  
-      return NextResponse.json({ success: true, post: updatedPost });
-    } catch (err) {
-      console.error("Update Post API Error:", err);
-      return NextResponse.json({ success: false, error: err.message }, { status: 500 });
     }
+
+    // ===== Update Post in DB =====
+    const updateFields = {
+      title,
+      excerpt,
+      category,
+      author,
+      readTime,
+      thumbnail: thumbnailUrl,
+      keywords,
+    };
+
+    const updatedPost = await Post.findByIdAndUpdate(id, updateFields, {
+      new: true,
+    }).lean();
+
+    return NextResponse.json({ success: true, post: updatedPost });
+  } catch (err) {
+    console.error("Update Post API Error:", err);
+    return NextResponse.json(
+      { success: false, error: err.message },
+      { status: 500 }
+    );
+  }
 }
 
 // DELETE /api/protected/posts/[id] → Delete a post
