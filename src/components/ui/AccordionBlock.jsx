@@ -11,20 +11,18 @@ const AccordionBlock = ({ data }) => {
 
   return (
     <div className="divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
-      {Array.isArray(data) && data.length > 0 ? (
-        data.map((item, index) => (
-          <div key={index} className="bg-white">
+        <div key={data.id} className="bg-white">
             {/* Header */}
             <button
-              onClick={() => toggle(index)}
+              onClick={() => toggle(data.id)}
               className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-gray-50 transition-colors"
             >
               <span className="text-lg font-medium text-gray-800">
-                {item.title}
+                {data.title}
               </span>
               <ChevronDown
                 className={`h-5 w-5 text-gray-500 transform transition-transform duration-300 ${
-                  openIndex === index ? "rotate-180" : ""
+                  openIndex === data.id ? "rotate-180" : ""
                 }`}
               />
             </button>
@@ -32,19 +30,15 @@ const AccordionBlock = ({ data }) => {
             {/* Content */}
             <div
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                openIndex === index ? "max-h-[500px]" : "max-h-0"
+                openIndex === data.id ? "max-h-[500px]" : "max-h-0"
               }`}
             >
               <div
                 className="px-5 pb-4 text-gray-700 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: item.content }}
+                dangerouslySetInnerHTML={{ __html: data.content }}
               />
             </div>
-          </div>
-        ))
-      ) : (
-        <p className="p-4 text-gray-500 italic text-sm">No accordion items available.</p>
-      )}
+        </div>
     </div>
   );
 };

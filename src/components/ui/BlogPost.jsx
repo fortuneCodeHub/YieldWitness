@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Bookmark, Share2 } from "lucide-react";
 import { formatDate } from "../helpers/formatDate";
@@ -10,6 +10,10 @@ import AccordionBlock from "./AccordionBlock";
 const BlogPost = ({ post, loading, posts }) => {
   const router = useRouter();
   const [bookmarked, setBookmarked] = useState(false);
+
+  useEffect(() => {
+    console.log(post);
+  }, [post])
 
   function categoryBadgeClass(category) {
     switch (category?.toLowerCase()) {
@@ -189,7 +193,7 @@ const BlogPost = ({ post, loading, posts }) => {
       case "accordion":
         return (
           <div key={block.id} className="my-6">
-            <AccordionBlock data={block.content} />
+            <AccordionBlock data={block} />
           </div>
         );
 
