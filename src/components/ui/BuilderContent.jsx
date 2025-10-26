@@ -807,7 +807,7 @@ const ElementorPage = () => {
                     <div className="space-y-6 bg-white p-4 rounded shadow py-[50px] max-h-[120vh] overflow-y-auto">
                         <h1 className="text-3xl">{ currentPost?.title }</h1>
                         <div
-                            className="my-4 rounded overflow-hidden aspect-[16:9]"
+                            className="my-4 rounded overflow-hidden aspect-[16/9]"
                         >
                             <img
                                 src={currentPost?.thumbnail}
