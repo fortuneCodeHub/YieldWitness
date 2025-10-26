@@ -259,7 +259,7 @@ const BlogPost = ({ post, loading, posts }) => {
             <div className="my-6">
               <img
                 src={post.thumbnail}
-                alt="Article content"
+                alt={post.title}
                 className="rounded-lg w-full object-cover"
                 style={{ aspectRatio: "16:9" }}
               />
