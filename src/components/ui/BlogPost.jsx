@@ -279,6 +279,7 @@ const BlogPost = ({ post, loading, posts }) => {
     
           {/* Related posts */}
           <RelatedPosts post={post} posts={posts} />
+          
         </>
       )}
     </article>
