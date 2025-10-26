@@ -217,6 +217,14 @@ const BlogPost = ({ post, loading, posts }) => {
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight capitalize">
               {post.title}
             </h1>
+            <div className="my-6">
+              <img
+                src={post.thumbnail}
+                alt="Article content"
+                className="rounded-lg w-full object-cover"
+                style={{ aspectRatio: "16:9" }}
+              />
+            </div>
             <div className="flex items-center justify-between mb-4">
               <span
                 className={`text-xs font-semibold px-3 py-1 rounded-full text-white ${categoryBadgeClass(
