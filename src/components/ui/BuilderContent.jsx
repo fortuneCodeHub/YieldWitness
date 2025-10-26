@@ -693,7 +693,7 @@ const ElementorPage = () => {
                 />
             )}
             {/* Sidebar */}
-            <aside className="w-64 bg-white shadow-md p-4 border-r">
+            <aside className="w-64 bg-white shadow-md p-4 border-r pb-[100px] overflow-y-auto">
                 <h3 className="font-bold mb-4">Blocks</h3>
                 <div className="space-y-2">
                     <button
