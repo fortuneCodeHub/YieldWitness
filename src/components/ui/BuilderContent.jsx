@@ -781,9 +781,9 @@ const ElementorPage = () => {
             {/* Editor + Preview */}
             <main className="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 gap-6 pb-[300px]">
                 {/* Editor */}
-                <div className="max-h-screen overflow-y-auto pb-[100px]">
+                <div className="">
                     <h3 className="font-bold mb-4">Editor</h3>
-                    <div className="space-y-6">
+                    <div className="space-y-6 max-h-[120vh] overflow-y-auto py-[50px]">
                         {blocks.map((block) => (
                             <div
                                 key={block.id}
@@ -802,9 +802,9 @@ const ElementorPage = () => {
                 </div>
 
                 {/* Preview */}
-                <div className="max-h-[100vh] overflow-y-auto">
+                <div className="">
                     <h3 className="font-bold mb-4">Preview</h3>
-                    <div className="space-y-6 bg-white p-4 rounded shadow pb-[100px]">
+                    <div className="space-y-6 bg-white p-4 rounded shadow py-[50px] max-h-[120vh] overflow-y-auto">
                         {blocks.map((block) => (
                             <div key={block.id}>{renderPreviewBlock(block)}</div>
                         ))}
