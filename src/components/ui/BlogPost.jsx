@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Bookmark, Share2 } from "lucide-react";
 import { formatDate } from "../helpers/formatDate";
 import RelatedPosts from "./RelatedPosts";
+import AccordionBlock from "./AccordionBlock";
 
 const BlogPost = ({ post, loading, posts }) => {
   const router = useRouter();
@@ -183,6 +184,13 @@ const BlogPost = ({ post, loading, posts }) => {
           >
             {block.text || "Anchor Link"}
           </a>
+        );
+
+      case "accordion":
+        return (
+          <div key={block.id} className="my-6">
+            <AccordionBlock data={block.content} />
+          </div>
         );
 
       default:

@@ -70,6 +70,8 @@ const ElementorPage = () => {
         if (style === "italic") wrapped = `<i>${selected}</i>`;
         if (style === "underline") wrapped = `<u>${selected}</u>`;
         if (style === "link") wrapped = `<a href="" class="text-blue-600 underline" target="_blank">${selected}</a>`;
+        if (style === "ul") wrapped = `<ul class="list-disc pl-6"><li>${selected}</li></ul>`;
+        if (style === "ol") wrapped = `<ol class="list-decimal pl-6"><li>${selected}</li></ol>`;
 
         const newValue =
         value.substring(0, selectionStart) +
@@ -92,6 +94,8 @@ const ElementorPage = () => {
         if (style === "italic") wrapped = `<i>${selected}</i>`;
         if (style === "underline") wrapped = `<u>${selected}</u>`;
         if (style === "link") wrapped = `<a href="" class="text-blue-600 underline" target="_blank">${selected}</a>`;
+        if (style === "ul") wrapped = `<ul class="list-disc pl-6"><li>${selected}</li></ul>`;
+        if (style === "ol") wrapped = `<ol class="list-decimal pl-6"><li>${selected}</li></ol>`;
         
         const newValue = value.substring(0, selectionStart) + wrapped + value.substring(selectionEnd);
 
@@ -190,6 +194,20 @@ const ElementorPage = () => {
                         className="p-1 border rounded hover:bg-gray-100"
                     >
                         <Link className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "ul")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                        title="Unordered List"
+                    >
+                        •
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "ol")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                        title="Ordered List"
+                    >
+                        1.
                     </button>
                 </div>
                 <textarea
@@ -356,6 +374,20 @@ const ElementorPage = () => {
                             >
                                 <Link className="w-4 h-4" />
                             </button>
+                            <button
+                                onClick={() => formatColumns({ ...block, id: `${block.id}` }, "ul", `${side}`)}
+                                className="p-1 border rounded hover:bg-gray-100"
+                                title="Unordered List"
+                            >
+                                •
+                            </button>
+                            <button
+                                onClick={() => formatColumns({ ...block, id: `${block.id}` }, "ol", `${side}`)}
+                                className="p-1 border rounded hover:bg-gray-100"
+                                title="Ordered List"
+                            >
+                                1.
+                            </button>
                         </div>
                         <textarea
                             id={`editor-${block.id}-${side}`}
@@ -443,6 +475,24 @@ const ElementorPage = () => {
                     <option value="_self">Open in Same Tab</option>
                     <option value="_blank">Open in New Tab</option>
                 </select>
+                </div>
+            );
+        case "accordion":
+            return (
+                <div className="space-y-2">
+                <input
+                    type="text"
+                    placeholder="Accordion Title..."
+                    value={block.title || ""}
+                    onChange={(e) => updateBlock(block.id, { title: e.target.value })}
+                    className="w-full p-2 border rounded text-sm font-semibold"
+                />
+                <textarea
+                    placeholder="Accordion content..."
+                    value={block.content || ""}
+                    onChange={(e) => updateBlock(block.id, { content: e.target.value })}
+                    className="w-full p-2 border rounded text-sm"
+                />
                 </div>
             );
         default:
@@ -545,6 +595,18 @@ const ElementorPage = () => {
                 >
                 {block.text || "Anchor Link"}
                 </a>
+            );
+        case "accordion":
+            return (
+                <details className="border rounded">
+                    <summary className="cursor-pointer font-semibold p-2 bg-gray-100 border-b">
+                        {block.title || "Accordion Title"}
+                    </summary>
+                    <div
+                        className="p-3"
+                        dangerouslySetInnerHTML={{ __html: block.content }}
+                    />
+                </details>
             );
         default:
             return null;
@@ -707,13 +769,19 @@ const ElementorPage = () => {
                     >
                         <Link className="w-4 h-4" /> Anchor Link
                     </button>
+                    <button
+                        onClick={() => addBlock("accordion")}
+                        className="flex items-center gap-2 w-full p-2 border rounded hover:bg-gray-100"
+                    >
+                        <Layout className="w-4 h-4" /> Accordion
+                    </button>
                 </div>
             </aside>
 
             {/* Editor + Preview */}
             <main className="flex-1 p-6 grid grid-cols-1 md:grid-cols-2 gap-6 pb-[300px]">
                 {/* Editor */}
-                <div>
+                <div className="max-h-screen overflow-y-auto pb-[100px]">
                     <h3 className="font-bold mb-4">Editor</h3>
                     <div className="space-y-6">
                         {blocks.map((block) => (
@@ -734,9 +802,9 @@ const ElementorPage = () => {
                 </div>
 
                 {/* Preview */}
-                <div>
+                <div className="max-h-[100vh] overflow-y-auto">
                     <h3 className="font-bold mb-4">Preview</h3>
-                    <div className="space-y-6 bg-white p-4 rounded shadow">
+                    <div className="space-y-6 bg-white p-4 rounded shadow pb-[100px]">
                         {blocks.map((block) => (
                             <div key={block.id}>{renderPreviewBlock(block)}</div>
                         ))}
