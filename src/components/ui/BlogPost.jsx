@@ -51,7 +51,7 @@ const BlogPost = ({ post, loading, posts }) => {
         return (
           <h2
             key={block.id}
-            className="text-3xl font-semibold text-gray-900 mt-8 mb-4"
+            className="text-2xl font-semibold text-gray-900 mt-8 mb-4"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
@@ -60,7 +60,7 @@ const BlogPost = ({ post, loading, posts }) => {
         return (
           <h3
             key={block.id}
-            className="text-2xl font-semibold text-gray-800 mt-6 mb-3"
+            className="text-xl font-semibold text-gray-800 mt-6 mb-3"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
@@ -69,7 +69,7 @@ const BlogPost = ({ post, loading, posts }) => {
         return (
           <h4
             key={block.id}
-            className="text-xl font-medium text-gray-700 mt-4 mb-2"
+            className="text-lg font-medium text-gray-700 mt-4 mb-2"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
@@ -214,7 +214,7 @@ const BlogPost = ({ post, loading, posts }) => {
               />
             </div> */}
     
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight capitalize">
               {post.title}
             </h1>
             <div className="flex items-center justify-between mb-4">

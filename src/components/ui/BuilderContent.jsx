@@ -805,6 +805,7 @@ const ElementorPage = () => {
                 <div className="">
                     <h3 className="font-bold mb-4">Preview</h3>
                     <div className="space-y-6 bg-white p-4 rounded shadow py-[50px] max-h-[120vh] overflow-y-auto">
+                        <h1 className="text-7xl">{ currentPost?.title }</h1>
                         {blocks.map((block) => (
                             <div key={block.id}>{renderPreviewBlock(block)}</div>
                         ))}
