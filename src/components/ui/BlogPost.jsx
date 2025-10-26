@@ -261,7 +261,7 @@ const BlogPost = ({ post, loading, posts }) => {
                 src={post.thumbnail}
                 alt={post.title}
                 className="rounded-lg w-full object-cover"
-                style={{ aspectRatio: "16:9" }}
+                // style={{ aspectRatio: "16:9" }}
               />
             </div>
           </header>
@@ -279,7 +279,7 @@ const BlogPost = ({ post, loading, posts }) => {
     
           {/* Related posts */}
           <RelatedPosts post={post} posts={posts} />
-          
+
         </>
       )}
     </article>
