@@ -143,7 +143,7 @@ const ElementorPage = () => {
                 value={block.content}
                 onChange={(e) => updateBlock(block.id, { content: e.target.value })}
                 placeholder="Heading 2 text..."
-                className="w-full p-2 border rounded font-bold text-6xl"
+                className="w-full p-2 border rounded font-bold text-2xl"
             />
             );
         case "heading3":
@@ -153,7 +153,7 @@ const ElementorPage = () => {
                 value={block.content}
                 onChange={(e) => updateBlock(block.id, { content: e.target.value })}
                 placeholder="Heading 3 text..."
-                className="w-full p-2 border rounded font-bold text-5xl"
+                className="w-full p-2 border rounded font-bold text-xl"
             />
             );
         case "heading4":
@@ -163,7 +163,7 @@ const ElementorPage = () => {
                 value={block.content}
                 onChange={(e) => updateBlock(block.id, { content: e.target.value })}
                 placeholder="Heading 4 text..."
-                className="w-full p-2 border rounded font-bold text-4xl"
+                className="w-full p-2 border rounded font-bold text-lg"
             />
             );
         case "text":
@@ -504,11 +504,11 @@ const ElementorPage = () => {
     const renderPreviewBlock = (block) => {
         switch (block.type) {
         case "heading":
-            return <h2 className="text-6xl font-bold">{block.content}</h2>;
+            return <h2 className="text-2xl font-bold">{block.content}</h2>;
         case "heading3":
-            return <h3 className="text-5xl font-bold">{block.content}</h3>;
+            return <h3 className="text-xl font-bold">{block.content}</h3>;
         case "heading4":
-            return <h4 className="text-4xl font-bold">{block.content}</h4>;
+            return <h4 className="text-lg font-bold">{block.content}</h4>;
         case "text":
             return <p dangerouslySetInnerHTML={{ __html: block.content }} />;
         case "image":
@@ -805,7 +805,7 @@ const ElementorPage = () => {
                 <div className="">
                     <h3 className="font-bold mb-4">Preview</h3>
                     <div className="space-y-6 bg-white p-4 rounded shadow py-[50px] max-h-[120vh] overflow-y-auto">
-                        <h1 className="text-7xl">{ currentPost?.title }</h1>
+                        <h1 className="text-3xl">{ currentPost?.title }</h1>
                         {blocks.map((block) => (
                             <div key={block.id}>{renderPreviewBlock(block)}</div>
                         ))}
