@@ -49,9 +49,9 @@ export async function POST(request) {
     const cookie = serialize('yield_witness_auth', token, {
       path: '/',
       httpOnly: true,
-      maxAge: rememberMe ? (60 * 60) : (60 * 60 * 24 * 30),
-      sameSite: 'Lax',
-      secure: process.env.NODE_ENV === 'production'
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: rememberMe ? 60 * 60 : 60 * 60 * 24 * 30, // 1h or 30d
     })
 
     const response = NextResponse.json({ 
