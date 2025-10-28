@@ -154,7 +154,7 @@ const EditorsPicks = ({ posts, loading }) => {
                   </span>
 
                   <h3 className="mt-2 text-lg font-semibold text-[#0F172A] leading-snug line-clamp-2">
-                    {truncateText(post.title, 70)}
+                    {truncateText(post.title, 50)}
                   </h3>
 
                   <p className="mt-2 text-sm text-[#64748B] line-clamp-3">

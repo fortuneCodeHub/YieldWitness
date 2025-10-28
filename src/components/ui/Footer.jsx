@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="mb-5">
                 <Link href="/" className="relative text-2xl font-bold poppins-bold-italic">
                     <span className="text-[#0EA5A4]">Yield</span>
-                    <span className="text-gray-400">Witness</span>
+                    <span className="text-gray-400">Invest</span>
                     <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#0EA5A4]"></span>
                 </Link>
             </div>
@@ -74,7 +74,7 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} YieldWitness. All rights reserved.
+        © {new Date().getFullYear()} YieldInvest. All rights reserved.
       </div>
     </footer>
   );

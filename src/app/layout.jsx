@@ -18,13 +18,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   metadataBase: new URL('https://www.yieldnvest.com/'),
   title: {
-    default: "YieldWitness: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
-    template: "%s - YieldWitness: Finance, Tech, Markets, Insurance & Law"
+    default: "YieldInvest: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
+    template: "%s - YieldInvest: Finance, Tech, Markets, Insurance & Law"
   },
   description:
-    "YieldWitness is a modern blogging platform focused on finance, technology, markets, insurance, and law. Explore expert insights, data-driven analysis, and well-researched guides crafted for professionals and curious readers.",
+    "YieldInvest is a modern blogging platform focused on finance, technology, markets, insurance, and law. Explore expert insights, data-driven analysis, and well-researched guides crafted for professionals and curious readers.",
   keywords: [
-    "YieldWitness",
+    "YieldInvest",
     "finance blog",
     "tech blog",
     "market analysis",
@@ -45,17 +45,17 @@ export const metadata = {
     "blog builder"
   ],
   openGraph: {
-    title: "YieldWitness: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
+    title: "YieldInvest: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
     description:
-      "Discover YieldWitness — a next-generation blogging platform for finance, technology, markets, insurance, and law. Read expert guides, market updates, and legal insights written by professionals and enthusiasts.",
+      "Discover YieldInvest — a next-generation blogging platform for finance, technology, markets, insurance, and law. Read expert guides, market updates, and legal insights written by professionals and enthusiasts.",
     url: "https://www.yieldnvest.com/",
-    siteName: "YieldWitness",
+    siteName: "YieldInvest",
     images: [
       {
-        // url: "/assets/projects/yieldwitness-preview.png",
+        // url: "/assets/projects/yieldInvest-preview.png",
         width: 1200,
         height: 630,
-        alt: "YieldWitness Blog Platform"
+        alt: "YieldInvest Blog Platform"
       }
     ],
     locale: "en_US",
@@ -63,11 +63,11 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "YieldWitness: Smart Blog for Finance, Tech, Insurance & Law",
+    title: "YieldInvest: Smart Blog for Finance, Tech, Insurance & Law",
     description:
-      "Join YieldWitness — your go-to source for finance, technology, insurance, and law blogs. Explore expert insights and analysis on modern industries.",
-    // images: ["/assets/projects/yieldwitness-preview.png"],
-    creator: "@yieldwitness"
+      "Join YieldInvest — your go-to source for finance, technology, insurance, and law blogs. Explore expert insights and analysis on modern industries.",
+    // images: ["/assets/projects/yieldInvest-preview.png"],
+    creator: "@yieldInvest"
   },
   alternates: {
     canonical: "https://www.yieldnvest.com/"

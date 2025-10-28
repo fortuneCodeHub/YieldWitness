@@ -42,7 +42,7 @@ export default function Header() {
 
             <Link href="/" className="relative text-2xl font-bold poppins-bold-italic">
                 <span className="text-[#0EA5A4]">Yield</span>
-                <span className="text-[#0F172A]">Witness</span>
+                <span className="text-[#0F172A]">Invest</span>
                 <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#0EA5A4]"></span>
             </Link>
 
