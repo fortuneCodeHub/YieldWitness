@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono, Inter, Poppins } from "next/font/google";
 import "../styles/globals.css";
 import ReduxLandingProvider from "@/components/hooks/ReduxLandingProvider";
+import Script from "next/script";
+import AnalyticsTracker from "@/components/ui/AnalyticsTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,10 +85,30 @@ const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-H1QYN3T4M0"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-H1QYN3T4M0', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${poppins.className} antialiased`}
       >
-        <ReduxLandingProvider>{children}</ReduxLandingProvider>
+        <AnalyticsTracker /> {/* 👈 placed here once */}
+        <ReduxLandingProvider>
+          {children}
+        </ReduxLandingProvider>
       </body>
     </html>
   );
