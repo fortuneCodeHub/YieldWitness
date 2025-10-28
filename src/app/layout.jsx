@@ -88,17 +88,25 @@ export default function RootLayout({ children }) {
       <head>
         {/* Google tag (gtag.js) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-H1QYN3T4M0"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-H1QYN3T4M0`}
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        {/* <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-H1QYN3T4M0', {
               page_path: window.location.pathname,
             });
+          `}
+        </Script> */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-H1QYN3T4M0');
           `}
         </Script>
       </head>
