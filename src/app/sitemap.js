@@ -11,7 +11,7 @@ export default async function sitemap() {
     const { posts } = data
 
     const postEntries = posts.map((post) => ({
-        url: `https://yieldwitness.vercel.app/post/${post._id}`,
+        url: `https://www.yieldnvest.com/post/${post._id}`,
         lastModified: new Date(post.updatedAt),
         // changeFrequency: ,
         // priority: ,
@@ -19,27 +19,27 @@ export default async function sitemap() {
 
     return [
         {
-            url: `https://yieldwitness.vercel.app/`,
+            url: `https://www.yieldnvest.com/`,
             lastModified: new Date()
         },
         {
-            url: `https://yieldwitness.vercel.app/finance`,
+            url: `https://www.yieldnvest.com/finance`,
             lastModified: new Date()
         },
         {
-            url: `https://yieldwitness.vercel.app/tech`,
+            url: `https://www.yieldnvest.com/tech`,
             lastModified: new Date()
         },
         {
-            url: `https://yieldwitness.vercel.app/investment`,
+            url: `https://www.yieldnvest.com/investment`,
             lastModified: new Date()
         },
         {
-            url: `https://yieldwitness.vercel.app/law`,
+            url: `https://www.yieldnvest.com/law`,
             lastModified: new Date()
         },
         {
-            url: `https://yieldwitness.vercel.app/markets`,
+            url: `https://www.yieldnvest.com/markets`,
             lastModified: new Date()
         },
         ...postEntries,

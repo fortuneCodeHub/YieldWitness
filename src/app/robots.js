@@ -7,6 +7,6 @@ export default function robots() {
                 disallow: ["/dashboard", "/api/protected", "/access"],
             }
         ],
-        sitemap: `https://yieldwitness.vercel.app/sitemap.xml`
+        sitemap: `https://www.yieldnvest.com/sitemap.xml`
     }
 }

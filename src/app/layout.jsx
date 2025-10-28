@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL('https://yieldwitness.vercel.app/'),
+  metadataBase: new URL('https://www.yieldnvest.com/'),
   title: {
     default: "YieldWitness: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
     template: "%s - YieldWitness: Finance, Tech, Markets, Insurance & Law"
@@ -48,7 +48,7 @@ export const metadata = {
     title: "YieldWitness: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
     description:
       "Discover YieldWitness — a next-generation blogging platform for finance, technology, markets, insurance, and law. Read expert guides, market updates, and legal insights written by professionals and enthusiasts.",
-    url: "https://yieldwitness.vercel.com",
+    url: "https://www.yieldnvest.com/",
     siteName: "YieldWitness",
     images: [
       {
@@ -70,7 +70,7 @@ export const metadata = {
     creator: "@yieldwitness"
   },
   alternates: {
-    canonical: "https://yieldwitness.vercel.com"
+    canonical: "https://www.yieldnvest.com/"
   },
 };
 
