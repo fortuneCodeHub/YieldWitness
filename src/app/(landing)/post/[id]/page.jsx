@@ -1,5 +1,6 @@
 import PostPageContent from "@/components/ui/PostPageContent";
 import Head from "next/head";
+import Script from "next/script";
 import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
@@ -19,7 +20,8 @@ export async function generateMetadata({ params }) {
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords || [
-      "YieldWitness",
+      "Yield Invest",
+      "Yield Invest New York",
       "finance blog",
       "tech blog",
       "market analysis",
@@ -50,10 +52,51 @@ export async function generateMetadata({ params }) {
 }
 
 
-const PostPage = () => {
+const PostPage = async ({ params }) => {
+
+  // Fetch post data again (you could also pass it from generateMetadata)
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+  const baseUrl = `${protocol}://${host}`;
+
+  const { id } = await params
+
+  const response = await fetch(`${baseUrl}/api/auth/posts/${id}`);
+  const data = await response.json();
+  const { post } = data;
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.createdAt,
+    dateModified: post.updatedAt,
+    author: {
+      "@type": "Developer",
+      "name": "Fortune",
+    },
+    publisher: {
+      "@type": "Self-employed",
+      "name": "yieldInvest",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.yieldnvest.com/opengraph-image.png",
+      },
+    },
+    url: `https://www.yieldnvest.com/post/${post._id}`,
+  };
 
   return (
     <>
+      <Head>
+        {/* ✅ JSON-LD Structured Data */}
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      </Head>
       <PostPageContent />
     </>
   );
