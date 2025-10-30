@@ -21,9 +21,9 @@ const BlogPost = ({ post, loading, posts }) => {
         return "bg-[#0EA5A4]";
       case "tech":
         return "bg-[#2563EB]";
-      case "markets":
+      case "insurance":
         return "bg-yellow-500";
-      case "guides":
+      case "law":
         return "bg-purple-600";
       default:
         return "bg-gray-500";
