@@ -42,7 +42,7 @@ export async function POST(request) {
       },
       process.env.JWT_SECRET, // put a strong secret in .env
       {
-        expiresIn: rememberMe ? "1h" : "30d", // match your cookie logic
+        expiresIn: !rememberMe ? "1h" : "30d", // match your cookie logic
       }
     )
 
@@ -51,7 +51,7 @@ export async function POST(request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      maxAge: rememberMe ? 60 * 60 : 60 * 60 * 24 * 30, // 1h or 30d
+      maxAge: !rememberMe ? 60 * 60 : 60 * 60 * 24 * 30, // 1h or 30d
     })
 
     const response = NextResponse.json({ 
