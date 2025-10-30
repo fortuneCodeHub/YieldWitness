@@ -125,7 +125,7 @@ export default function Hero({ posts, loading }) {
                 {/* Left: Large featured articles */}
                 <div className="lg:col-span-8 relative flex flex-col">
                     {posts.slice(0, 2).map((post, i) => (
-                    <div key={post._id} className="relative aspect-video rounded-lg mb-20 overflow-hidden shadow-sm">
+                    <div key={post._id} className="relative aspect-video rounded-lg mb-10 overflow-hidden shadow-sm">
                         <a href={`/post/${post._id}`}>
                         <img
                             src={post.thumbnail || "https://source.unsplash.com/1200x675/?news"}
