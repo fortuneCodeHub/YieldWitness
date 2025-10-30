@@ -136,7 +136,7 @@ export default function Hero({ posts, loading }) {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                             <span
-                            className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
+                            className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
                                 post.category === "finance"
                                 ? "bg-[#0EA5A4]"
                                 : post.category === "tech"
@@ -150,11 +150,11 @@ export default function Hero({ posts, loading }) {
                             >
                                 {post?.category}
                             </span>
-                            <h2 className="mt-3 text-2xl md:text-3xl font-bold leading-tight">
+                            <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
                                 {truncateText(post?.title, 70)}
                             </h2>
-                            <p className="mt-2 text-sm text-gray-200 max-w-2xl">
-                                {truncateText(post?.excerpt, 150)}
+                            <p className="mt-2 text-[10px] md:text-sm text-gray-200 max-w-2xl">
+                                {truncateText(post?.excerpt, 120)}
                             </p>
                             <div className="mt-3 text-xs text-gray-300">
                                 By {post.author} • {formatDate(post?.createdAt)}

@@ -115,11 +115,11 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
                         )}
                       </div>
 
-                      <h3 className="mt-3 text-lg font-semibold text-[#0F172A] leading-snug">
+                      <h3 className="mt-3 text-[15px] md:text-lg font-semibold text-[#0F172A] leading-snug">
                         {truncateText(post.title, 50)}
                       </h3>
 
-                      <p className="mt-2 text-sm text-[#64748B]">
+                      <p className="mt-2 text-[11px] md:text-sm text-[#64748B]">
                         {truncateText(post.excerpt, 80)}
                       </p>
                     </div>
