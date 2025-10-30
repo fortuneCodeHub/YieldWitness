@@ -31,7 +31,7 @@ const BlogPost = ({ post, loading, posts }) => {
   }
 
   async function handleShare() {
-    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post._id}`;
+    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post.slug}`;
     if (navigator.share) {
       try {
         await navigator.share({
