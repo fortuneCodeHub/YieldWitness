@@ -71,11 +71,13 @@ const PostPage = async ({ params }) => {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    image: post.thumbnail,
     datePublished: post.createdAt,
     dateModified: post.updatedAt,
     author: {
       "@type": "Developer",
       "name": "Fortune",
+      url: "https://www.yieldnvest.com/",
     },
     publisher: {
       "@type": "Self-employed",
