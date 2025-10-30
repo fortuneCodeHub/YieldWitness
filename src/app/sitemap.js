@@ -11,7 +11,7 @@ export default async function sitemap() {
     const { posts } = data
 
     const postEntries = posts.map((post) => ({
-        url: `https://www.yieldnvest.com/post/${post._id}`,
+        url: `https://www.yieldnvest.com/post/${post.slug}`,
         lastModified: new Date(post.updatedAt),
         // changeFrequency: ,
         // priority: ,
@@ -31,7 +31,7 @@ export default async function sitemap() {
             lastModified: new Date()
         },
         {
-            url: `https://www.yieldnvest.com/investment`,
+            url: `https://www.yieldnvest.com/insurance`,
             lastModified: new Date()
         },
         {

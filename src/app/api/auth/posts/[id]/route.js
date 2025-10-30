@@ -11,7 +11,8 @@ export async function GET(request, { params }) {
             return NextResponse.json({ success: false, error: "Post Id Required" }, { status: 400 })
         }
 
-        const post = await Post.findById(id).lean()
+        // const post = await Post.findById(id).lean()
+        const post = await Post.findOne({ slug: id }).lean();
 
         // Check if a post exists for that Id
         if (!post) {

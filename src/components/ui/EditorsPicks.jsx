@@ -60,9 +60,9 @@ const EditorsPicks = ({ posts, loading }) => {
         return "bg-[#0EA5A4]"; // teal
       case "tech":
         return "bg-[#2563EB]"; // blue
-      case "markets":
+      case "insurance":
         return "bg-yellow-500";
-      case "guides":
+      case "law":
         return "bg-purple-600";
       default:
         return "bg-gray-400";
@@ -130,9 +130,9 @@ const EditorsPicks = ({ posts, loading }) => {
               key={post._id}
               role="button"
               tabIndex={0}
-              onClick={() => router.push(`/post/${post._id}`)}
+              onClick={() => router.push(`/post/${post.slug}`)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") router.push(`/post/${post._id}`);
+                if (e.key === "Enter" || e.key === " ") router.push(`/post/${post.slug}`);
               }}
               className="max-w-[350px] md:max-w-[400px] lg:max-w-[500px] bg-white rounded-lg shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#0EA5A4] cursor-pointer flex-shrink-0"
             >

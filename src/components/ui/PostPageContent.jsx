@@ -27,7 +27,7 @@ const PostPageContent = () => {
   useEffect(() => {
     if (!postLoading && Array.isArray(posts) && posts.length > 0) {
       const currentPost = posts.find(
-        (post) => post._id?.toLowerCase() === slug
+        (post) => post.slug?.toLowerCase() === slug
       );
       if (currentPost) {
         setPost(currentPost);

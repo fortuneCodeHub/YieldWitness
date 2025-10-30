@@ -4,12 +4,12 @@ export const metadata = {
     title: "Investment Posts",
 }
 
-export default function Investment() {
+export default function Insurance() {
 
   return (
     <>
         <CategoryContent
-            category='investment'
+            category='insurance'
         />
     </>
   )

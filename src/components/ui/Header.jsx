@@ -24,7 +24,7 @@ export default function Header() {
   const navLinks = [
     { name: "Finance", href: "/finance" },
     { name: "Tech", href: "/tech" },
-    { name: "Investment", href: "/investment" },
+    { name: "Insurance", href: "/insurance" },
     { name: "Law", href: "/law" },
     { name: "Markets", href: "/markets" },
   ];

@@ -89,7 +89,7 @@ const UpdatePostPage = () => {
 
         // Category
         // const allowedCategories = ["finance", "tech", "markets", "guides", "analysis"];
-        const allowedCategories = ["finance", "tech", "markets", "guides", "analysis", "investment", "law"];
+        const allowedCategories = ["finance", "tech", "markets", "guides", "analysis", "insurance", "law"];
         if (
             !category ||
             typeof category !== "string" ||
@@ -276,7 +276,7 @@ const UpdatePostPage = () => {
                     <option value="markets">Markets</option>
                     <option value="guides">Guides</option>
                     <option value="analysis">Analysis</option>
-                    <option value="investment">Investment</option>
+                    <option value="insurance">Insurance</option>
                     <option value="law">Law</option>
                   </select>
                   {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}

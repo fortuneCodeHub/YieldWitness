@@ -126,7 +126,7 @@ export default function Hero({ posts, loading }) {
                 <div className="lg:col-span-8 relative flex flex-col">
                     {posts.slice(0, 2).map((post, i) => (
                     <div key={post._id} className="relative aspect-video rounded-lg mb-10 overflow-hidden shadow-sm">
-                        <a href={`/post/${post._id}`}>
+                        <a href={`/post/${post.slug}`}>
                         <img
                             src={post.thumbnail || "https://source.unsplash.com/1200x675/?news"}
                             alt={post.title}
@@ -141,9 +141,9 @@ export default function Hero({ posts, loading }) {
                                 ? "bg-[#0EA5A4]"
                                 : post.category === "tech"
                                 ? "bg-[#2563EB]"
-                                : post.category === "markets"
+                                : post.category === "insurance"
                                 ? "bg-yellow-500"
-                                : post.category === "guides"
+                                : post.category === "tech"
                                 ? "bg-purple-600"
                                 : "bg-gray-600"
                             }`}
@@ -172,7 +172,7 @@ export default function Hero({ posts, loading }) {
                         key={post._id}
                         className="relative rounded-lg overflow-hidden shadow-sm lg:aspect-[4/3] aspect-[16/9]"
                     >
-                        <a href={`/post/${post._id}`}>
+                        <a href={`/post/${post.slug}`}>
                         <img
                             src={post.thumbnail || "https://source.unsplash.com/600x450/?news"}
                             alt={post.title}
@@ -187,9 +187,9 @@ export default function Hero({ posts, loading }) {
                                 ? "bg-[#0EA5A4]"
                                 : post.category === "tech"
                                 ? "bg-[#2563EB]"
-                                : post.category === "markets"
+                                : post.category === "insurance"
                                 ? "bg-yellow-500"
-                                : post.category === "guides"
+                                : post.category === "law"
                                 ? "bg-purple-600"
                                 : "bg-gray-600"
                             }`}

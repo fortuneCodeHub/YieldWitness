@@ -35,7 +35,7 @@ const RelatedPosts = ({ post, posts }) => {
           {relatedPosts.map((rel) => (
             <div
               key={rel.id}
-              onClick={() => router.push(`/post/${rel.id}`)}
+              onClick={() => router.push(`/post/${rel.slug}`)}
               className="cursor-pointer rounded-lg overflow-hidden shadow hover:shadow-lg transition"
             >
               <img

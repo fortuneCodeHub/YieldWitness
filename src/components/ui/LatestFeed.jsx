@@ -22,9 +22,9 @@ const LatestFeed = ({ posts, loading }) => {
         return "bg-[#0EA5A4]"; // teal
       case "tech":
         return "bg-[#2563EB]"; // blue
-      case "markets":
+      case "insurance":
         return "bg-yellow-500";
-      case "guides":
+      case "law":
         return "bg-purple-600";
       default:
         return "bg-gray-400";
@@ -37,7 +37,7 @@ const LatestFeed = ({ posts, loading }) => {
 
   async function handleShare(e, post) {
     e.stopPropagation();
-    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post._id}`;
+    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post.slug}`;
     if (navigator.share) {
       try {
         await navigator.share({
@@ -67,9 +67,9 @@ const LatestFeed = ({ posts, loading }) => {
           key={post._id}
           role="button"
           tabIndex={0}
-          onClick={() => router.push(`/post/${post._id}`)}
+          onClick={() => router.push(`/post/${post.slug}`)}
           onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") router.push(`/post/${post._id}`);
+            if (e.key === "Enter" || e.key === " ") router.push(`/post/${post.slug}`);
           }}
           className="relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#0EA5A4] cursor-pointer"
         >

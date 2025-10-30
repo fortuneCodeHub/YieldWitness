@@ -18,9 +18,9 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
         return "bg-[#0EA5A4]";
       case "tech":
         return "bg-[#2563EB]";
-      case "markets":
+      case "insurance":
         return "bg-yellow-500";
-      case "guides":
+      case "law":
         return "bg-purple-600";
       default:
         return "bg-gray-400";
@@ -33,7 +33,7 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
 
   async function handleShare(e, post) {
     e.stopPropagation();
-    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post._id}`;
+    const url = `${typeof window !== "undefined" ? window.location.origin : ""}/post/${post.slug}`;
     if (navigator.share) {
       try {
         await navigator.share({
@@ -79,10 +79,10 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
                   key={post._id}
                   role="button"
                   tabIndex={0}
-                  onClick={() => router.push(`/post/${post._id}`)}
+                  onClick={() => router.push(`/post/${post.slug}`)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ")
-                      router.push(`/post/${post._id}`);
+                      router.push(`/post/${post.slug}`);
                   }}
                   className="bg-white rounded-lg shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#0EA5A4] cursor-pointer flex flex-col md:flex-row overflow-hidden"
                 >
