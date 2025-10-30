@@ -1,6 +1,6 @@
 import PostPageContent from "@/components/ui/PostPageContent";
 import Head from "next/head";
-import Script from "next/script";
+// import Script from "next/script";
 import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
@@ -90,13 +90,13 @@ const PostPage = async ({ params }) => {
 
   return (
     <>
-      <Head>
+      {/* <Head> */}
         {/* ✅ JSON-LD Structured Data */}
-        <Script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
-      </Head>
+      {/* </Head> */}
       <PostPageContent />
     </>
   );
