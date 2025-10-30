@@ -125,7 +125,7 @@ const Posts = () => {
                                                             ? "bg-orange-500"
                                                             : post?.category === "analysis"
                                                             ? "bg-green-500"
-                                                            : post?.category === "investment"
+                                                            : post?.category === "insurance"
                                                             ? "bg-red-500"
                                                             : "bg-purple-600"
                                                         }`}

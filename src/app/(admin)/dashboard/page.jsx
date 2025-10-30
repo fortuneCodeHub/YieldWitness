@@ -23,7 +23,7 @@ const Dashboard = () => {
     const techPosts = posts?.filter((p) => p.category === "tech").length || 0;
     const marketsPosts = posts?.filter((p) => p.category === "markets").length || 0;
     const guidesPosts = posts?.filter((p) => p.category === "guides").length || 0;
-    const investmentsPosts = posts?.filter((p) => p.category === "investment").length || 0;
+    const investmentsPosts = posts?.filter((p) => p.category === "insurance").length || 0;
     const lawPosts = posts?.filter((p) => p.category === "law").length || 0;
 
     // Build stats dynamically
@@ -31,7 +31,7 @@ const Dashboard = () => {
     { label: "Total Posts", value: totalPosts },
     { label: "Finance Posts", value: financePosts },
     { label: "Tech Posts", value: techPosts },
-    { label: "Investment Posts", value: investmentsPosts },
+    { label: "Insurance Posts", value: insurancePosts },
     { label: "Law Posts", value: lawPosts },
     { label: "Markets Posts", value: marketsPosts },
     { label: "Guides Posts", value: guidesPosts },
@@ -148,7 +148,7 @@ const Dashboard = () => {
                                                                         ? "bg-orange-500"
                                                                         : post?.category === "analysis"
                                                                         ? "bg-green-500"
-                                                                        : post?.category === "investment"
+                                                                        : post?.category === "insurance"
                                                                         ? "bg-red-500"
                                                                         : "bg-purple-600"
                                                                     }`}
