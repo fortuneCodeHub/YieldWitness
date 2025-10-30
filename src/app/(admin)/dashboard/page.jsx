@@ -23,7 +23,7 @@ const Dashboard = () => {
     const techPosts = posts?.filter((p) => p.category === "tech").length || 0;
     const marketsPosts = posts?.filter((p) => p.category === "markets").length || 0;
     const guidesPosts = posts?.filter((p) => p.category === "guides").length || 0;
-    const investmentsPosts = posts?.filter((p) => p.category === "insurance").length || 0;
+    const insurancePosts = posts?.filter((p) => p.category === "insurance").length || 0;
     const lawPosts = posts?.filter((p) => p.category === "law").length || 0;
 
     // Build stats dynamically
