@@ -10,12 +10,15 @@ const RelatedPosts = ({ post, posts }) => {
       // Shuffle posts
       const shuffled = [...posts].sort(() => Math.random() - 0.5);
 
+      // console.log("Shuffled posts", shuffled);
+      
+
       // Filter by same category (exclude current post)
       const sameCategory = shuffled.filter(
-        (p) =>
-          p.category === post.category && // if category is a string
-          p.id !== post.id
+        (p) => p.category === post.category && p.slug !== post.slug
       );
+
+      // console.log("Same Category", sameCategory);
 
       // Pick up to 3 related posts
       const related = sameCategory.slice(0, 3);
@@ -34,7 +37,7 @@ const RelatedPosts = ({ post, posts }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {relatedPosts.map((rel) => (
             <div
-              key={rel.id}
+              key={rel._id}
               onClick={() => router.push(`/post/${rel.slug}`)}
               className="cursor-pointer rounded-lg overflow-hidden shadow hover:shadow-lg transition"
             >

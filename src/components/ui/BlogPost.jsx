@@ -11,9 +11,9 @@ const BlogPost = ({ post, loading, posts }) => {
   const router = useRouter();
   const [bookmarked, setBookmarked] = useState(false);
 
-  useEffect(() => {
-    console.log(post);
-  }, [post])
+  // useEffect(() => {
+    // console.log(post);
+  // }, [post])
 
   function categoryBadgeClass(category) {
     switch (category?.toLowerCase()) {
