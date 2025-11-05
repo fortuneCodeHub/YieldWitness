@@ -39,7 +39,7 @@ export default function TopBar({ post }) {
               Access
             </a>
             <a
-              href={`/post/${post?.slug}`}
+              href={ post ? `/post/${post?.slug}` : '#'}
               className="text-[#0EA5A4] font-medium hover:underline"
             >
               Latest Post

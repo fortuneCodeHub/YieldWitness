@@ -68,7 +68,7 @@ export default function Header({ post }) {
 
                 {/* Subscribe CTA */}
                 <Link
-                    href={`/post/${post?.slug}`}
+                    href={ post ? `/post/${post?.slug}` : '#'}
                     className="hidden sm:inline-block bg-[#0EA5A4] text-white text-sm px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                 >
                     Latest Blog
@@ -99,7 +99,7 @@ export default function Header({ post }) {
                     </Link>
                 ))}
                 <Link
-                    href={`/post/${post?.slug}`}
+                    href={ post ? `/post/${post?.slug}` : '#'}
                     className="bg-[#0EA5A4] text-white text-center px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                     onClick={() => setIsOpen(false)}
                 >
