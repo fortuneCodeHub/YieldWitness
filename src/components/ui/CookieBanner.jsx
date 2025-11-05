@@ -100,6 +100,8 @@ const CookieBanner = () => {
         };
         gtag("js", new Date());
         gtag("config", "G-H1QYN3T4M0");
+
+        setIsCookieBannerVisible(false)
       }
     }, []);
   
@@ -161,7 +163,14 @@ const CookieBanner = () => {
               Accept
             </button>
             <button
-              onClick={() => setIsCookieBannerVisible(false)}
+              onClick={() => {
+                localStorage.setItem("user-consent", "false");
+                gtag("consent", "update", {
+                  ad_storage: "denied",
+                  analytics_storage: "denied",
+                });
+                setIsCookieBannerVisible(false);
+              }}
               style={{
                 background: "transparent",
                 color: "#fff",
