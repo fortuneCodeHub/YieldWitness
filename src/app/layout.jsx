@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import ReduxLandingProvider from "@/components/hooks/ReduxLandingProvider";
 import Script from "next/script";
 import AnalyticsTracker from "@/components/ui/AnalyticsTracker";
+import CookieBanner from "@/components/ui/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -117,6 +118,8 @@ export default function RootLayout({ children }) {
         <ReduxLandingProvider>
           {children}
         </ReduxLandingProvider>
+
+        <CookieBanner />
       </body>
     </html>
   );

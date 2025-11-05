@@ -42,6 +42,22 @@ export default async function sitemap() {
             url: `https://www.yieldnvest.com/markets`,
             lastModified: new Date()
         },
+        {
+            url: `https://www.yieldnvest.com/about-us`,
+            lastModified: new Date()
+        },
+        {
+            url: `https://www.yieldnvest.com/contact-us`,
+            lastModified: new Date()
+        },
+        {
+            url: `https://www.yieldnvest.com/privacy-policy`,
+            lastModified: new Date()
+        },
+        {
+            url: `https://www.yieldnvest.com/terms-of-use`,
+            lastModified: new Date()
+        },
         ...postEntries,
     ]
 }
