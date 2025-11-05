@@ -45,7 +45,7 @@ const Home = () => {
   // Get the latest post from each category (finance, tech, markets, guides).
   // If any is missing, fill up with other random posts until there are 4 total.
   const createHeroPostsData = (posts) => {
-    const categories = ["finance", "tech", "insurance", "laws", "markets", "guides"];
+    const categories = ["finance", "tech", "insurance", "law", "markets", "guides"];
     const heroCandidates = [];
 
     categories.forEach((cat) => {
@@ -110,9 +110,9 @@ const Home = () => {
       </div>
 
       {/* Top utility bar */}
-      <TopBar />
+      <TopBar post={heroPosts[0]} />
       {/* Navigation bar */}
-      <Header />
+      <Header post={heroPosts[0]} />
       {/* Hero section */}
       <Hero posts={heroPosts} loading={loading} />
       {/* Latest Feed */}

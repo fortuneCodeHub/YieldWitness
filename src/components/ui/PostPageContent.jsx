@@ -62,9 +62,9 @@ const PostPageContent = () => {
         </div>
 
         {/* Top utility bar */}
-        <TopBar />
+        <TopBar post={post} />
         {/* Navigation bar */}
-        <Header />
+        <Header post={post} />
         {/* Blog Post Content */}
         <BlogPost post={post} loading={loading} posts={posts} />
         {/* Footer */}

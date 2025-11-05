@@ -11,7 +11,7 @@ export default function Hero({ posts, loading }) {
                 {/* Left: Large featured article */}
                 <div className="lg:col-span-8 relative flex flex-col">
                     <div className="relative aspect-video rounded-lg mb-20 overflow-hidden shadow-sm">
-                        <a href="/post">  
+                        <a href="">  
                             <img
                                 src="https://source.unsplash.com/1200x675/?finance,technology"
                                 alt=""
@@ -38,7 +38,7 @@ export default function Hero({ posts, loading }) {
                         </a>
                     </div>
                     <div className="relative aspect-video rounded-lg mb-20 overflow-hidden shadow-sm">
-                        <a href="/post">
+                        <a href="">
                             <img
                                 src="https://source.unsplash.com/1200x675/?finance,technology"
                                 alt=""
@@ -70,7 +70,7 @@ export default function Hero({ posts, loading }) {
                 <div className="lg:col-span-4 flex flex-col gap-6">
                     {/* Card 1 */}
                     <div className="relative rounded-lg overflow-hidden shadow-sm lg:aspect-[4/3] aspect-[16/9]">
-                        <a href="/post">  
+                        <a href="">  
                             <div className="">
                                 <img
                                 src="https://source.unsplash.com/600x450/?technology"
@@ -93,7 +93,7 @@ export default function Hero({ posts, loading }) {
 
                     {/* Card 2 */}
                     <div className="relative rounded-lg overflow-hidden shadow-sm lg:aspect-[4/3] aspect-[16/9]">
-                        <a href="/post/">  
+                        <a href="">  
                             <div className="">
                                 <img
                                 src="https://source.unsplash.com/600x450/?stocks"

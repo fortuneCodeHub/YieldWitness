@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import LiveTicker from "./LiveTicker";
 
-export default function TopBar() {
+export default function TopBar({ post }) {
   const [date, setDate] = useState("");
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function TopBar() {
               Access
             </a>
             <a
-              href="/"
+              href={`/post/${post?.slug}`}
               className="text-[#0EA5A4] font-medium hover:underline"
             >
               Latest Post

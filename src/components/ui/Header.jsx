@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Search } from "lucide-react";
 import Link from "next/link";
 
-export default function Header() {
+export default function Header({ post }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -68,7 +68,7 @@ export default function Header() {
 
                 {/* Subscribe CTA */}
                 <Link
-                    href="/"
+                    href={`/post/${post?.slug}`}
                     className="hidden sm:inline-block bg-[#0EA5A4] text-white text-sm px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                 >
                     Latest Blog
@@ -99,7 +99,7 @@ export default function Header() {
                     </Link>
                 ))}
                 <Link
-                    href="/"
+                    href={`/post/${post?.slug}`}
                     className="bg-[#0EA5A4] text-white text-center px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                     onClick={() => setIsOpen(false)}
                 >

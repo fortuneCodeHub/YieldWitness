@@ -174,10 +174,10 @@ const LatestFeed = ({ posts, loading }) => {
           key={article.id}
           role="button"
           tabIndex={0}
-          onClick={() => router.push(`/post/${article.id}`)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") router.push(`/posts/${article.id}`);
-          }}
+          // onClick={() => router.push(`/post/${article.id}`)}
+          // onKeyDown={(e) => {
+          //   if (e.key === "Enter" || e.key === " ") router.push(`/posts/${article.id}`);
+          // }}
           className="relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#0EA5A4] cursor-pointer"
         >
           {/* Image */}
