@@ -23,7 +23,7 @@ export default async function sitemap() {
             lastModified: new Date()
         },
         {
-            url: `https://www.yieldnvest.com/finance`,
+            url: `https://www.yieldnvest.com/personal-finance`,
             lastModified: new Date()
         },
         {
