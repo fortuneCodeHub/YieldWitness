@@ -71,7 +71,7 @@ const NewPostPage = () => {
     }
 
     // Category
-    const allowedCategories = ["finance", "tech", "markets", "guides", "analysis", "insurance", "law"];
+    const allowedCategories = ["finance", "tech", "insurance"];
     if (
       !category ||
       typeof category !== "string" ||
@@ -222,11 +222,7 @@ const NewPostPage = () => {
                     <option value="">Select category</option>
                     <option value="finance">Finance</option>
                     <option value="tech">Tech</option>
-                    <option value="markets">Markets</option>
-                    <option value="guides">Guides</option>
-                    <option value="analysis">Analysis</option>
                     <option value="insurance">Insurance</option>
-                    <option value="law">Law</option>
                   </select>
                   {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
                 </div>

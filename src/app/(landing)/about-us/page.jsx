@@ -28,7 +28,7 @@ export default function AboutPage() {
               </Link>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto text-center">
-              Your digital window into the world of finance, technology, insurance, and law.
+              Your digital window into the world of personal finance, technology and insurance.
             </p>
           </div>
     
@@ -36,7 +36,7 @@ export default function AboutPage() {
             <p>
               <strong>YieldInvest</strong> is more than just a blog — it’s a platform for thinkers,
               professionals, and everyday readers who want to stay ahead of change. We simplify complex
-              ideas across <span className="font-semibold">finance, tech, insurance, and law</span> —
+              ideas across <span className="font-semibold">personal finance, technology and insurance</span> —
               delivering insights that inform, inspire, and empower.
             </p>
     

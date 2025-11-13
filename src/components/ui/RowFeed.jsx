@@ -105,7 +105,7 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
                             post.category
                           )}`}
                         >
-                          {post.category}
+                          {post?.category === "finance" ? "personal-finance" : post.category}
                         </span>
 
                         {post.sponsored && (

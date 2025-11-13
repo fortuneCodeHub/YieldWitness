@@ -34,14 +34,14 @@ export default async function sitemap() {
             url: `https://www.yieldnvest.com/insurance`,
             lastModified: new Date()
         },
-        {
-            url: `https://www.yieldnvest.com/law`,
-            lastModified: new Date()
-        },
-        {
-            url: `https://www.yieldnvest.com/markets`,
-            lastModified: new Date()
-        },
+        // {
+        //     url: `https://www.yieldnvest.com/law`,
+        //     lastModified: new Date()
+        // },
+        // {
+        //     url: `https://www.yieldnvest.com/markets`,
+        //     lastModified: new Date()
+        // },
         {
             url: `https://www.yieldnvest.com/about-us`,
             lastModified: new Date()

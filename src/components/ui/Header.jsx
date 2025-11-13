@@ -22,11 +22,11 @@ export default function Header({ post }) {
   }, []);
 
   const navLinks = [
-    { name: "Finance", href: "/finance" },
+    { name: "Personal Finance", href: "/personal-finance" },
     { name: "Tech", href: "/tech" },
     { name: "Insurance", href: "/insurance" },
-    { name: "Law", href: "/law" },
-    { name: "Markets", href: "/markets" },
+    // { name: "Law", href: "/law" },
+    // { name: "Markets", href: "/markets" },
   ];
 
   return (

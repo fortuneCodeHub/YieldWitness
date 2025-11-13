@@ -150,7 +150,7 @@ const EditorsPicks = ({ posts, loading }) => {
               <div className="p-4 flex flex-col justify-between h-48">
                 <div>
                   <span className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}>
-                    {post.category}
+                    {post?.category === "finance" ? "personal-finance" : post.category}
                   </span>
 
                   <h3 className="mt-2 text-[14px] md:text-lg font-semibold text-[#0F172A] leading-snug line-clamp-2">

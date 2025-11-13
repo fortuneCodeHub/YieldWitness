@@ -22,7 +22,7 @@ export default function TermsOfUsePage() {
             {/* Navigation bar */}
             <Header />  
 
-            <section className="relative flex flex-col items-center justify-center min-h-screen py-20 px-6 bg-white">
+            <section className="max-w-5xl mx-auto relative flex flex-col items-center justify-center min-h-screen py-20 px-6 bg-white">
                 <div className="space-y-10 w-full bg-white dark:bg-white-800 p-8 rounded-xl">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-900">

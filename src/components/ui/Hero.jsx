@@ -148,7 +148,7 @@ export default function Hero({ posts, loading }) {
                                 : "bg-gray-600"
                             }`}
                             >
-                                {post?.category}
+                                {post?.category === "finance" ? "personal-finance" : post.category}
                             </span>
                             <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
                                 {truncateText(post?.title, 70)}
@@ -194,7 +194,7 @@ export default function Hero({ posts, loading }) {
                                 : "bg-gray-600"
                             }`}
                             >
-                            {post.category}
+                            {post?.category === "finance" ? "personal-finance" : post.category}
                             </span>
                             <h3 className="mt-2 text-lg font-semibold leading-tight">
                                 {truncateText(post?.title, 50)}

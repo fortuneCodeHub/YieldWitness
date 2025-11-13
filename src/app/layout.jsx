@@ -21,14 +21,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   metadataBase: new URL('https://www.yieldnvest.com/'),
   title: {
-    default: "YieldInvest: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
-    template: "%s - YieldInvest: Finance, Tech, Markets, Insurance & Law"
+    default: "YieldInvest: Smarter Blogging for Personal Finance, Tech & Insurance",
+    template: "%s - YieldInvest: Smarter Blogging for Personal Finance, Tech & Insurance"
   },
   description:
     "YieldInvest is a modern blogging platform focused on finance, technology, markets, insurance, and law. Explore expert insights, data-driven analysis, and well-researched guides crafted for professionals and curious readers.",
   keywords: [
     "YieldInvest",
-    "finance blog",
+    "personal finance blog",
     "tech blog",
     "market analysis",
     "investment insights",
@@ -48,9 +48,9 @@ export const metadata = {
     "blog builder"
   ],
   openGraph: {
-    title: "YieldInvest: Smarter Blogging for Finance, Tech, Markets, Insurance & Law",
+    title: "YieldInvest: Smarter Blogging for Personal Finance, Tech & Insurance",
     description:
-      "Discover YieldInvest — a next-generation blogging platform for finance, technology, markets, insurance, and law. Read expert guides, market updates, and legal insights written by professionals and enthusiasts.",
+      "Discover YieldInvest — a next-generation blogging platform for personal finance, technology and insurance. Read expert guides, market updates, and legal insights written by professionals and enthusiasts.",
     url: "https://www.yieldnvest.com/",
     siteName: "YieldInvest",
     images: [
@@ -68,7 +68,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "YieldInvest: Smart Blog for Finance, Tech, Insurance & Law",
     description:
-      "Join YieldInvest — your go-to source for finance, technology, insurance, and law blogs. Explore expert insights and analysis on modern industries.",
+      "Join YieldInvest — your go-to source for personal finance, technology and insurance blogs. Explore expert insights and analysis on modern industries.",
     // images: ["/assets/projects/yieldInvest-preview.png"],
     creator: "@yieldInvest"
   },

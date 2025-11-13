@@ -1,17 +1,17 @@
-import CategoryContent from '@/components/ui/CategoryContent'
+// import CategoryContent from '@/components/ui/CategoryContent'
 
-export const metadata = {
-    title: "Markets Posts",
-}
+// export const metadata = {
+//     title: "Markets Posts",
+// }
 
-export default function Markets() {
+// export default function Markets() {
 
-  return (
-    <>
-        <CategoryContent
-            category='markets'
-        />
-    </>
-  )
-}
+//   return (
+//     <>
+//         <CategoryContent
+//             category='markets'
+//         />
+//     </>
+//   )
+// }
 
