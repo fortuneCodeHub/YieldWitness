@@ -8,7 +8,7 @@ import TopBar from "@/components/ui/TopBar";
 import Link from "next/link";
 
 export const metadata = {
-    title: "Terms of Use - YieldInvest: Finance, Tech, Insurance & Law Blog",
+    title: "Terms of Use - YieldInvest: Personal Finance, Tech & Insurance Blog",
     description:
       "Review the terms of use for YieldInvest. Learn about your rights, responsibilities, and the policies governing your use of our website and services.",
 };

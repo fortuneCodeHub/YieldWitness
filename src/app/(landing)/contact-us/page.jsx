@@ -1,7 +1,7 @@
 import ContactPageContent from "@/components/ui/ContactPageContent";
 
 export const metadata = {
-  title: "Contact Us - YieldInvest: Finance, Tech, Insurance & Law Blog",
+  title: "Contact Us - YieldInvest: Personal Finance, Tech & Insurance Blog",
   description:
     "Get in touch with the YieldInvest team. Whether it’s feedback, partnership, or inquiry — we’d love to hear from you.",
 };

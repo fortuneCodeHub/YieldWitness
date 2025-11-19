@@ -4,7 +4,7 @@ import TopBar from "@/components/ui/TopBar";
 import Link from "next/link";
 
 export const metadata = {
-    title: "About Us - YieldInvest: Finance, Tech, Insurance & Law Blog",
+    title: "About Us - YieldInvest: Personal Finance, Tech & Insurance Blog",
     description:
       "Learn about YieldInvest — a modern blog dedicated to finance, technology, insurance, and law. Our mission is to make complex topics simple and insightful for everyone.",
 };

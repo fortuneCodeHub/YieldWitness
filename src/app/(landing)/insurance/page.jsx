@@ -1,7 +1,7 @@
 import CategoryContent from '@/components/ui/CategoryContent'
 
 export const metadata = {
-    title: "Investment Posts",
+    title: "Insurance Posts",
 }
 
 export default function Insurance() {

@@ -4,7 +4,7 @@ import TopBar from "@/components/ui/TopBar";
 import Link from "next/link";
 
 export const metadata = {
-    title: "Privacy Policy - YieldInvest: Finance, Tech, Insurance & Law Blog",
+    title: "Privacy Policy - YieldInvest: Personal Finance, Tech & Insurance Blog",
     description:
       "Read the YieldInvest Privacy Policy to understand how we collect, use, and protect your data across our finance, technology, insurance, and law articles.",
 };
