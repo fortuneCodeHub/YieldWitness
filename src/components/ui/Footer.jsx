@@ -27,12 +27,12 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Categories</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="/finance" className="hover:text-white">Finance</a></li>
+            <li><a href="/personal-finance" className="hover:text-white">Personal Finance</a></li>
             <li><a href="/tech" className="hover:text-white">Tech</a></li>
             <li><a href="/insurance" className="hover:text-white">Insurance</a></li>
             {/* <li><a href="#" className="hover:text-white">Analysis</a></li> */}
-            <li><a href="/law" className="hover:text-white">Law</a></li>
-            <li><a href="/markets" className="hover:text-white">Markets</a></li>
+            {/* <li><a href="/law" className="hover:text-white">Law</a></li> */}
+            {/* <li><a href="/markets" className="hover:text-white">Markets</a></li> */}
           </ul>
         </div>
 
