@@ -142,6 +142,50 @@ export default function PrivacyPolicyPage() {
                             .
                         </p>
                     </section>
+
+                    <section>
+                        <h2 className="text-2xl font-semibold text-[#0EA5A4] mb-3">
+                            10. Google AdSense & Advertising Partners
+                        </h2>
+                        <p>
+                            YieldInvest uses Google AdSense to display advertisements. Google may use
+                            cookies, including the DART cookie, to serve personalized ads based on your
+                            visits to our website and other sites across the internet.
+                        </p>
+
+                        <p className="mt-3">
+                            Users may opt out of the use of the DART cookie for personalized advertising
+                            by visiting Google’s Ads Settings page:
+                            {" "}
+                            <a
+                            href="https://www.google.com/settings/ads"
+                            target="_blank"
+                            className="text-[#0EA5A4] underline break-all inline-block"
+                            >
+                            https://www.google.com/settings/ads
+                            </a>
+                        </p>
+
+                        <p className="mt-3">
+                            Google and its advertising partners may use tracking technologies to measure
+                            ad performance, prevent fraud, and personalize ad content. These partners
+                            may automatically collect information such as your IP address, device type,
+                            browser, and browsing behavior for analytics and advertising purposes.
+                        </p>
+
+                        <p className="mt-3">
+                            To learn more about how Google uses data, you can read:
+                            {" "}
+                            <a
+                            href="https://policies.google.com/technologies/ads"
+                            target="_blank"
+                            className="text-[#0EA5A4] underline break-all inline-block"
+                            >
+                            https://policies.google.com/technologies/ads
+                            </a>
+                        </p>
+                    </section>
+
                 </div>
 
                 <div className="mt-16 text-center text-gray-500 text-sm">
