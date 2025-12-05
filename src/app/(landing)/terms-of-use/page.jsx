@@ -76,20 +76,46 @@ export default function TermsOfUsePage() {
             
                         <h2 className="text-2xl font-semibold text-[#0EA5A4]">8. Contact Us</h2>
                         <p>
-                        If you have any questions regarding these Terms of Use, please contact us at{" "}
-                        <a
-                            href="mailto:contactyieldnvest@gmail.com"
-                            className="text-[#0EA5A4] hover:underline"
-                        >
-                            contactyieldnvest@gmail.com
-                        </a>
-                        .
+                            If you have any questions regarding these Terms of Use, please contact us at{" "}
+                            <a
+                                href="mailto:contactyieldnvest@gmail.com"
+                                className="text-[#0EA5A4] hover:underline"
+                            >
+                                contactyieldnvest@gmail.com
+                            </a>
+                            .
+                            You can also review our <a href="https://www.yieldnvest.com/privacy-policy" className="text-[#0EA5A4] hover:underline">Privacy Policy</a> for more information.
+                        </p>
+                        <h2 className="text-2xl font-semibold text-[#0EA5A4]">9. Advertising & Third-Party Cookies</h2>
+                        <p>
+                            YieldInvest uses Google AdSense and other third-party advertising partners. 
+                            These partners may use cookies, including Google’s DART cookie, to display 
+                            personalized ads based on your visits to our website and other websites. 
+                            You may opt out of personalized advertising by visiting Google’s Ad Settings page:
+                            {" "}
+                            <a
+                                href="https://www.google.com/settings/ads"
+                                target="_blank"
+                                className="text-[#0EA5A4] underline break-all inline-block"
+                            >
+                                https://www.google.com/settings/ads
+                            </a>
+                            <br/>
+                            To learn more about how Google uses data, you can read:
+                            {" "}
+                            <a
+                            href="https://policies.google.com/technologies/ads"
+                            target="_blank"
+                            className="text-[#0EA5A4] underline break-all inline-block"
+                            >
+                            https://policies.google.com/technologies/ads
+                            </a>
                         </p>
                     </div>
             
                     <div className="text-center mt-10">
                         <p className="text-sm text-gray-500">
-                        Last Updated: <span className="font-medium text-gray-900">August 2023</span>
+                        Last Updated: <span className="font-medium text-gray-900">December 2023</span>
                         </p>
                     </div>
                 </div>

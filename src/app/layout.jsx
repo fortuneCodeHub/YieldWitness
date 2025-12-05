@@ -25,7 +25,7 @@ export const metadata = {
     template: "%s - YieldInvest: Smarter Blogging for Personal Finance, Tech & Insurance"
   },
   description:
-    "YieldInvest is a modern blogging platform focused on finance, technology, markets, insurance, and law. Explore expert insights, data-driven analysis, and well-researched guides crafted for professionals and curious readers.",
+    "YieldInvest is a modern blogging platform focused on personal finance, technology, markets, insurance, and law. Explore expert insights, data-driven analysis, and well-researched guides crafted for professionals and curious readers.",
   keywords: [
     "YieldInvest",
     "personal finance blog",
