@@ -122,12 +122,12 @@ export default function AboutPage() {
                 </p>
                 <p className="text-sm text-gray-600">
                   Twitter/X:{" "}
-                  <a className="text-blue-600 underline" href="https://x.com/Nottytmn?s=09" target="_blank">
+                  <a className="text-blue-600 underline break-all inline-block" href="https://x.com/Nottytmn?s=09" target="_blank">
                     https://x.com/Nottytmn?s=09
                   </a>
                   <br />
                   Colosseum Project Page:{" "}
-                  <a className="text-blue-600 underline" href="https://arena.colosseum.org/projects/explore/notty-terminal" target="_blank">
+                  <a className="text-blue-600 underlinebreak-all inline-block" href="https://arena.colosseum.org/projects/explore/notty-terminal" target="_blank">
                     Notty Terminal on Colosseum
                   </a>
                 </p>
@@ -146,43 +146,43 @@ export default function AboutPage() {
                   <li>
                     freeCodeCamp – Responsive Web Design (2025) <br />
                     <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9" target="_blank"
-                      className="text-blue-600 underline">https://www.freecodecamp.org/learn/responsive-web-design-v9</a>
+                      className="text-blue-600 underline break-all inline-block">https://www.freecodecamp.org/learn/responsive-web-design-v9</a>
                   </li>
 
                   <li>
                     UniAthena – Basics of Risk Management in Insurance Sector <br />
                     <a href="https://uniathena.com/short-courses/basics-of-risk-management-in-insurance-sector" target="_blank"
-                      className="text-blue-600 underline">https://uniathena.com/short-courses/basics-of-risk-management-in-insurance-sector</a>
+                      className="text-blue-600 underline break-all inline-block">https://uniathena.com/short-courses/basics-of-risk-management-in-insurance-sector</a>
                   </li>
 
                   <li>
                     Alison – Diploma in Risk Management <br />
                     <a href="https://alison.com/topic/learn/70676/learning-outcomes" target="_blank"
-                      className="text-blue-600 underline">https://alison.com/topic/learn/70676/learning-outcomes</a>
+                      className="text-blue-600 underline break-all inline-block">https://alison.com/topic/learn/70676/learning-outcomes</a>
                   </li>
 
                   <li>
                     Alison – Property & Liability Risk <br />
                     <a href="https://alison.com/topic/learn/75434/learning-outcomes" target="_blank"
-                      className="text-blue-600 underline">https://alison.com/topic/learn/75434/learning-outcomes</a>
+                      className="text-blue-600 underline break-all inline-block">https://alison.com/topic/learn/75434/learning-outcomes</a>
                   </li>
 
                   <li>
                     freeCodeCamp – Frontend Development Libraries <br />
                     <a href="https://www.freecodecamp.org/learn/front-end-development-libraries-v9/" target="_blank"
-                      className="text-blue-600 underline">https://www.freecodecamp.org/learn/front-end-development-libraries-v9/</a>
+                      className="text-blue-600 underline break-all inline-block">https://www.freecodecamp.org/learn/front-end-development-libraries-v9/</a>
                   </li>
 
                   <li>
                     Alison – AI in Personal Finance and Investments <br />
                     <a href="https://alison.com/topic/learn/158327/learning-outcomes" target="_blank"
-                      className="text-blue-600 underline">https://alison.com/topic/learn/158327/learning-outcomes</a>
+                      className="text-blue-600 underline break-all inline-block">https://alison.com/topic/learn/158327/learning-outcomes</a>
                   </li>
 
                   <li>
                     Alison – Professional Personal Finance Advisor <br />
                     <a href="https://alison.com/topic/learn/158327/learning-outcomes" target="_blank"
-                      className="text-blue-600 underline">https://alison.com/topic/learn/158327/learning-outcomes</a>
+                      className="text-blue-600 underline break-all inline-block">https://alison.com/topic/learn/158327/learning-outcomes</a>
                   </li>
                 </ul>
 
@@ -194,9 +194,9 @@ export default function AboutPage() {
 
                 <h3 className="text-2xl font-semibold mt-6">Professional Profiles</h3>
                 <ul className="list-disc ml-5 space-y-2 text-blue-600">
-                  <li><a href="https://www.linkedin.com/in/peter-mark-98b429398?trk=contact-info" target="_blank" className="underline">LinkedIn Profile</a></li>
-                  <li><a href="https://independent.academia.edu/PeterMark67" target="_blank" className="underline">Academia.edu</a></li>
-                  <li><a href="https://medium.com/@petermark.editor" target="_blank" className="underline">Medium Articles</a></li>
+                  <li><a href="https://www.linkedin.com/in/peter-mark-98b429398?trk=contact-info" target="_blank" className="underline break-all inline-block">LinkedIn Profile</a></li>
+                  <li><a href="https://independent.academia.edu/PeterMark67" target="_blank" className="underline break-all inline-block">Academia.edu</a></li>
+                  <li><a href="https://medium.com/@petermark.editor" target="_blank" className="underline break-all inline-block">Medium Articles</a></li>
                 </ul>
 
                 <p className="text-sm text-gray-500 border-t pt-4">
