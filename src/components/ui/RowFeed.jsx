@@ -241,8 +241,8 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
       </div>
 
       {/* Ad Slot */}
-      <div className="md:col-span-2 bg-gray-50 border border-dashed border-gray-200 rounded p-6 flex items-center justify-center text-sm text-gray-500 mt-5">
-        Native Ad — your ad goes here (responsive)
+      <div className="md:col-span-2 bg-white rounded p-6 flex items-center justify-center text-sm text-gray-500 mt-5">
+        {/* Native Ad — your ad goes here (responsive) */}
       </div>
     </section>
   );

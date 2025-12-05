@@ -177,8 +177,8 @@ const EditorsPicks = ({ posts, loading }) => {
       </div>
 
       {/* Inline ad space */}
-      <div className="mt-8 bg-gray-50 border border-dashed border-gray-200 rounded h-20 flex items-center justify-center text-sm text-gray-500">
-        728×90 Leaderboard Ad — your ad goes here
+      <div className="mt-8 bg-white rounded h-20 flex items-center justify-center text-sm text-gray-500">
+        
       </div>
     </section>
   );

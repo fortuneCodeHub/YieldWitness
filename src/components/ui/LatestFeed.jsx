@@ -158,10 +158,10 @@ const LatestFeed = ({ posts, loading }) => {
         feedItems.push(
           <div
             key={`ad-${idx}`}
-            className="md:col-span-2 bg-gray-50 border border-dashed border-gray-200 rounded p-6 flex items-center justify-center text-sm text-gray-500"
+            className="md:col-span-2 bg-white rounded p-3 flex items-center justify-center text-sm text-gray-500"
           >
             {/* Desktop: spans both columns; Mobile: full width */}
-            Native Ad — your ad goes here (responsive)
+            {/* Native Ad — your ad goes here (responsive) */}
           </div>
         );
       }

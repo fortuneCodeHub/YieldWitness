@@ -57,16 +57,16 @@ const Home = () => {
       }
     });
 
-    // Fill remaining slots if we have less than 4 hero posts
-    if (heroCandidates.length < 4) {
+    // Fill remaining slots if we have less than 5 hero posts
+    if (heroCandidates.length < 5) {
       const remaining = posts.filter(
         (p) => !heroCandidates.some((h) => h._id === p._id)
       );
       const shuffled = shuffleArray(remaining);
-      heroCandidates.push(...shuffled.slice(0, 4 - heroCandidates.length));
+      heroCandidates.push(...shuffled.slice(0, 5 - heroCandidates.length));
     }
 
-    return heroCandidates.slice(0, 4);
+    return heroCandidates.slice(0, 5);
   };
 
   // LATEST FEEDS
@@ -92,22 +92,22 @@ const Home = () => {
 
   return (
     <div className="font-sans bg-background text-foreground min-h-screen relative">
-      {/* Right Ad */}
+      {/* Right Ad
       <div
         className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 right-2"
       >
-        {/* Desktop: spans both columns; Mobile: full width */}
+        Desktop: spans both columns; Mobile: full width
         Native Ad — your ad goes here (responsive)
       </div>
 
-      {/* Left Ad */}
+      Left Ad
       <div
         // key={`ad-${idx}`}
         className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 left-2"
       >
-        {/* Desktop: spans both columns; Mobile: full width */}
+        Desktop: spans both columns; Mobile: full width
         Native Ad — your ad goes here (responsive)
-      </div>
+      </div> */}
 
       {/* Top utility bar */}
       <TopBar post={heroPosts[0]} />

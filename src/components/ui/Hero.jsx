@@ -167,7 +167,7 @@ export default function Hero({ posts, loading }) {
 
                 {/* Right: Smaller featured cards + Ad */}
                 <div className="lg:col-span-4 flex flex-col gap-6">
-                    {posts.slice(2, 4).map((post) => (
+                    {posts.slice(2, 5).map((post) => (
                     <div
                         key={post._id}
                         className="relative rounded-lg overflow-hidden shadow-sm lg:aspect-[4/3] aspect-[16/9]"
@@ -205,9 +205,9 @@ export default function Hero({ posts, loading }) {
                     ))}
 
                     {/* Ad slot (desktop only) */}
-                    <div className="hidden lg:flex items-center justify-center bg-gray-100 text-gray-500 rounded w-full h-[400px]">
+                    {/* <div className="hidden lg:flex items-center justify-center bg-gray-100 text-gray-500 rounded w-full h-[400px]">
                     Ad Space 300×600
-                    </div>
+                    </div> */}
                 </div>
             </>
 
@@ -215,8 +215,8 @@ export default function Hero({ posts, loading }) {
 
       {/* Inline leaderboard ad (below hero, desktop only) */}
       <div className="flex lg:col-span-12 justify-center mt-4">
-        <div className="bg-gray-100 w-[970px] h-[90px] flex items-center justify-center text-gray-500 rounded">
-          Leaderboard Ad 970×90
+        <div className="bg-white w-[970px] h-[50px] flex items-center justify-center text-gray-500 rounded">
+          
         </div>
       </div>
     </section>

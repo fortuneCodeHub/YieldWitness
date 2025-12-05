@@ -111,11 +111,11 @@ export default function Header({ post }) {
         </header>
 
         {/* Mobile-only banner ad (320x50) */}
-        <div className="flex justify-center py-2">
+        {/* <div className="flex justify-center py-2">
             <div className="bg-gray-200 md:w-[70%] md:mx-auto w-[320px] h-[50px] flex items-center justify-center text-xs text-gray-500 rounded">
             Mobile Ad 320×50
             </div>
-        </div>
+        </div> */}
     </>
   );
 }

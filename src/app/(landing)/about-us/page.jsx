@@ -73,6 +73,140 @@ export default function AboutPage() {
               Explore Latest Articles
             </a>
           </div>
+          
+        </section>
+
+        {/* Author Bio Section */}
+        <section className="max-w-5xl mx-auto px-6 py-20 text-gray-800">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Chief Editor</h2>
+            <p className="text-lg text-gray-600">
+              The mind guiding <span className="font-semibold">YieldInvest</span> — also known as 
+              <span className="ms-2 font-semibold text-[#0EA5A4]">“The Yield Witness.”</span>
+            </p>
+          </div>
+
+          {/* Author Card */}
+          <div className="bg-white shadow-lg rounded-2xl p-8 md:p-12 border border-gray-100">
+            <div className="flex flex-col md:flex-row md:items-start gap-10">
+              
+              {/* Author Images */}
+              <div className="flex flex-col items-center gap-4 md:w-1/3">
+                <img
+                  src="/assets/images/mark-peter1.jpg" 
+                  alt="Peter Mark - Chief Editor of YieldInvest"
+                  className="w-40 h-40 object-cover rounded-full shadow-md"
+                />
+                
+                {/* <img
+                  src="" 
+                  alt="Peter Mark working on fintech dashboards"
+                  className="w-40 h-40 object-cover rounded-lg shadow-md"
+                /> */}
+              </div>
+
+              {/* Author Text */}
+              <div className="md:w-2/3 space-y-6 text-lg leading-relaxed">
+                <p>
+                  <strong>Peter Mark</strong> is the Chief Editor of YieldInvest.com — guiding the 
+                  platform’s editorial vision with deep expertise in web technologies, AI systems, 
+                  and fintech innovations. His goal is simple: deliver precise, technology-centered 
+                  insights across personal finance, insurance, and digital banking.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-6">Professional Experience</h3>
+                <p>
+                  <strong>Frontend Developer – Notty Terminal</strong><br />
+                  Peter builds real-time trading dashboards and advanced algorithmic interfaces for 
+                  Notty Terminal, a next-generation web3 fintech company.
+                </p>
+                <p className="text-sm text-gray-600">
+                  Twitter/X:{" "}
+                  <a className="text-blue-600 underline" href="https://x.com/Nottytmn?s=09" target="_blank">
+                    https://x.com/Nottytmn?s=09
+                  </a>
+                  <br />
+                  Colosseum Project Page:{" "}
+                  <a className="text-blue-600 underline" href="https://arena.colosseum.org/projects/explore/notty-terminal" target="_blank">
+                    Notty Terminal on Colosseum
+                  </a>
+                </p>
+
+                <p>
+                  <strong>Chief Editor – YieldInvest.com</strong><br />
+                  Peter leads the content strategy, ensuring every financial or insurance topic is 
+                  accurate, trustworthy, and beginner-friendly — while being grounded in real fintech 
+                  industry experience.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-6">Education & Certifications</h3>
+                {/* <h3 className="text-2xl font-semibold mt-6">Education & Certifications</h3> */}
+                <ul className="list-disc ml-5 space-y-3 text-gray-700">
+
+                  <li>
+                    freeCodeCamp – Responsive Web Design (2025) <br />
+                    <a href="https://www.freecodecamp.org/learn/responsive-web-design-v9" target="_blank"
+                      className="text-blue-600 underline">https://www.freecodecamp.org/learn/responsive-web-design-v9</a>
+                  </li>
+
+                  <li>
+                    UniAthena – Basics of Risk Management in Insurance Sector <br />
+                    <a href="https://uniathena.com/short-courses/basics-of-risk-management-in-insurance-sector" target="_blank"
+                      className="text-blue-600 underline">https://uniathena.com/short-courses/basics-of-risk-management-in-insurance-sector</a>
+                  </li>
+
+                  <li>
+                    Alison – Diploma in Risk Management <br />
+                    <a href="https://alison.com/topic/learn/70676/learning-outcomes" target="_blank"
+                      className="text-blue-600 underline">https://alison.com/topic/learn/70676/learning-outcomes</a>
+                  </li>
+
+                  <li>
+                    Alison – Property & Liability Risk <br />
+                    <a href="https://alison.com/topic/learn/75434/learning-outcomes" target="_blank"
+                      className="text-blue-600 underline">https://alison.com/topic/learn/75434/learning-outcomes</a>
+                  </li>
+
+                  <li>
+                    freeCodeCamp – Frontend Development Libraries <br />
+                    <a href="https://www.freecodecamp.org/learn/front-end-development-libraries-v9/" target="_blank"
+                      className="text-blue-600 underline">https://www.freecodecamp.org/learn/front-end-development-libraries-v9/</a>
+                  </li>
+
+                  <li>
+                    Alison – AI in Personal Finance and Investments <br />
+                    <a href="https://alison.com/topic/learn/158327/learning-outcomes" target="_blank"
+                      className="text-blue-600 underline">https://alison.com/topic/learn/158327/learning-outcomes</a>
+                  </li>
+
+                  <li>
+                    Alison – Professional Personal Finance Advisor <br />
+                    <a href="https://alison.com/topic/learn/158327/learning-outcomes" target="_blank"
+                      className="text-blue-600 underline">https://alison.com/topic/learn/158327/learning-outcomes</a>
+                  </li>
+                </ul>
+
+                <p>
+                  <strong>Ongoing Research:</strong><br />
+                  Artificial intelligence in personal finance, trading dashboards, and insurance 
+                  automation — ensuring YieldInvest stays ahead of fintech innovation.
+                </p>
+
+                <h3 className="text-2xl font-semibold mt-6">Professional Profiles</h3>
+                <ul className="list-disc ml-5 space-y-2 text-blue-600">
+                  <li><a href="https://www.linkedin.com/in/peter-mark-98b429398?trk=contact-info" target="_blank" className="underline">LinkedIn Profile</a></li>
+                  <li><a href="https://independent.academia.edu/PeterMark67" target="_blank" className="underline">Academia.edu</a></li>
+                  <li><a href="https://medium.com/@petermark.editor" target="_blank" className="underline">Medium Articles</a></li>
+                </ul>
+
+                <p className="text-sm text-gray-500 border-t pt-4">
+                  <strong>Disclaimer:</strong> All material is for educational purposes only. 
+                  Nothing here constitutes personalized financial or insurance advice. 
+                  Consult certified professionals for specific guidance.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
