@@ -46,7 +46,7 @@ const ElementorPage = () => {
         const saved = localStorage.getItem(storageKey);
         if (!saved && currentPost?.content) {
             setBlocks(currentPost.content);
-        }
+        }   
         setNotification({
             type: 'success',
             message: 'Current progress updated to local'
