@@ -28,14 +28,54 @@ const ElementorPage = () => {
     const searchParams = useSearchParams()
     const postId = searchParams.get('post_id')
 
+    
     const { data: posts, postLoading } = useSelector((state) => state.post)
     const currentPost = posts?.find((post) => post._id === postId)
+    
+    // useEffect(() => {
+        //     if (currentPost?.content) {
+    //         setBlocks(currentPost?.content)
+    //     }
+    // }, [currentPost])
+            
+    // Stable unique key per post
+    const storageKey = `builder_content_editor_${postId}`;
 
+    // Load DB content (only if no draft exists)
     useEffect(() => {
-        if (currentPost?.content) {
-            setBlocks(currentPost?.content)
+        const saved = localStorage.getItem(storageKey);
+        if (!saved && currentPost?.content) {
+            setBlocks(currentPost.content);
         }
-    }, [currentPost])
+        setNotification({
+            type: 'success',
+            message: 'Current progress updated to local'
+        })
+    }, [currentPost, storageKey]);
+
+    // Load from draft
+    useEffect(() => {
+        if (!postId) return;
+
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                if (Array.isArray(parsed)) {
+                    setBlocks(parsed);
+                }
+            } catch (err) {
+                console.error("Failed to restore autosave:", err);
+            }
+        }
+    }, [postId]);
+
+    // Autosave on every edit
+    useEffect(() => {
+        if (!postId) return;
+        localStorage.setItem(storageKey, JSON.stringify(blocks));
+    }, [blocks, postId]);
+
 
     const [notification, setNotification] = useState(null)
 
@@ -667,8 +707,10 @@ const ElementorPage = () => {
           setLoading(false);
           setNotification({
             type: 'success',
-            message: 'Post content created successfully'
+            message: 'Post content created successfully!!! Deleted draft from local'
           })
+
+          localStorage.removeItem(storageKey);
 
           setTimeout(() => {
             window.location.href = "/dashboard/posts"
