@@ -38,43 +38,61 @@ const ElementorPage = () => {
     //     }
     // }, [currentPost])
             
-    // Stable unique key per post
+    const [isInitialLoadDone, setIsInitialLoadDone] = useState(false);
+
+    // Unique key
     const storageKey = `builder_content_editor_${postId}`;
 
-    // Load DB content (only if no draft exists)
-    useEffect(() => {
-        const saved = localStorage.getItem(storageKey);
-        if (!saved && currentPost?.content) {
-            setBlocks(currentPost.content);
-        }   
-        setNotification({
-            type: 'success',
-            message: 'Current progress updated to local'
-        })
-    }, [currentPost, storageKey]);
-
-    // Load from draft
+    /* ------------------------------------------
+    1. LOAD: Load either draft or DB content
+    ------------------------------------------- */
     useEffect(() => {
         if (!postId) return;
+        if (!currentPost) return;
 
         const saved = localStorage.getItem(storageKey);
+
         if (saved) {
             try {
                 const parsed = JSON.parse(saved);
                 if (Array.isArray(parsed)) {
                     setBlocks(parsed);
+                    setIsInitialLoadDone(true);
+                    setNotification({
+                        type: 'success',
+                        message: 'Content is updating to a draft'
+                    })
+                    return; // Do NOT load DB content
                 }
             } catch (err) {
-                console.error("Failed to restore autosave:", err);
+                console.error("Failed to parse draft:", err);
             }
         }
-    }, [postId]);
 
-    // Autosave on every edit
+        // No draft → load from DB
+        if (Array.isArray(currentPost.content)) {
+            setBlocks(currentPost.content);
+            localStorage.setItem(storageKey, JSON.stringify(currentPost.content));
+            setNotification({
+                type: 'success',
+                message: 'Content is updating to a draft'
+            })
+        }
+
+        setIsInitialLoadDone(true);
+
+        
+    }, [postId, currentPost, storageKey]);
+
+    /* ------------------------------------------
+    2. AUTOSAVE: Only after initial load completes
+    ------------------------------------------- */
     useEffect(() => {
         if (!postId) return;
+        if (!isInitialLoadDone) return; // 🚀 prevent empty save
         localStorage.setItem(storageKey, JSON.stringify(blocks));
-    }, [blocks, postId]);
+    }, [blocks, postId, isInitialLoadDone]);
+
 
 
     const [notification, setNotification] = useState(null)
