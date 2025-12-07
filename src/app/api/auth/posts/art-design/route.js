@@ -2,20 +2,49 @@ import Post from "@/models/post";
 import { connectToDB } from "@/utils/database";
 import { NextResponse } from "next/server";
 
-// GET /api/posts/all → Fetch all posts for only Admins
 export async function GET(request) {
   try {
-    // connect to mongo db
     await connectToDB();
 
-    // Fetch posts but EXCLUDE category "art-design"
     const posts = await Post.find({
-      category: "art-design"
+      category: "art-design",
     }).sort({ createdAt: -1 });
 
-    return NextResponse.json({ success: true, posts }, { status: 200 });
+    return new NextResponse(
+      JSON.stringify({ success: true, posts }),
+      {
+        status: 200,
+        headers: {
+          "Access-Control-Allow-Origin": "http://localhost:3001",
+          "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        }
+      }
+    );
+
   } catch (err) {
     console.error("Fetch Posts API Error:", err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+
+    return new NextResponse(
+      JSON.stringify({ error: "Server error" }),
+      {
+        status: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "http://localhost:3001",
+        }
+      }
+    );
   }
+}
+
+// Allow OPTIONS request for CORS preflight
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "http://localhost:3001",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+    }
+  });
 }
