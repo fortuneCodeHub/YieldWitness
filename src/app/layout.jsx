@@ -87,6 +87,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+
+        {/* ⭐ Monetag Meta Tag */}
+        <meta
+          name="monetag"
+          content="27d26179399fa6522376f6ef50247398"
+        />
+
+        {/* ⭐ Google AdSense Meta Tag */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-6125522055453874"
+        />
+
         {/* Google tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-H1QYN3T4M0`}
@@ -108,6 +121,25 @@ export default function RootLayout({ children }) {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-H1QYN3T4M0');
+          `}
+        </Script>
+
+        {/* ⭐ Grow by Mediavine */}
+        <Script id="grow-me" strategy="afterInteractive">
+          {`
+            !(function(){
+              window.growMe || (
+                (window.growMe = function(e){window.growMe._.push(e);}),
+                (window.growMe._ = [])
+              );
+              var e = document.createElement("script");
+              e.type = "text/javascript";
+              e.src = "https://faves.grow.me/main.js";
+              e.defer = true;
+              e.setAttribute("data-grow-faves-site-id", "U2l0ZTowN2QyODY5OC1jYmI5LTQ4NjYtYjIzYy1iYTA4Nzg0NDEyN2U=");
+              var t = document.getElementsByTagName("script")[0];
+              t.parentNode.insertBefore(e, t);
+            })();
           `}
         </Script>
       </head>
