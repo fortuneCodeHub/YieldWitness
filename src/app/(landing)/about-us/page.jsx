@@ -98,11 +98,11 @@ export default function AboutPage() {
                   className="w-40 h-40 object-cover rounded-full shadow-md"
                 />
                 
-                {/* <img
-                  src="" 
+                <img
+                  src="/assets/images/peter-mark2.jpg" 
                   alt="Peter Mark working on fintech dashboards"
                   className="w-40 h-40 object-cover rounded-lg shadow-md"
-                /> */}
+                />
               </div>
 
               {/* Author Text */}
