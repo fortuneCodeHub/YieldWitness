@@ -32,7 +32,7 @@ const PostSchema = new Schema(
 
     category: {
       type: String,
-      enum: ["finance", "tech", "insurance"],
+      enum: ["finance", "tech", "insurance", "art-design"],
       required: true,
     },
 

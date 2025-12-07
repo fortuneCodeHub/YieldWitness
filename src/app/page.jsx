@@ -34,7 +34,7 @@ const Home = () => {
       setRowFeeds(rows);
       setLoading(false)
     }
-    console.log(posts);
+    // console.log(posts);
     
   }, [posts, postLoading]);
 

@@ -39,7 +39,7 @@ export default function ContactPageContent() {
         "template_pnu9ter", // Template ID
         {
           from_name: formData.name,
-          to_name: "YieldInvest Team",
+          to_name: "YieldWitness Team (YieldInvest website)",
           message: formData.message,
           reply_to: formData.email,
           to_email: "contactyieldnvest@gmail.com",

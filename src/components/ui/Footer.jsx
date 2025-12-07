@@ -51,18 +51,18 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold text-lg mb-4">Follow Us</h3>
           <div className="flex gap-4 mb-6">
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
+            {/* <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
               <Facebook className="h-5 w-5" />
             </a>
             <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
               <Twitter className="h-5 w-5" />
-            </a>
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
+            </a> */}
+            <a href="https://www.linkedin.com/in/peter-mark-98b429398?trk=contact-info" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
+            {/* <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-gray-700">
               <Rss className="h-5 w-5" />
-            </a>
+            </a> */}
           </div>
 
           {/* Optional Tiny Footer Ad */}
