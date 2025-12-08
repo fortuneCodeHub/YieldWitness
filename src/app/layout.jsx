@@ -124,24 +124,29 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* ⭐ Grow by Mediavine */}
-        <Script id="grow-me" strategy="afterInteractive">
-          {`
-            !(function(){
-              window.growMe || (
-                (window.growMe = function(e){window.growMe._.push(e);}),
-                (window.growMe._ = [])
-              );
-              var e = document.createElement("script");
-              e.type = "text/javascript";
-              e.src = "https://faves.grow.me/main.js";
-              e.defer = true;
-              e.setAttribute("data-grow-faves-site-id", "U2l0ZTowN2QyODY5OC1jYmI5LTQ4NjYtYjIzYy1iYTA4Nzg0NDEyN2U=");
-              var t = document.getElementsByTagName("script")[0];
-              t.parentNode.insertBefore(e, t);
-            })();
-          `}
-        </Script>
+        {/* ⭐ Grow by Mediavine — MUST keep the initializer attribute */}
+        <script
+          data-grow-initializer=""
+          dangerouslySetInnerHTML={{
+            __html: `
+              !(function(){
+                window.growMe || (
+                  (window.growMe = function(e){window.growMe._.push(e);}),
+                  (window.growMe._ = [])
+                );
+                var e = document.createElement("script");
+                e.type = "text/javascript";
+                e.src = "https://faves.grow.me/main.js";
+                e.defer = true;
+                e.setAttribute("data-grow-faves-site-id",
+                  "U2l0ZTowN2QyODY5OC1jYmI5LTQ4NjYtYjIzYy1iYTA4Nzg0NDEyN2U="
+                );
+                var t = document.getElementsByTagName("script")[0];
+                t.parentNode.insertBefore(e, t);
+              })();
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${poppins.className} antialiased`}

@@ -10,7 +10,7 @@ export async function GET(request) {
 
     // Fetch posts but EXCLUDE category "art-design"
     const posts = await Post.find({
-      category: { $nin: ["art-design", "photography"] }
+      category: { $nin: ["art-design", "photography", "sustainable-living", "books-literature"] }
     }).sort({ createdAt: -1 });
 
     return NextResponse.json({ success: true, posts }, { status: 200 });

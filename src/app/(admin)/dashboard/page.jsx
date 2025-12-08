@@ -21,10 +21,11 @@ const Dashboard = () => {
     // Count by category
     const financePosts = posts?.filter((p) => p.category === "finance").length || 0;
     const techPosts = posts?.filter((p) => p.category === "tech").length || 0;
-    const marketsPosts = posts?.filter((p) => p.category === "markets").length || 0;
-    const guidesPosts = posts?.filter((p) => p.category === "guides").length || 0;
+    const artDesignPosts = posts?.filter((p) => p.category === "art-design").length || 0;
+    const photographyPosts = posts?.filter((p) => p.category === "photography").length || 0;
     const insurancePosts = posts?.filter((p) => p.category === "insurance").length || 0;
-    const lawPosts = posts?.filter((p) => p.category === "law").length || 0;
+    const sustainableLivingPosts = posts?.filter((p) => p.category === "sustainable-living").length || 0;
+    const booksLiteraturePosts = posts?.filter((p) => p.category === "books-literature").length || 0;
 
     // Build stats dynamically
     const stats = [
@@ -32,9 +33,10 @@ const Dashboard = () => {
     { label: "Finance Posts", value: financePosts },
     { label: "Tech Posts", value: techPosts },
     { label: "Insurance Posts", value: insurancePosts },
-    { label: "Law Posts", value: lawPosts },
-    { label: "Markets Posts", value: marketsPosts },
-    { label: "Guides Posts", value: guidesPosts },
+    { label: "Art & Design Posts", value: artDesignPosts },
+    { label: "Photography Posts", value: photographyPosts },
+    { label: "Sustainable Living", value: sustainableLivingPosts },
+    { label: "Books & Lit Posts", value: booksLiteraturePosts },
     ];
 
     console.log(user);
@@ -142,11 +144,11 @@ const Dashboard = () => {
                                                                         ? "bg-[#0EA5A4]"
                                                                         : post?.category === "tech"
                                                                         ? "bg-[#2563EB]"
-                                                                        : post?.category === "markets"
+                                                                        : post?.category === "art-design"
                                                                         ? "bg-yellow-500"
-                                                                        : post?.category === "guides"
+                                                                        : post?.category === "photography"
                                                                         ? "bg-orange-500"
-                                                                        : post?.category === "analysis"
+                                                                        : post?.category === "sustainable-living"
                                                                         ? "bg-green-500"
                                                                         : post?.category === "insurance"
                                                                         ? "bg-red-500"
