@@ -102,7 +102,7 @@ export default function RootLayout({ children }) {
 
         {/* Google tag (gtag.js) */}
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-H1QYN3T4M0`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-075G29DKB1`}
           strategy="afterInteractive"
         />
         {/* <Script id="google-analytics" strategy="afterInteractive">
@@ -120,9 +120,18 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-H1QYN3T4M0');
+            gtag('config', 'G-075G29DKB1');
           `}
         </Script>
+
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-075G29DKB1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-075G29DKB1');
+</script> */}
 
         {/* ⭐ Grow by Mediavine — MUST keep the initializer attribute */}
         <script
