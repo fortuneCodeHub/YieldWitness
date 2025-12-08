@@ -123,7 +123,7 @@ const CookieBanner = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "60px",
+          height: "120px",
         }}
         contentStyle={{
           maxWidth: "800px",

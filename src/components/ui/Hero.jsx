@@ -153,10 +153,10 @@ export default function Hero({ posts, loading }) {
                             <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
                                 {truncateText(post?.title, 70)}
                             </h2>
-                            <p className="mt-2 text-[10px] md:text-sm text-gray-200 max-w-2xl">
+                            <p className="mt-2 text-[10px] md:text-sm text-gray-200 max-w-2xl md:block hidden">
                                 {truncateText(post?.excerpt, 120)}
                             </p>
-                            <div className="mt-3 text-xs text-gray-300">
+                            <div className="mt-3 text-xs text-gray-300 md:block hidden">
                                 By {post.author} • {formatDate(post?.createdAt)}
                             </div>
                         </div>
