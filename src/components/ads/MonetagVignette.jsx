@@ -32,14 +32,14 @@ export default function MonetagVignette({ zone }) {
     };
   }, [zone]);
 
-  return (
-    <div
-      ref={vignetteContainerRef}
-      className="monetag-vignette-container"
-      style={{ minHeight: "1px" }} // Vignette ads overlay, so height can be small
-    >
-      {/* Optional placeholder */}
-      {/* Vignette ad will appear here on public URL */}
-    </div>
-  );
+  // return (
+  //   <div
+  //     ref={vignetteContainerRef}
+  //     className="monetag-vignette-container"
+  //     style={{ minHeight: "1px" }} // Vignette ads overlay, so height can be small
+  //   >
+  //     {/* Optional placeholder */}
+  //     {/* Vignette ad will appear here on public URL */}
+  //   </div>
+  // );
 }

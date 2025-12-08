@@ -27,14 +27,14 @@ export default function MonetagSimpleBanner({ zone }) {
     };
   }, [zone]);
 
-  return (
-    <div
-      ref={adContainerRef}
-      className="monetag-simple-banner-container"
-      style={{ minHeight: "100px" }}
-    >
-      {/* Optional placeholder during local development */}
-      {/* Loading banner ad... */}
-    </div>
-  );
+//   return (
+//     <div
+//       ref={adContainerRef}
+//       className="monetag-simple-banner-container"
+//       style={{ minHeight: "100px" }}
+//     >
+//       {/* Optional placeholder during local development */}
+//       {/* Loading banner ad... */}
+//     </div>
+//   );
 }
