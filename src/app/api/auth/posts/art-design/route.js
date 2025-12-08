@@ -15,7 +15,7 @@ export async function GET(request) {
       {
         status: 200,
         headers: {
-          "Access-Control-Allow-Origin": "http://localhost:3001",
+          "Access-Control-Allow-Origin": "https://pixelmuseart.vercel.app/",
           "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
         }
@@ -30,7 +30,7 @@ export async function GET(request) {
       {
         status: 500,
         headers: {
-          "Access-Control-Allow-Origin": "http://localhost:3001",
+          "Access-Control-Allow-Origin": "https://pixelmuseart.vercel.app/",
         }
       }
     );
@@ -42,7 +42,7 @@ export async function OPTIONS() {
   return new NextResponse(null, {
     status: 204,
     headers: {
-      "Access-Control-Allow-Origin": "http://localhost:3001",
+      "Access-Control-Allow-Origin": "https://pixelmuseart.vercel.app/",
       "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type, Authorization",
     }
