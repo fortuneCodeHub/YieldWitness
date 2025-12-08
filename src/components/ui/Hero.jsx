@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { formatDate } from "../helpers/formatDate";
 import truncateText from "../helpers/truncateText";
+import MonetagBanner from "../ads/MonetagBanner";
+import MonetagSimpleBanner from "../ads/MonetagSimpleBanner";
 
 export default function Hero({ posts, loading }) {
   return (
@@ -216,7 +218,7 @@ export default function Hero({ posts, loading }) {
       {/* Inline leaderboard ad (below hero, desktop only) */}
       <div className="flex lg:col-span-12 justify-center mt-4">
         <div className="bg-white w-[970px] h-[50px] flex items-center justify-center text-gray-500 rounded">
-          
+          <MonetagSimpleBanner zone="10294153" />
         </div>
       </div>
     </section>

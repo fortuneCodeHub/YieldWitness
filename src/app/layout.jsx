@@ -157,6 +157,38 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+
+        {/* ⭐ Monetag Scripts */}
+        {/* <Script
+          id="monetag-1"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(s){s.dataset.zone='10294151',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+          }}
+        />
+
+        <Script
+          id="monetag-2"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(s){s.dataset.zone='10292653',s.src='https://groleegni.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+          }}
+        />
+
+        <Script
+          id="monetag-3"
+          src="https://3nbf4.com/act/files/tag.min.js?z=10294153"
+          data-cfasync="false"
+          async
+        />
+
+        <Script
+          id="monetag-4"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(s){s.dataset.zone='10294168',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+          }}
+        /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${poppins.className} antialiased`}

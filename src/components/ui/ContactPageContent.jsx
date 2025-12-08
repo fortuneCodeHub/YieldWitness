@@ -6,6 +6,7 @@ import Link from "next/link";
 import Header from "./Header";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
+import MonetagBanner from "../ads/MonetagBanner";
 
 export default function ContactPageContent() {
   const [formData, setFormData] = useState({
@@ -60,6 +61,22 @@ export default function ContactPageContent() {
 
   return (
     <>
+        {/* Right Ad */}
+        <div
+          className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 right-2"
+        >
+          {/* Desktop: spans both columns; Mobile: full width */}
+          <MonetagBanner zone="10294151" />
+        </div>
+
+        {/* Left Ad */}
+        <div
+          // key={`ad-${idx}`}
+          className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 left-2"
+        >
+          {/* Desktop: spans both columns; Mobile: full width */}
+          <MonetagBanner zone="10294153" />
+        </div>
         {/* Top utility bar */}
         <TopBar />
         {/* Navigation bar */}
