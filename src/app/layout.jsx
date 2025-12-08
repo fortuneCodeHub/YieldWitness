@@ -126,6 +126,7 @@ export default function RootLayout({ children }) {
 
         {/* ⭐ Grow by Mediavine — MUST keep the initializer attribute */}
         <script
+          suppressHydrationWarning
           data-grow-initializer=""
           dangerouslySetInnerHTML={{
             __html: `
