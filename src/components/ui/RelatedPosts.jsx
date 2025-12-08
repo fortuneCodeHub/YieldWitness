@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import MonetagVignette from "../ads/MonetagVignette";
 
 const RelatedPosts = ({ post, posts }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
@@ -57,6 +58,14 @@ const RelatedPosts = ({ post, posts }) => {
       ) : (
         <p className="text-gray-500 text-sm">No related posts</p>
       )}
+
+      <div
+        className="md:col-span-2 bg-white rounded p-3 flex items-center justify-center text-sm text-gray-500"
+      >
+        {/* Desktop: spans both columns; Mobile: full width */}
+        {/* Native Ad — your ad goes here (responsive) */}
+        <MonetagVignette zone="10294168" />
+      </div>
     </section>
   );
 };
