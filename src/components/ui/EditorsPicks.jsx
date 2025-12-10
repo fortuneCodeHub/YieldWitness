@@ -179,7 +179,7 @@ const EditorsPicks = ({ posts, loading }) => {
 
       {/* Inline ad space */}
       <div className="mt-8 bg-white rounded h-20 flex items-center justify-center text-sm text-gray-500">
-        <MonetagSimpleBanner zone="10294153" />
+        {/* <MonetagSimpleBanner zone="10294153" /> */}
       </div>
     </section>
   );

@@ -163,7 +163,7 @@ const LatestFeed = ({ posts, loading }) => {
           >
             {/* Desktop: spans both columns; Mobile: full width */}
             {/* Native Ad — your ad goes here (responsive) */}
-            <MonetagBanner zone="10294151" />
+            {/* <MonetagBanner zone="10294151" /> */}
           </div>
         );
       }

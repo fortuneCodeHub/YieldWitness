@@ -64,7 +64,7 @@ const RelatedPosts = ({ post, posts }) => {
       >
         {/* Desktop: spans both columns; Mobile: full width */}
         {/* Native Ad — your ad goes here (responsive) */}
-        <MonetagVignette zone="10294168" />
+        {/* <MonetagVignette zone="10294168" /> */}
       </div>
     </section>
   );

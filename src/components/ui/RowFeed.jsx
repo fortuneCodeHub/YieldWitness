@@ -244,7 +244,7 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
       {/* Ad Slot */}
       <div className="md:col-span-2 bg-white rounded p-6 flex items-center justify-center text-sm text-gray-500 mt-5">
         {/* Native Ad — your ad goes here (responsive) */}
-        <MonetagBanner zone="10294153" />
+        {/* <MonetagBanner zone="10294153" /> */}
       </div>
     </section>
   );

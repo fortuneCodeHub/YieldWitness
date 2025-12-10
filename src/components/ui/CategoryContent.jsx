@@ -42,23 +42,6 @@ const CategoryContent = ({ category, name }) => {
   return (
     <>
         <div className="font-sans bg-background text-foreground min-h-screen relative">
-           
-           {/* Right Ad */}
-            <div
-                className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 right-2"
-            >
-                {/* Desktop: spans both columns; Mobile: full width */}
-                <MonetagBanner zone="10294151" />
-            </div>
-
-            {/* Left Ad */}
-            <div
-                // key={`ad-${idx}`}
-                className="fixed hidden bg-gray-50 border border-dashed border-gray-200 rounded p-6 xl:flex items-center justify-center text-sm text-gray-500 w-[120px] h-[400px] top-40 left-2"
-            >
-                {/* Desktop: spans both columns; Mobile: full width */}
-                <MonetagBanner zone="10294153" />
-            </div>
 
             {/* Top utility bar */}
             <TopBar />
