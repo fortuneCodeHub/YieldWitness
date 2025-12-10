@@ -53,7 +53,11 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     const origin = request.headers.get("origin");
     const allowedOrigins = [
-      "http://localhost:3001",
+        "http://localhost:3001",
+        "http://localhost:3002",
+        "http://localhost:3003",
+        "http://localhost:3004",
+        "http://localhost:3005",
     //   "https://www.pixelmuseart.vercel.app",
     ];
   
