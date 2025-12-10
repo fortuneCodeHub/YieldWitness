@@ -53,8 +53,9 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     const origin = request.headers.get("origin");
     const allowedOrigins = [
-      "https://pixelmuseart.vercel.app",
-      "https://www.pixelmuseart.vercel.app",
+        "http://localhost:3001",
+        "https://pixelmuseart.vercel.app",
+        "https://www.pixelmuseart.vercel.app",
     ];
   
     const CORS_HEADERS = {
