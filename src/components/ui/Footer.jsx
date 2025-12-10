@@ -68,7 +68,7 @@ const Footer = () => {
 
           {/* Optional Tiny Footer Ad */}
           <div className="w-full h-20 bg-gray-800 flex items-center justify-center text-gray-400 text-xs">
-            <MonetagSimpleBanner zone="10294153" />
+            {/* <MonetagSimpleBanner zone="10294153" /> */}
           </div>
         </div>
       </div>
