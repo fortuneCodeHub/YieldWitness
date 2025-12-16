@@ -10,8 +10,8 @@ export async function GET(request) {
         "http://localhost:3003",
         "http://localhost:3004",
         "http://localhost:3005",
-        // "https://framealchemy.vercel.app",
-        // "https://www.framealchemy.vercel.app",
+        "https://greenlytic.vercel.app",
+        "https://www.greenlytic.vercel.app",
     ];
   
     const CORS_HEADERS = {
