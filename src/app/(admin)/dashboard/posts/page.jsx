@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deletePost, getPosts } from '@/components/store/postSlice'
 import { formatDate } from '@/components/helpers/formatDate'
 import Notification from '@/components/ui/Notification'
+import truncateText from '@/components/helpers/truncateText'
 
 const Posts = () => {
     const { data: user, userLoading, userError } = useSelector((state) => state.user)
@@ -111,7 +112,7 @@ const Posts = () => {
                                                 key={idx}
                                                 className="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
                                             >
-                                                <td className="px-4 py-3 font-medium">{post?.title}</td>
+                                                <td className="px-4 py-3 font-medium">{truncateText(post?.title, 50)}</td>
                                                 <td className="px-4 py-3">
                                                     <span
                                                         className={`px-2 py-1 rounded text-xs font-semibold text-white ${

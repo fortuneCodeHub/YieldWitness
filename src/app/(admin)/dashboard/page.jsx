@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Preloader from '@/components/ui/Preloader';
 import { useSelector } from 'react-redux';
 import { formatDate } from '@/components/helpers/formatDate';
+import truncateText from '@/components/helpers/truncateText';
 import Link from 'next/link';
 
 const Dashboard = () => {
@@ -25,6 +26,8 @@ const Dashboard = () => {
     const photographyPosts = posts?.filter((p) => p.category === "photography").length || 0;
     const insurancePosts = posts?.filter((p) => p.category === "insurance").length || 0;
     const sustainableLivingPosts = posts?.filter((p) => p.category === "sustainable-living").length || 0;
+    const climateTechSustainableLivingPosts = posts?.filter((p) => p.category === "climate-tech-sl").length || 0;
+    const greenFinanceSustainableLivingPosts = posts?.filter((p) => p.category === "green-finance-sl").length || 0;
     const booksLiteraturePosts = posts?.filter((p) => p.category === "books-literature").length || 0;
 
     // Build stats dynamically
@@ -36,6 +39,8 @@ const Dashboard = () => {
     { label: "Art & Design Posts", value: artDesignPosts },
     { label: "Photography Posts", value: photographyPosts },
     { label: "Sustainable Living", value: sustainableLivingPosts },
+    { label: "Climate Tech & Energy", value: climateTechSustainableLivingPosts },
+    { label: "Green Finance & ESG", value: greenFinanceSustainableLivingPosts },
     { label: "Books & Lit Posts", value: booksLiteraturePosts },
     ];
 
@@ -136,7 +141,7 @@ const Dashboard = () => {
                                                             key={idx}
                                                             className="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
                                                         >
-                                                            <td className="px-4 py-3 font-medium">{post?.title}</td>
+                                                            <td className="px-4 py-3 font-medium">{truncateText(post?.title, 50)}</td>
                                                             <td className="px-4 py-3">
                                                                 <span
                                                                     className={`px-2 py-1 rounded text-xs font-semibold text-white ${
