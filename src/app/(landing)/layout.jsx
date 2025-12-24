@@ -160,6 +160,13 @@ export default function FrontendLayout({ children }) {
 
         {/* ⭐ Monetag Scripts */}
         <Script
+          id="quge5-monetag"
+          src="https://quge5.com/88/tag.min.js"
+          strategy="afterInteractive"
+          data-zone="195855"
+          data-cfasync="false"
+        />
+        {/* <Script
           id="monetag-1"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -188,7 +195,7 @@ export default function FrontendLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `(function(s){s.dataset.zone='10294168',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
           }}
-        />
+        /> */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} ${poppins.className} antialiased`}
