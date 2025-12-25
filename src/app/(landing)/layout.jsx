@@ -134,7 +134,7 @@ export default function FrontendLayout({ children }) {
 </script> */}
 
         {/* ⭐ Grow by Mediavine — MUST keep the initializer attribute */}
-        <script
+        {/* <script
           suppressHydrationWarning
           data-grow-initializer=""
           dangerouslySetInnerHTML={{
@@ -156,16 +156,33 @@ export default function FrontendLayout({ children }) {
               })();
             `,
           }}
-        />
+        /> */}
 
         {/* ⭐ Monetag Scripts */}
         <Script
+          id="monetag-zone-10371283"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (s) {
+                s.dataset.zone = '10371283';
+                s.src = 'https://al5sm.com/tag.min.js';
+              })(
+                [document.documentElement, document.body]
+                  .filter(Boolean)
+                  .pop()
+                  .appendChild(document.createElement('script'))
+              );
+            `,
+          }}
+        />
+        {/* <Script
           id="quge5-monetag"
           src="https://quge5.com/88/tag.min.js"
           strategy="afterInteractive"
           data-zone="195855"
           data-cfasync="false"
-        />
+        /> */}
         {/* <Script
           id="monetag-1"
           strategy="afterInteractive"
