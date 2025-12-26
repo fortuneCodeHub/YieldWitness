@@ -159,7 +159,7 @@ export default function FrontendLayout({ children }) {
         /> */}
 
         {/* ⭐ Monetag Scripts */}
-        <Script
+        {/* <Script
           id="monetag-zone-10371283"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -175,7 +175,7 @@ export default function FrontendLayout({ children }) {
               );
             `,
           }}
-        />
+        /> */}
         {/* <Script
           id="quge5-monetag"
           src="https://quge5.com/88/tag.min.js"
