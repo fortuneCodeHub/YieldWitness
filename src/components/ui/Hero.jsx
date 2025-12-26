@@ -4,6 +4,9 @@ import { formatDate } from "../helpers/formatDate";
 import truncateText from "../helpers/truncateText";
 import MonetagBanner from "../ads/MonetagBanner";
 import MonetagSimpleBanner from "../ads/MonetagSimpleBanner";
+import ExternalTitleLinks from "./ExternalTitleLinks";
+import ImageAd from "./ads/ImageAd";
+import VideoAd from "./ads/VideoAd";
 
 export default function Hero({ posts, loading }) {
   return (
@@ -129,39 +132,61 @@ export default function Hero({ posts, loading }) {
                     {posts.slice(0, 2).map((post, i) => (
                     <div key={post._id} className="relative aspect-video rounded-lg mb-10 overflow-hidden shadow-sm">
                         <a href={`/post/${post.slug}`}>
-                        <img
-                            src={post.thumbnail || "https://source.unsplash.com/1200x675/?news"}
-                            alt={post.title}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                            <span
-                            className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
-                                post.category === "finance"
-                                ? "bg-[#0EA5A4]"
-                                : post.category === "tech"
-                                ? "bg-[#2563EB]"
-                                : post.category === "insurance"
-                                ? "bg-yellow-500"
-                                : post.category === "tech"
-                                ? "bg-purple-600"
-                                : "bg-gray-600"
-                            }`}
-                            >
-                                {post?.category === "finance" ? "personal-finance" : post.category}
-                            </span>
-                            <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
-                                {truncateText(post?.title, 70)}
-                            </h2>
-                            <p className="mt-2 text-[10px] md:text-sm text-gray-200 max-w-2xl md:block hidden">
-                                {truncateText(post?.excerpt, 120)}
-                            </p>
-                            <div className="mt-3 text-xs text-gray-300 md:block hidden">
-                                By {post.author} • {formatDate(post?.createdAt)}
+                            <img
+                                src={post.thumbnail || "https://source.unsplash.com/1200x675/?news"}
+                                alt={post.title}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                {/* <span
+                                className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
+                                    post.category === "finance"
+                                    ? "bg-[#0EA5A4]"
+                                    : post.category === "tech"
+                                    ? "bg-[#2563EB]"
+                                    : post.category === "insurance"
+                                    ? "bg-yellow-500"
+                                    : post.category === "tech"
+                                    ? "bg-purple-600"
+                                    : "bg-gray-600"
+                                }`}
+                                >
+                                    {post?.category === "finance" ? "personal-finance" : post.category}
+                                </span> */}
+                                <ExternalTitleLinks
+                                    as="span"
+                                    className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
+                                        post.category === "finance"
+                                        ? "bg-[#0EA5A4]"
+                                        : post.category === "tech"
+                                        ? "bg-[#2563EB]"
+                                        : post.category === "insurance"
+                                        ? "bg-yellow-500"
+                                        : post.category === "tech"
+                                        ? "bg-purple-600"
+                                        : "bg-gray-600"
+                                    }`}
+                                    truncate={false}
+                                >
+                                    {post?.category === "finance" ? "personal-finance" : post.category}
+                                </ExternalTitleLinks>
+                                <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
+                                    {truncateText(post?.title, 70)}
+                                </h2>
+                                {/* <ExternalTitleLinks
+                                    className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight"
+                                >
+                                    {truncateText(post?.title, 70)}
+                                </ExternalTitleLinks> */}
+                                <p className="mt-2 text-[10px] md:text-sm text-gray-200 max-w-2xl md:block hidden">
+                                    {truncateText(post?.excerpt, 120)}
+                                </p>
+                                <div className="mt-3 text-xs text-gray-300 md:block hidden">
+                                    By {post.author} • {formatDate(post?.createdAt)}
+                                </div>
                             </div>
-                        </div>
                         </a>
                     </div>
                     ))}
@@ -183,24 +208,47 @@ export default function Hero({ posts, loading }) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
                         <div className="absolute bottom-0 p-4 text-white">
-                            <span
-                            className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
-                                post.category === "finance"
-                                ? "bg-[#0EA5A4]"
-                                : post.category === "tech"
-                                ? "bg-[#2563EB]"
-                                : post.category === "insurance"
-                                ? "bg-yellow-500"
-                                : post.category === "law"
-                                ? "bg-purple-600"
-                                : "bg-gray-600"
-                            }`}
+                            {/* <span
+                                className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
+                                    post.category === "finance"
+                                    ? "bg-[#0EA5A4]"
+                                    : post.category === "tech"
+                                    ? "bg-[#2563EB]"
+                                    : post.category === "insurance"
+                                    ? "bg-yellow-500"
+                                    : post.category === "law"
+                                    ? "bg-purple-600"
+                                    : "bg-gray-600"
+                                }`}
                             >
-                            {post?.category === "finance" ? "personal-finance" : post.category}
-                            </span>
+                                {post?.category === "finance" ? "personal-finance" : post.category}
+                            </span> */}
+                            <ExternalTitleLinks
+                                as="span"
+                                className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
+                                    post.category === "finance"
+                                    ? "bg-[#0EA5A4]"
+                                    : post.category === "tech"
+                                    ? "bg-[#2563EB]"
+                                    : post.category === "insurance"
+                                    ? "bg-yellow-500"
+                                    : post.category === "law"
+                                    ? "bg-purple-600"
+                                    : "bg-gray-600"
+                                }`}
+                                truncate={false}
+                            >
+                                {post?.category === "finance" ? "personal-finance" : post.category}
+                            </ExternalTitleLinks>
                             <h3 className="mt-2 text-lg font-semibold leading-tight">
                                 {truncateText(post?.title, 50)}
                             </h3>
+                            {/* <ExternalTitleLinks
+                                as="h3"
+                                className="mt-2 text-lg font-semibold leading-tight"
+                            >
+                                {truncateText(post?.title, 50)}
+                            </ExternalTitleLinks> */}
                         </div>
                         </a>
                     </div>
@@ -217,8 +265,14 @@ export default function Hero({ posts, loading }) {
 
       {/* Inline leaderboard ad (below hero, desktop only) */}
       <div className="flex lg:col-span-12 justify-center mt-4">
-        <div className="bg-white w-[970px] h-[50px] flex items-center justify-center text-gray-500 rounded">
-          {/* <MonetagSimpleBanner zone="10294153" /> */}
+        <div className="bg-white w-[970px] h-[300px] flex items-center justify-center text-gray-500 rounded">
+            <ImageAd
+                src="/assets/ads/images/workout-banner.jpg"
+                width="100%"
+                height="100%"
+                // objectFit="object-contain"
+                className="rounded-lg shadow"
+            />
         </div>
       </div>
     </section>

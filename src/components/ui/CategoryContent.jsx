@@ -6,6 +6,8 @@ import TopBar from '@/components/ui/TopBar'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import MonetagBanner from '../ads/MonetagBanner'
+import VideoAd from './ads/VideoAd'
+import AdPageDisplay from './AdPageDisplay'
 
 const CategoryContent = ({ category, name }) => {
 
@@ -42,6 +44,14 @@ const CategoryContent = ({ category, name }) => {
   return (
     <>
         <div className="font-sans bg-background text-foreground min-h-screen relative">
+
+            {/* Page Ads Display */}
+            <AdPageDisplay 
+                leftTag={VideoAd}
+                rightTag={VideoAd}
+                leftUrl="/assets/ads/videos/new-season-discount.mp4"
+                rightUrl="/assets/ads/videos/fashion-women.mp4"
+            />
 
             {/* Top utility bar */}
             <TopBar />

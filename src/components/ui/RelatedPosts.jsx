@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import MonetagVignette from "../ads/MonetagVignette";
+import ImageAd from "./ads/ImageAd";
 
 const RelatedPosts = ({ post, posts }) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
@@ -32,6 +33,20 @@ const RelatedPosts = ({ post, posts }) => {
 
   return (
     <section className="mt-16">
+      <div
+        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500"
+      >
+        {/* Desktop: spans both columns; Mobile: full width */}
+        {/* Native Ad — your ad goes here (responsive) */}
+        {/* <MonetagVignette zone="10294168" /> */}
+        <ImageAd
+          src="/assets/ads/images/adimage.png"
+          width="100%"
+          height="100%"
+          // objectFit="object-contain"
+          className="rounded-lg shadow"
+        />
+      </div>
       <h3 className="text-xl font-semibold mb-6">Related Articles</h3>
 
       {relatedPosts.length > 0 ? (
@@ -60,11 +75,18 @@ const RelatedPosts = ({ post, posts }) => {
       )}
 
       <div
-        className="md:col-span-2 bg-white rounded p-3 flex items-center justify-center text-sm text-gray-500"
+        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500"
       >
         {/* Desktop: spans both columns; Mobile: full width */}
         {/* Native Ad — your ad goes here (responsive) */}
         {/* <MonetagVignette zone="10294168" /> */}
+        <ImageAd
+          src="/assets/ads/images/cinema-ads.jpg"
+          width="100%"
+          height="100%"
+          // objectFit="object-contain"
+          className="rounded-lg shadow"
+        />
       </div>
     </section>
   );

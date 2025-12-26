@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import truncateText from "../helpers/truncateText";
 import MonetagSimpleBanner from "../ads/MonetagSimpleBanner";
+import ExternalTitleLinks from "./ExternalTitleLinks";
 
 const EditorsPicks = ({ posts, loading }) => {
   const router = useRouter();
@@ -150,13 +151,21 @@ const EditorsPicks = ({ posts, loading }) => {
               {/* Content */}
               <div className="p-4 flex flex-col justify-between h-48">
                 <div>
-                  <span className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}>
+                  {/* <span className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}>
                     {post?.category === "finance" ? "personal-finance" : post.category}
-                  </span>
+                  </span> */}
+                  <ExternalTitleLinks
+                    as="span"
+                    className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}
+                    truncate={false}
+                  >
+                    {post?.category === "finance" ? "personal-finance" : post.category}
+                  </ExternalTitleLinks>
 
                   <h3 className="mt-2 text-[14px] md:text-lg font-semibold text-[#0F172A] leading-snug line-clamp-2">
                     {truncateText(post.title, 50)}
                   </h3>
+                  
 
                   <p className="mt-2 text-[10px] md:text-sm text-[#64748B] line-clamp-3">
                     {truncateText(post.excerpt, 100)}

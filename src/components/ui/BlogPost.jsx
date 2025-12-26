@@ -6,6 +6,7 @@ import { Bookmark, Share2 } from "lucide-react";
 import { formatDate } from "../helpers/formatDate";
 import RelatedPosts from "./RelatedPosts";
 import AccordionBlock from "./AccordionBlock";
+import ExternalTitleLinks from "./ExternalTitleLinks";
 
 const BlogPost = ({ post, loading, posts }) => {
   const router = useRouter();
@@ -218,9 +219,16 @@ const BlogPost = ({ post, loading, posts }) => {
               />
             </div> */}
     
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight capitalize">
+            {/* <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight capitalize">
               {post.title}
-            </h1>
+            </h1> */}
+            <ExternalTitleLinks
+              as="h1"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight capitalize"
+              truncate={false}
+            >
+              {post.title}
+            </ExternalTitleLinks>
             <div className="flex items-center justify-between mb-4">
               <span
                 className={`text-xs font-semibold px-3 py-1 rounded-full text-white ${categoryBadgeClass(

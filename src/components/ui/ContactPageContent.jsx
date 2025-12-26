@@ -7,6 +7,8 @@ import Header from "./Header";
 import TopBar from "./TopBar";
 import Footer from "./Footer";
 import MonetagBanner from "../ads/MonetagBanner";
+import VideoAd from "./ads/VideoAd";
+import AdPageDisplay from "./AdPageDisplay";
 
 export default function ContactPageContent() {
   const [formData, setFormData] = useState({
@@ -61,6 +63,14 @@ export default function ContactPageContent() {
 
   return (
     <>
+
+        {/* Page Ads Display */}
+        <AdPageDisplay 
+          leftTag={VideoAd}
+          rightTag={VideoAd}
+          leftUrl="/assets/ads/videos/flash-sale-winter.mp4"
+          rightUrl="/assets/ads/videos/fashion-women.mp4"
+        />
        
         {/* Top utility bar */}
         <TopBar />

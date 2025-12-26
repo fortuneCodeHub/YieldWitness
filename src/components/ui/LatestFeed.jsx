@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { articles } from "@/constants";
 import truncateText from "../helpers/truncateText";
 import MonetagBanner from "../ads/MonetagBanner";
+import ExternalTitleLinks from "./ExternalTitleLinks";
+import ImageAd from "./ads/ImageAd";
 
 /**
  * LatestFeed.jsx
@@ -87,13 +89,23 @@ const LatestFeed = ({ posts, loading }) => {
           {/* Content */}
           <div className="p-4">
             <div className="flex items-center justify-between">
-              <span
+              {/* <span
                 className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
                   post.category
                 )}`}
               >
                 {post?.category === "finance" ? "personal-finance" : post.category}
-              </span>
+              </span> */}
+
+              <ExternalTitleLinks
+                as="span"
+                className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
+                  post.category
+                )}`}
+                truncate={false}
+              >
+                {post?.category === "finance" ? "personal-finance" : post.category}
+              </ExternalTitleLinks>
   
               {/* {post.sponsored && (
                 <span className="text-xs font-medium px-2 py-1 rounded bg-gray-100 text-gray-700">
@@ -105,6 +117,13 @@ const LatestFeed = ({ posts, loading }) => {
             <h3 className="mt-3 text-[14px] md:text-lg font-semibold text-[#0F172A] leading-tight">
               {truncateText(post.title, 50)}
             </h3>
+
+            {/* <ExternalTitleLinks
+              as="h3"
+              className="mt-3 text-[14px] md:text-lg font-semibold text-[#0F172A] leading-tight"
+            >
+              {truncateText(post?.title, 50)}
+            </ExternalTitleLinks> */}
   
             <p className="mt-2 text-[12px] md:text-sm text-[#64748B]">
               {truncateText(post.excerpt, 100)}
@@ -159,11 +178,18 @@ const LatestFeed = ({ posts, loading }) => {
         feedItems.push(
           <div
             key={`ad-${idx}`}
-            className="md:col-span-2 bg-white rounded p-3 flex items-center justify-center text-sm text-gray-500"
+            className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500"
           >
             {/* Desktop: spans both columns; Mobile: full width */}
             {/* Native Ad — your ad goes here (responsive) */}
             {/* <MonetagBanner zone="10294151" /> */}
+            <ImageAd
+              src="/assets/ads/images/how-to-shoot-like-a-pro.jpg"
+              width="970px"
+              height="300px"
+              // objectFit="object-contain"
+              className="rounded-lg shadow"
+            />
           </div>
         );
       }

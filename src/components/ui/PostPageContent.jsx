@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import Head from "next/head";
 import MonetagVignette from "../ads/MonetagVignette";
 import MonetagBanner from "../ads/MonetagBanner";
+import AdPageDisplay from "./AdPageDisplay";
+import VideoAd from "./ads/VideoAd";
 
 const PostPageContent = () => {
   const pathname = usePathname();
@@ -53,6 +55,14 @@ const PostPageContent = () => {
     <>
 
       <div className="font-sans bg-background text-foreground min-h-screen relative">
+
+        {/* Page Ads Display */}
+        <AdPageDisplay
+          leftTag={VideoAd}
+          rightTag={VideoAd}
+          leftUrl="/assets/ads/videos/flash-sale-winter.mp4"
+          rightUrl="/assets/ads/videos/fashion-women.mp4"
+        />
 
         {/* Top utility bar */}
         <TopBar post={post} />

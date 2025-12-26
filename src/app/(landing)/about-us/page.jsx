@@ -1,4 +1,6 @@
 import MonetagBanner from "@/components/ads/MonetagBanner";
+import AdPageDisplay from "@/components/ui/AdPageDisplay";
+import VideoAd from "@/components/ui/ads/VideoAd";
 import Footer from "@/components/ui/Footer";
 import Header from "@/components/ui/Header";
 import TopBar from "@/components/ui/TopBar";
@@ -13,6 +15,15 @@ export const metadata = {
 export default function AboutPage() {
     return (
       <>
+
+        {/* Page Ads */}
+        <AdPageDisplay 
+          leftTag={VideoAd}
+          rightTag={VideoAd}
+          leftUrl="/assets/ads/videos/flash-sale-winter.mp4"
+          rightUrl="/assets/ads/videos/fashion-women.mp4"
+        />
+
         {/* Top utility bar */}
         <TopBar />
         {/* Navigation bar */}

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import truncateText from "../helpers/truncateText";
 import MonetagBanner from "../ads/MonetagBanner";
+import ExternalTitleLinks from "./ExternalTitleLinks";
+import ImageAd from "./ads/ImageAd";
 
 const RowFeed = ({ feedName, posts = [], loading }) => {
   const router = useRouter();
@@ -101,13 +103,23 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
                   <div className="p-5 flex flex-col justify-between md:w-2/3">
                     <div>
                       <div className="flex items-center justify-between">
-                        <span
+                        {/* <span
                           className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
                             post.category
                           )}`}
                         >
                           {post?.category === "finance" ? "personal-finance" : post.category}
-                        </span>
+                        </span> */}
+
+                        <ExternalTitleLinks
+                          as="span"
+                          className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
+                            post.category
+                          )}`}
+                          truncate={false}
+                        >
+                          {post?.category === "finance" ? "personal-finance" : post.category}
+                        </ExternalTitleLinks>
 
                         {post.sponsored && (
                           <span className="text-xs font-medium px-2 py-1 rounded bg-gray-100 text-gray-700">
@@ -119,6 +131,12 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
                       <h3 className="mt-3 text-[15px] md:text-lg font-semibold text-[#0F172A] leading-snug">
                         {truncateText(post.title, 50)}
                       </h3>
+                      {/* <ExternalTitleLinks
+                        as="h3"
+                        className="mt-3 text-[15px] md:text-lg font-semibold text-[#0F172A] leading-snug"
+                      >
+                        {truncateText(post?.title, 50)}
+                      </ExternalTitleLinks> */}
 
                       <p className="mt-2 text-[11px] md:text-sm text-[#64748B]">
                         {truncateText(post.excerpt, 80)}
@@ -242,9 +260,16 @@ const RowFeed = ({ feedName, posts = [], loading }) => {
       </div>
 
       {/* Ad Slot */}
-      <div className="md:col-span-2 bg-white rounded p-6 flex items-center justify-center text-sm text-gray-500 mt-5">
+      <div className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500 mt-5">
         {/* Native Ad — your ad goes here (responsive) */}
         {/* <MonetagBanner zone="10294153" /> */}
+        <ImageAd
+          src="/assets/ads/images/cinema-ads.jpg"
+          width="970px"
+          height="300px"
+          // objectFit="object-contain"
+          className="rounded-lg shadow"
+        />
       </div>
     </section>
   );
