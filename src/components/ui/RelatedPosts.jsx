@@ -34,7 +34,7 @@ const RelatedPosts = ({ post, posts }) => {
   return (
     <section className="mt-16">
       <div
-        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500"
+        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500 mb-5"
       >
         {/* Desktop: spans both columns; Mobile: full width */}
         {/* Native Ad — your ad goes here (responsive) */}
@@ -75,15 +75,15 @@ const RelatedPosts = ({ post, posts }) => {
       )}
 
       <div
-        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500"
+        className="md:col-span-2 bg-white rounded flex items-center justify-center text-sm text-gray-500 mt-5"
       >
         {/* Desktop: spans both columns; Mobile: full width */}
         {/* Native Ad — your ad goes here (responsive) */}
         {/* <MonetagVignette zone="10294168" /> */}
         <ImageAd
           src="/assets/ads/images/cinema-ads.jpg"
-          width="100%"
-          height="100%"
+          width="970px"
+          height="300px"
           // objectFit="object-contain"
           className="rounded-lg shadow"
         />

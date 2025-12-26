@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
             <AdPageDisplay
                 leftTag={VideoAd}
                 rightTag={VideoAd}
-                leftUrl="/assets/ads/videos/flash-sale-winter.mp4"
+                leftUrl="/assets/ads/videos/new-season-discount.mp4"
                 rightUrl="/assets/ads/videos/fashion-women.mp4"
             />
 
