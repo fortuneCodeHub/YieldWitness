@@ -151,16 +151,16 @@ const EditorsPicks = ({ posts, loading }) => {
               {/* Content */}
               <div className="p-4 flex flex-col justify-between h-48">
                 <div>
-                  {/* <span className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}>
+                  <span className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}>
                     {post?.category === "finance" ? "personal-finance" : post.category}
-                  </span> */}
-                  <ExternalTitleLinks
+                  </span>
+                  {/* <ExternalTitleLinks
                     as="span"
                     className={`inline-block text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(post.category)}`}
                     truncate={false}
                   >
                     {post?.category === "finance" ? "personal-finance" : post.category}
-                  </ExternalTitleLinks>
+                  </ExternalTitleLinks> */}
 
                   <h3 className="mt-2 text-[14px] md:text-lg font-semibold text-[#0F172A] leading-snug line-clamp-2">
                     {truncateText(post.title, 50)}

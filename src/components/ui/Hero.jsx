@@ -140,7 +140,7 @@ export default function Hero({ posts, loading }) {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                                {/* <span
+                                <span
                                 className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
                                     post.category === "finance"
                                     ? "bg-[#0EA5A4]"
@@ -154,8 +154,8 @@ export default function Hero({ posts, loading }) {
                                 }`}
                                 >
                                     {post?.category === "finance" ? "personal-finance" : post.category}
-                                </span> */}
-                                <ExternalTitleLinks
+                                </span>
+                                {/* <ExternalTitleLinks
                                     as="span"
                                     className={`inline-block text-xs  font-semibold px-2 py-1 rounded ${
                                         post.category === "finance"
@@ -171,7 +171,7 @@ export default function Hero({ posts, loading }) {
                                     truncate={false}
                                 >
                                     {post?.category === "finance" ? "personal-finance" : post.category}
-                                </ExternalTitleLinks>
+                                </ExternalTitleLinks> */}
                                 <h2 className="mt-3 text-xl md:text-2xl lg:text-3xl font-bold leading-tight">
                                     {truncateText(post?.title, 70)}
                                 </h2>
@@ -208,7 +208,7 @@ export default function Hero({ posts, loading }) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
                         <div className="absolute bottom-0 p-4 text-white">
-                            {/* <span
+                            <span
                                 className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
                                     post.category === "finance"
                                     ? "bg-[#0EA5A4]"
@@ -222,8 +222,8 @@ export default function Hero({ posts, loading }) {
                                 }`}
                             >
                                 {post?.category === "finance" ? "personal-finance" : post.category}
-                            </span> */}
-                            <ExternalTitleLinks
+                            </span>
+                            {/* <ExternalTitleLinks
                                 as="span"
                                 className={`inline-block text-xs font-semibold px-2 py-1 rounded ${
                                     post.category === "finance"
@@ -239,7 +239,7 @@ export default function Hero({ posts, loading }) {
                                 truncate={false}
                             >
                                 {post?.category === "finance" ? "personal-finance" : post.category}
-                            </ExternalTitleLinks>
+                            </ExternalTitleLinks> */}
                             <h3 className="mt-2 text-lg font-semibold leading-tight">
                                 {truncateText(post?.title, 50)}
                             </h3>
@@ -265,7 +265,8 @@ export default function Hero({ posts, loading }) {
 
       {/* Inline leaderboard ad (below hero, desktop only) */}
       <div className="flex lg:col-span-12 justify-center mt-4">
-        <div className="bg-white w-[970px] h-[300px] flex items-center justify-center text-gray-500 rounded">
+        {/* <div className="bg-white w-[970px] h-[300px] flex items-center justify-center text-gray-500 rounded"> */}
+        <div className="bg-white flex items-center justify-center text-gray-500 rounded">
             <ImageAd
                 src="/assets/ads/images/workout-banner.jpg"
                 width="100%"

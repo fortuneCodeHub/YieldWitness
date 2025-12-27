@@ -89,15 +89,15 @@ const LatestFeed = ({ posts, loading }) => {
           {/* Content */}
           <div className="p-4">
             <div className="flex items-center justify-between">
-              {/* <span
+              <span
                 className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
                   post.category
                 )}`}
               >
                 {post?.category === "finance" ? "personal-finance" : post.category}
-              </span> */}
+              </span>
 
-              <ExternalTitleLinks
+              {/* <ExternalTitleLinks
                 as="span"
                 className={`text-xs font-semibold px-2 py-1 rounded text-white ${categoryBadgeClass(
                   post.category
@@ -105,7 +105,7 @@ const LatestFeed = ({ posts, loading }) => {
                 truncate={false}
               >
                 {post?.category === "finance" ? "personal-finance" : post.category}
-              </ExternalTitleLinks>
+              </ExternalTitleLinks> */}
   
               {/* {post.sponsored && (
                 <span className="text-xs font-medium px-2 py-1 rounded bg-gray-100 text-gray-700">

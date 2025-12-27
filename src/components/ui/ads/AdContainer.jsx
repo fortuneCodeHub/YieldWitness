@@ -11,6 +11,7 @@ export default function AdContainer({
       style={{
         width,
         height,
+        display: "none",
         maxWidth: "100%",
       }}
     >

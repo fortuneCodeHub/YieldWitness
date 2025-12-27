@@ -68,7 +68,8 @@ export default function Header({ post }) {
 
                 {/* Subscribe CTA */}
                 <Link
-                    href={ post ? `https://otieu.com/4/10292310` : '/'}
+                    // href={ post ? `https://otieu.com/4/10292310` : '/'}
+                    href={ post ? `/post/${post?.slug}` : '/'}
                     target="_blank"
                     className="hidden sm:inline-block bg-[#0EA5A4] text-white text-sm px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                 >
@@ -100,7 +101,8 @@ export default function Header({ post }) {
                     </Link>
                 ))}
                 <Link
-                    href={ post ? `https://otieu.com/4/10292310` : '/'}
+                    // href={ post ? `https://otieu.com/4/10292310` : '/'}
+                    href={ post ? `/post/${post?.slug}` : '/'}
                     target="_blank"
                     className="bg-[#0EA5A4] text-white text-center px-4 py-2 rounded-md hover:bg-[#0C8D8C]"
                     onClick={() => setIsOpen(false)}
