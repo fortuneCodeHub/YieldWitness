@@ -134,7 +134,7 @@ export default function FrontendLayout({ children }) {
 </script> */}
 
         {/* ⭐ Grow by Mediavine — MUST keep the initializer attribute */}
-        {/* <script
+        <script
           suppressHydrationWarning
           data-grow-initializer=""
           dangerouslySetInnerHTML={{
@@ -156,7 +156,7 @@ export default function FrontendLayout({ children }) {
               })();
             `,
           }}
-        /> */}
+        />
 
         {/* ⭐ Monetag Scripts */}
         {/* <Script
