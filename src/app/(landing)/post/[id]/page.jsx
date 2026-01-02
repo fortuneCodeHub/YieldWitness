@@ -1,4 +1,6 @@
+import { getPostById } from "@/components/helpers/getPost";
 import PostPageContent from "@/components/ui/PostPageContent";
+import { identity } from "@tsparticles/engine";
 import Head from "next/head";
 // import Script from "next/script";
 import { headers } from "next/headers";
@@ -6,24 +8,8 @@ import { headers } from "next/headers";
 export async function generateMetadata({ params }) {
   try {
     const postId = await params;
-    const devPort = Number(process.env.NEXT_PUBLIC_DEV_PORT);
-    const allowed = [3000,3001,3002,3003,3004,3005,3006,3007];
-
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://www.yieldnvest.com"
-        : allowed.includes(devPort)
-          ? `http://localhost:${devPort}`
-          : "http://localhost:3000";
     
-    const res = await fetch(
-      `${baseUrl}/api/auth/posts/${postId}`,
-      { cache: "no-store" }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch post");
-
-    const { post } = await res.json();
+    const post = getPostById(postId)
 
     if (!post) throw new Error("Post not found");
 
@@ -75,22 +61,9 @@ export async function generateMetadata({ params }) {
 
 const PostPage = async ({ params }) => {
 
-  // Fetch post data again (you could also pass it from generateMetadata)
-  const devPort = Number(process.env.NEXT_PUBLIC_DEV_PORT);
-  const allowed = [3000,3001,3002,3003,3004,3005,3006,3007];
-
-  const baseUrl =
-    process.env.NODE_ENV === "production"
-      ? "https://www.yieldnvest.com"
-      : allowed.includes(devPort)
-        ? `http://localhost:${devPort}`
-        : "http://localhost:3000";
-
   const { id } = await params
 
-  const response = await fetch(`${baseUrl}/api/auth/posts/${id}`);
-  const data = await response.json();
-  const { post } = data;
+  const post = getPostById(id)
 
   const schemaData = {
     "@context": "https://schema.org",
