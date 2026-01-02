@@ -2,14 +2,14 @@ import { getPostById } from "@/components/helpers/getPost";
 import PostPageContent from "@/components/ui/PostPageContent";
 import { identity } from "@tsparticles/engine";
 import Head from "next/head";
-// import Script from "next/script";
-import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
   try {
     const postId = await params;
     
-    const post = getPostById(postId)
+    const post = await getPostById(postId.id)
+
+    // console.log("this is the post data", post)
 
     if (!post) throw new Error("Post not found");
 
@@ -63,7 +63,7 @@ const PostPage = async ({ params }) => {
 
   const { id } = await params
 
-  const post = getPostById(id)
+  const post = await getPostById(id)
 
   const schemaData = {
     "@context": "https://schema.org",
@@ -98,7 +98,7 @@ const PostPage = async ({ params }) => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       {/* </Head> */}
-      <PostPageContent />
+      <PostPageContent pagePost={post} />
     </>
   );
 };

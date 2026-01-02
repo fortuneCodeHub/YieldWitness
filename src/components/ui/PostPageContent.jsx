@@ -12,11 +12,11 @@ import MonetagBanner from "../ads/MonetagBanner";
 import AdPageDisplay from "./AdPageDisplay";
 import VideoAd from "./ads/VideoAd";
 
-const PostPageContent = () => {
+const PostPageContent = ({ pagePost }) => {
   const pathname = usePathname();
   const { data: posts, postLoading } = useSelector((state) => state.post);
 
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState();
   const [loading, setLoading] = useState(true);
 
   const slug = pathname.split("/").pop();
@@ -29,18 +29,11 @@ const PostPageContent = () => {
   }, [slug]);
 
   useEffect(() => {
-    if (!postLoading && Array.isArray(posts) && posts.length > 0) {
-      const currentPost = posts.find(
-        (post) => post.slug?.toLowerCase() === slug
-      );
-      if (currentPost) {
-        setPost(currentPost);
+    setTimeout(() => {
+        setPost(pagePost);
         setLoading(false);
-      } else {
-        window.location.href = '/'
-      }
-    }
-  }, [posts, postLoading, slug]);
+    }, 3000);
+  }, [slug]);
 
 //   useEffect(() => {
 //     if (post?.title) {
