@@ -4,61 +4,87 @@ import Head from "next/head";
 import { headers } from "next/headers";
 
 export async function generateMetadata({ params }) {
-  const postId = await params;
-  const headersList = await headers();
-  const host = headersList.get("host");
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-  const baseUrl = `${protocol}://${host}`;
+  try {
+    const postId = await params;
+    const devPort = Number(process.env.NEXT_PUBLIC_DEV_PORT);
+    const allowed = [3000,3001,3002,3003,3004,3005,3006,3007];
 
-  const response = await fetch(`${baseUrl}/api/auth/posts/${postId.id}`);
-  const data = await response.json();
-  const { post } = data
-  // console.log(post);
-  
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://www.yieldnvest.com"
+        : allowed.includes(devPort)
+          ? `http://localhost:${devPort}`
+          : "http://localhost:3000";
+    
+    const res = await fetch(
+      `${baseUrl}/api/auth/posts/${postId}`,
+      { cache: "no-store" }
+    );
 
-  return {
-    title: post.title,
-    description: post.excerpt,
-    keywords: post.keywords || [
-      "Yield Invest",
-      "Yield Invest New York",
-      "personal finance blog",
-      "tech blog",
-      "market analysis",
-      "investment insights",
-      "personal financial technology",
-      "insurance blog",
-      "law blog",
-      "legal insights",
-      "business law articles",
-      "AI blogging tools",
-      "Next.js blog",
-      "modern blogging platform",
-      "personal financial literacy",
-      "insurance trends",
-      "legal technology",
-      "FinTech",
-      "InsurTech",
-      "blog builder"
-    ],
-    openGraph: {
-      images: [
-        { 
-          url: post.thumbnail,
-        }
+    if (!res.ok) throw new Error("Failed to fetch post");
+
+    const { post } = await res.json();
+
+    if (!post) throw new Error("Post not found");
+
+    return {
+      title: post.title,
+      description: post.excerpt,
+      keywords: post.keywords || [
+        "Yield Invest",
+        "Yield Invest New York",
+        "personal finance blog",
+        "tech blog",
+        "market analysis",
+        "investment insights",
+        "personal financial technology",
+        "insurance blog",
+        "law blog",
+        "legal insights",
+        "business law articles",
+        "AI blogging tools",
+        "Next.js blog",
+        "modern blogging platform",
+        "personal financial literacy",
+        "insurance trends",
+        "legal technology",
+        "FinTech",
+        "InsurTech",
+        "blog builder"
       ],
-    },
-  };
+      openGraph: {
+        images: [
+          { 
+            url: post.thumbnail,
+          }
+        ],
+      },
+    };
+    
+  } catch (err) {
+    console.error("Metadata error:", err);
+
+    return {
+      title: "Post not found | Yieldnvest",
+      description: "This post is unavailable.",
+    };
+  }
+  
 }
 
 
 const PostPage = async ({ params }) => {
 
   // Fetch post data again (you could also pass it from generateMetadata)
-  const headersList = await headers();
-  const host = headersList.get("host");
-  const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-  const baseUrl = `${protocol}://${host}`;
+  const devPort = Number(process.env.NEXT_PUBLIC_DEV_PORT);
+  const allowed = [3000,3001,3002,3003,3004,3005,3006,3007];
+
+  const baseUrl =
+    process.env.NODE_ENV === "production"
+      ? "https://www.yieldnvest.com"
+      : allowed.includes(devPort)
+        ? `http://localhost:${devPort}`
+        : "http://localhost:3000";
 
   const { id } = await params
 
