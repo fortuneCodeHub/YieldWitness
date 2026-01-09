@@ -71,7 +71,7 @@ const NewPostPage = () => {
     }
 
     // Category
-    const allowedCategories = ["finance", "tech", "insurance", "art-design", "photography", "sustainable-living", "books-literature", "climate-tech-sl", "green-finance-sl"];
+    const allowedCategories = ["finance", "tech", "insurance", "art-design", "photography", "sustainable-living", "books-literature", "climate-tech-sl", "green-finance-sl", "diy-home-sl"];
     if (
       !category ||
       typeof category !== "string" ||
@@ -228,6 +228,7 @@ const NewPostPage = () => {
                     <option value="sustainable-living">Sustainable Living / Environmental / Lifestyle</option>
                     <option value="green-finance-sl">Green Finance & ESG for Sustainable Living</option>
                     <option value="climate-tech-sl">Climate Tech & Energy for Sustainable Living</option>
+                    <option value="diy-home-sl">DIY Home Improvement for Sustainable Living</option>
                     <option value="books-literature">Books & Literature</option>
 
                   </select>

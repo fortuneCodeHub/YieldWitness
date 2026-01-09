@@ -29,6 +29,7 @@ const Dashboard = () => {
     const climateTechSustainableLivingPosts = posts?.filter((p) => p.category === "climate-tech-sl").length || 0;
     const greenFinanceSustainableLivingPosts = posts?.filter((p) => p.category === "green-finance-sl").length || 0;
     const booksLiteraturePosts = posts?.filter((p) => p.category === "books-literature").length || 0;
+    const diyHomePosts = posts?.filter((p) => p.category === "diy-home-sl").length || 0;
 
     // Build stats dynamically
     const stats = [
@@ -42,6 +43,7 @@ const Dashboard = () => {
     { label: "Climate Tech & Energy", value: climateTechSustainableLivingPosts },
     { label: "Green Finance & ESG", value: greenFinanceSustainableLivingPosts },
     { label: "Books & Lit Posts", value: booksLiteraturePosts },
+    { label: "DIY Posts for Sl", value: diyHomePosts },
     ];
 
     console.log(user);
