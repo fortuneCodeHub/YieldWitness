@@ -89,7 +89,7 @@ const UpdatePostPage = () => {
 
         // Category
         // const allowedCategories = ["finance", "tech", "markets", "guides", "analysis"];
-        const allowedCategories = ["finance", "tech", "insurance", "art-design", "photography", "sustainable-living", "books-literature", "climate-tech-sl", "green-finance-sl", "diy-home-sl"];
+        const allowedCategories = ["finance", "tech", "insurance", "art-design", "photography", "sustainable-living", "books-literature", "climate-tech-sl", "green-finance-sl", "diy-home-sl", "skill-dev-bl"];
         if (
             !category ||
             typeof category !== "string" ||
@@ -281,6 +281,7 @@ const UpdatePostPage = () => {
                     <option value="climate-tech-sl">Climate Tech & Energy for Sustainable Living</option>
                     <option value="diy-home-sl">DIY Home Improvement for Sustainable Living</option>
                     <option value="books-literature">Books & Literature</option>
+                    <option value="skill-dev-bl">Skill Development for Books & Literature</option>
                   </select>
                   {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category}</p>}
                 </div>

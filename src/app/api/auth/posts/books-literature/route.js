@@ -10,8 +10,8 @@ export async function GET(request) {
         "http://localhost:3003",
         "http://localhost:3004",
         "http://localhost:3005",
-        // "https://framealchemy.vercel.app",
-        // "https://www.framealchemy.vercel.app",
+        "https://framealchemy.vercel.app",
+        "https://www.framealchemy.vercel.app",
     ];
   
     const CORS_HEADERS = {
@@ -24,7 +24,7 @@ export async function GET(request) {
     try {
       await connectToDB();
   
-      const posts = await Post.find({ category: "art-design" })
+      const posts = await Post.find({ category: ["art-design", "books-literature", "skill-dev-bl"] })
         .sort({ createdAt: -1 });
   
       return new NextResponse(JSON.stringify({ success: true, posts }), {

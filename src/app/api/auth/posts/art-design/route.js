@@ -25,7 +25,7 @@ export async function GET(request) {
     try {
       await connectToDB();
   
-      const posts = await Post.find({ category: "art-design" })
+      const posts = await Post.find({ category: ["art-design", "photography"] })
         .sort({ createdAt: -1 });
   
       return new NextResponse(JSON.stringify({ success: true, posts }), {
