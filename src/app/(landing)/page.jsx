@@ -1,5 +1,6 @@
-'use client'
+// 'use client'
 import MonetagBanner from "@/components/ads/MonetagBanner";
+import { getAllPosts } from "@/components/helpers/getPost";
 import AdPageDisplay from "@/components/ui/AdPageDisplay";
 import ImageAd from "@/components/ui/ads/ImageAd";
 import VideoAd from "@/components/ui/ads/VideoAd";
@@ -11,88 +12,57 @@ import LatestFeed from "@/components/ui/LatestFeed";
 import RowFeed from "@/components/ui/RowFeed";
 import TopBar from "@/components/ui/TopBar";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+// import { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
 
-const Home = () => {
 
-  const { data: posts, postLoading, postError } = useSelector((state) => state.post);
+// Helper functions
+const shuffleArray = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
-  // Posts states to display data dynamically
-  const [heroPosts, setHeroPosts] = useState([]);
-  const [latestFeeds, setLatestFeeds] = useState([]);
-  const [editorsPicks, setEditorsPicks] = useState([]);
-  const [rowFeeds, setRowFeeds] = useState([]);
-  const [loading, setLoading] = useState(true)
+// HERO POSTS
+const createHeroPostsData = (posts) => {
+  const categories = ["finance", "tech", "insurance"];
+  const heroCandidates = [];
 
-  useEffect(() => {
-    if (!postLoading && Array.isArray(posts) && posts.length > 0) {
-      const heroes = createHeroPostsData(posts);
-      const latest = createLatestFeedsData(posts, heroes);
-      const editors = createEditorsPicksData(posts);
-      const rows = createRowFeedsData(posts);
+  categories.forEach((cat) => {
+    const categoryPosts = posts
+      .filter((post) => post.category === cat)
+      .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    if (categoryPosts.length > 0) heroCandidates.push(categoryPosts[0]);
+  });
 
-      setHeroPosts(heroes);
-      setLatestFeeds(latest);
-      setEditorsPicks(editors);
-      setRowFeeds(rows);
-      setLoading(false)
-    }
-    // console.log(posts);
-    
-  }, [posts, postLoading]);
+  if (heroCandidates.length < 5) {
+    const remaining = posts.filter(
+      (p) => !heroCandidates.some((h) => h._id === p._id)
+    );
+    heroCandidates.push(...shuffleArray(remaining).slice(0, 5 - heroCandidates.length));
+  }
 
-  // Helper: Shuffle Function
-  const shuffleArray = (arr) => [...arr].sort(() => Math.random() - 0.5);
+  return heroCandidates.slice(0, 5);
+};
 
-  // HERO POSTS
-  // Get the latest post from each category (finance, tech, markets, guides).
-  // If any is missing, fill up with other random posts until there are 4 total.
-  const createHeroPostsData = (posts) => {
-    const categories = ["finance", "tech", "insurance"];
-    const heroCandidates = [];
+// LATEST FEEDS
+const createLatestFeedsData = (posts, heroPosts = []) => {
+  const excludedIds = heroPosts.map((h) => h._id);
+  const remaining = posts.filter((p) => !excludedIds.includes(p._id));
+  return shuffleArray(remaining).slice(0, 8);
+};
 
-    categories.forEach((cat) => {
-      const categoryPosts = posts
-        .filter((post) => post.category === cat)
-        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      if (categoryPosts.length > 0) {
-        heroCandidates.push(categoryPosts[0]);
-      }
-    });
+// EDITOR’S PICKS
+const createEditorsPicksData = (posts) => shuffleArray(posts).slice(0, 5);
 
-    // Fill remaining slots if we have less than 5 hero posts
-    if (heroCandidates.length < 5) {
-      const remaining = posts.filter(
-        (p) => !heroCandidates.some((h) => h._id === p._id)
-      );
-      const shuffled = shuffleArray(remaining);
-      heroCandidates.push(...shuffled.slice(0, 5 - heroCandidates.length));
-    }
+// ROW FEEDS
+const createRowFeedsData = (posts) => shuffleArray(posts);
 
-    return heroCandidates.slice(0, 5);
-  };
+export default async function Home() {
+  const posts = await getAllPosts()
 
-  // LATEST FEEDS
-  // Pick random posts not in heroPosts, max 8 posts
-  const createLatestFeedsData = (posts, heroPosts = []) => {
-    const excludedIds = heroPosts.map((h) => h._id);
-    const remaining = posts.filter((p) => !excludedIds.includes(p._id));
-    return shuffleArray(remaining).slice(0, 8);
-  };
+  const heroPosts = createHeroPostsData(posts);
+  const latestFeeds = createLatestFeedsData(posts, heroPosts);
+  const editorsPicks = createEditorsPicksData(posts);
+  const rowFeeds = createRowFeedsData(posts);
 
-  // EDITOR’S PICKS
-  // Random selection, up to 5 posts
-  const createEditorsPicksData = (posts) => {
-    return shuffleArray(posts).slice(0, 5);
-  };
-
-  // ROW FEEDS
-  // Shuffle all posts
-  const createRowFeedsData = (posts) => {
-    return shuffleArray(posts);
-  };
-
+  const loading = false;
 
   return (
     <div className="font-sans bg-background text-foreground min-h-screen relative">
@@ -121,4 +91,20 @@ const Home = () => {
   );
 }
 
-export default Home
+// export default Home
+// SSR: Fetch posts on each request
+// export async function getServerSideProps() {
+//   try {
+    
+//     const posts = await getAllPosts()
+
+//     return {
+//       props: { posts },
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     return {
+//       props: { posts: [] },
+//     };
+//   }
+// }

@@ -16,7 +16,7 @@ const PostPageContent = ({ pagePost }) => {
   const pathname = usePathname();
   const { data: posts, postLoading } = useSelector((state) => state.post);
 
-  const [post, setPost] = useState();
+  // const [post, setPost] = useState();
   const [loading, setLoading] = useState(true);
 
   const slug = pathname.split("/").pop();
@@ -28,12 +28,14 @@ const PostPageContent = ({ pagePost }) => {
     }
   }, [slug]);
 
-  useEffect(() => {
-    setTimeout(() => {
-        setPost(pagePost);
-        setLoading(false);
-    }, 3000);
-  }, [slug]);
+  const post = pagePost
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //       setPost(pagePost);
+  //       setLoading(false);
+  //   }, 3000);
+  // }, [slug]);
 
 //   useEffect(() => {
 //     if (post?.title) {
@@ -62,7 +64,7 @@ const PostPageContent = ({ pagePost }) => {
         {/* Navigation bar */}
         <Header post={post} />
         {/* Blog Post Content */}
-        <BlogPost post={post} loading={loading} posts={posts} />
+        <BlogPost post={post} loading={false} posts={posts} />
 
         {/* Footer */}
         <Footer />

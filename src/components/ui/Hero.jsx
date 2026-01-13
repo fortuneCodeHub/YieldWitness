@@ -184,7 +184,7 @@ export default function Hero({ posts, loading }) {
                                     {truncateText(post?.excerpt, 120)}
                                 </p>
                                 <div className="mt-3 text-xs text-gray-300 md:block hidden">
-                                    By {post.author} • {formatDate(post?.createdAt)}
+                                    By {post.author} • {post?.createdAt}
                                 </div>
                             </div>
                         </a>

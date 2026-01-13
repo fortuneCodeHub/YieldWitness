@@ -12,9 +12,9 @@ const BlogPost = ({ post, loading, posts }) => {
   const router = useRouter();
   const [bookmarked, setBookmarked] = useState(false);
 
-  // useEffect(() => {
-    // console.log(post);
-  // }, [post])
+  useEffect(() => {
+    console.log(post);
+  }, [post])
 
   function categoryBadgeClass(category) {
     switch (category?.toLowerCase()) {
@@ -57,8 +57,7 @@ const BlogPost = ({ post, loading, posts }) => {
           <h2
             key={block.id}
             className="text-2xl font-semibold text-gray-900 mt-8 mb-4"
-            dangerouslySetInnerHTML={{ __html: block.content }}
-          />
+          >{block.content}</h2>
         );
 
       case "heading3":
@@ -66,8 +65,8 @@ const BlogPost = ({ post, loading, posts }) => {
           <h3
             key={block.id}
             className="text-xl font-semibold text-gray-800 mt-6 mb-3"
-            dangerouslySetInnerHTML={{ __html: block.content }}
-          />
+            // dangerouslySetInnerHTML={{ __html: block.content }}
+          >{block.content}</h3>
         );
   
       case "heading4":
@@ -75,18 +74,20 @@ const BlogPost = ({ post, loading, posts }) => {
           <h4
             key={block.id}
             className="text-lg font-medium text-gray-700 mt-4 mb-2"
-            dangerouslySetInnerHTML={{ __html: block.content }}
-          />
+            // dangerouslySetInnerHTML={{ __html: block.content }}
+          >{block.content}</h4>
         );
 
       case "text":
         return (
-          <p
+          <div
             key={block.id}
             className="leading-relaxed mb-4"
             dangerouslySetInnerHTML={{ __html: block.content }}
           />
         );
+
+
 
       case "image":
         return (
@@ -266,7 +267,7 @@ const BlogPost = ({ post, loading, posts }) => {
               <span className="font-medium text-gray-700">
                 {post.author}
               </span>{" "}
-              • {formatDate(post.createdAt)} • {post.readTime}
+              • {post.createdAt} • {post.readTime}
             </div>
             <div className="my-6">
               <img
