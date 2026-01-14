@@ -125,6 +125,7 @@ const ElementorPage = () => {
 
         let wrapped = selected;
         if (style === "bold") wrapped = `<b>${selected}</b>`;
+        if (style === "break") wrapped = `<br>`;
         if (style === "italic") wrapped = `<i>${selected}</i>`;
         if (style === "underline") wrapped = `<u>${selected}</u>`;
         if (style === "link") wrapped = `<a href="" class="text-blue-600 underline" target="_blank">${selected}</a>`;
@@ -234,6 +235,12 @@ const ElementorPage = () => {
                         className="p-1 border rounded hover:bg-gray-100"
                     >
                         <Bold className="w-4 h-4" />
+                    </button>
+                    <button
+                        onClick={() => formatText(block, "break")}
+                        className="p-1 border rounded hover:bg-gray-100"
+                    >
+                        <span className="w-4 h-4">Br</span>
                     </button>
                     <button
                         onClick={() => formatText(block, "italic")}

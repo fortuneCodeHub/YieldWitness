@@ -24,7 +24,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Yieldnvest RSS Feed"
+          href="/rss.xml"
+        />
         
       </head>
       <body

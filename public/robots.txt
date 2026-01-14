@@ -1,0 +1,8 @@
+User-Agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /api/protected
+Disallow: /access
+
+Sitemap: https://www.yieldnvest.com/sitemap.xml
+Sitemap: https://www.yieldnvest.com/rss.xml

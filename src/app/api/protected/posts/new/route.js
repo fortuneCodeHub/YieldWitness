@@ -237,10 +237,16 @@ export async function POST(request) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const base64Data = `data:${file.type};base64,${buffer.toString("base64")}`;
 
+    // sanitize the title
+    const sanitizedTitle = title
+      .replace(/\s+/g, "_")       // spaces → underscores
+      .replace(/[^a-zA-Z0-9-_]/g, ""); // remove anything not letters, numbers, dash, underscore
+
     const uploadResponse = await cloudinary.uploader.upload(base64Data, {
       folder: "yieldwitness/posts/thumbnails", // organize uploads by folder
       resource_type: "image",
-      public_id: `${title.replace(/\s+/g, "_")}_${Date.now()}`,
+      public_id: `${sanitizedTitle}_${Date.now()}`,
+      // public_id: `${title.replace(/\s+/g, "_")}_${Date.now()}`,
     });
 
     // ===== Save Post in MongoDB =====
