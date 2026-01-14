@@ -52,7 +52,7 @@ export async function GET(request) {
     }
 
     // Fetch posts
-    const posts = await Post.find().sort({ createdAt: -1 });
+    const posts = await Post.find({}).sort({ createdAt: -1 });
 
     return NextResponse.json({ success: true, posts }, { status: 200 });
   } catch (err) {

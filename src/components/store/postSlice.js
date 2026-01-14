@@ -28,7 +28,7 @@ export const getPosts = createAsyncThunk("posts/getPosts",
 );
 
 // Fetch posts (initial frontend load)
-export const getFrontendPosts = createAsyncThunk("posts/getPosts", 
+export const getFrontendPosts = createAsyncThunk("posts/getFrontendPosts", 
     async (_, { rejectWithValue } ) => {
         try {
             const res = await fetch('/api/auth/posts/')
