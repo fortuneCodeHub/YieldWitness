@@ -4,7 +4,10 @@ import { connectToDB } from "@/utils/database";
 export async function getPostById(slug) {
   await connectToDB();
   try {
-    const post = await Post.findOne({ slug }).lean(); // <-- lean() returns plain JS object
+    const post = await Post.findOne({ 
+      slug,
+      category: { $nin: ["art-design", "photography", "sustainable-living", "books-literature", "climate-tech-sl", "green-finance-sl", "diy-home-sl", "skill-dev-bl"] } 
+    }).lean(); // <-- lean() returns plain JS object
     if (!post) return null;
 
     // Convert ObjectIds and Dates to strings
