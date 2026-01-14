@@ -264,9 +264,9 @@ const BlogPost = ({ post, loading, posts }) => {
     
             <div className="text-sm text-gray-500">
               By{" "}
-              <span className="font-medium text-gray-700">
+              <a href="/about-us#author-bio" className="font-medium text-gray-700">
                 {post.author}
-              </span>{" "}
+              </a>{" "}
               • {post.createdAt} • {post.readTime}
             </div>
             <div className="my-6">

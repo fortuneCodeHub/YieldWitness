@@ -2,6 +2,7 @@ import { getPostById } from "@/components/helpers/getPost";
 import PostPageContent from "@/components/ui/PostPageContent";
 import { identity } from "@tsparticles/engine";
 import Head from "next/head";
+import { redirect } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   try {
@@ -64,6 +65,8 @@ const PostPage = async ({ params }) => {
   const { id } = await params
 
   const post = await getPostById(id)
+
+  if (!post) redirect("/invalid")
 
   const schemaData = {
     "@context": "https://schema.org",

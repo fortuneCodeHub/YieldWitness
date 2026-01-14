@@ -89,7 +89,7 @@ export default function AboutPage() {
         </section>
 
         {/* Author Bio Section */}
-        <section className="max-w-5xl mx-auto px-6 py-20 text-gray-800">
+        <section className="max-w-5xl mx-auto px-6 py-20 text-gray-800" id="author-bio">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Chief Editor</h2>
             <p className="text-lg text-gray-600">
